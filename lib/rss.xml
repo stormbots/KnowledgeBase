@@ -1,4 +1,683 @@
-<rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[CodeTest]]></title><description><![CDATA[Obsidian digital garden]]></description><link>https://stormbots.github.io/KnowledgeBase/</link><image><url>https://stormbots.github.io/KnowledgeBase/lib/media/favicon.png</url><title>CodeTest</title><link>https://stormbots.github.io/KnowledgeBase/</link></image><generator>Webpage HTML Export plugin for Obsidian</generator><lastBuildDate>Mon, 06 Oct 2025 21:30:42 GMT</lastBuildDate><atom:link href="https://stormbots.github.io/KnowledgeBase/lib/rss.xml" rel="self" type="application/rss+xml"/><pubDate>Mon, 06 Oct 2025 21:30:30 GMT</pubDate><ttl>60</ttl><dc:creator/><item><title><![CDATA[Compound Subsystem]]></title><description><![CDATA[<a class="tag" href="https://stormbots.github.io/KnowledgeBase/?query=tag:todo" style="background-color: rgb(4, 108, 116); color: white; font-weight: 700; border: none; border-radius: 1em; padding: 0.2em 0.5em;">#todo</a> 
+<rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[CodeTest]]></title><description><![CDATA[Obsidian digital garden]]></description><link>https://stormbots.github.io/KnowledgeBase/</link><image><url>https://stormbots.github.io/KnowledgeBase/lib/media/favicon.png</url><title>CodeTest</title><link>https://stormbots.github.io/KnowledgeBase/</link></image><generator>Webpage HTML Export plugin for Obsidian</generator><lastBuildDate>Wed, 22 Oct 2025 01:13:25 GMT</lastBuildDate><atom:link href="https://stormbots.github.io/KnowledgeBase/lib/rss.xml" rel="self" type="application/rss+xml"/><pubDate>Wed, 22 Oct 2025 01:13:23 GMT</pubDate><ttl>60</ttl><dc:creator/><item><title><![CDATA[FeedForwards]]></title><description><![CDATA[ 
+ <br>Requires:<br>
+<a data-href="Motor Control" href="https://stormbots.github.io/KnowledgeBase/level-1/motor-control.html" class="internal-link" target="_self" rel="noopener nofollow">Motor Control</a><br><br>
+<br>Create a velocity FF for a roller system that enables you to set the output in RPM
+<br>Create a gravity FF for a elevator system that holds the system in place without resisting external movement
+<br>Create a gravity FF for an arm system that holds the system in place without resisting external movement
+<br><br>Feedforwards model an expected motor output for a  system to hit specific target values.<br>
+The easiest example is a motor roller. Let's say you want to run at ~3000 RPM. You know your motor has a top speed of ~6000 RPM at 100% output, so you'd correctly expect that driving the motor at 50% would get about 3000 RPM. This simple correlation is the essence of a feed-forward. The details are specific to the system at play. <br><br>The WPILib docs have good fundamentals on feedforwards that is worth reading.<br>
+<a rel="noopener nofollow" class="external-link" href="https://docs.wpilib.org/en/stable/docs/software/advanced-controls/controllers/feedforward.html" target="_blank">https://docs.wpilib.org/en/stable/docs/software/advanced-controls/controllers/feedforward.html</a><br><br>Feed-forwards are specifically tuned to the system you're trying to operate, but helpfully fall into a few simple terms, and straightforward calculations. In many cases, the addition of one or two terms can be sufficient to improve and simplify control. <br><br>The simplest feedforward you'll encounter is the "static feed-forward". This term represents initial momentum, friction, and certain motor dynamics. <br>You can see this in systems by simply trying to move very slow. You'll often notice that the output doesn't move it until you hit a certain threshhold. That threshhold is approximately equal to kS.<br>The static feed-forward affects output according to the simple equation of  <br><br>a kG value effectively represents the value needed for a system to negate gravity. <br>Elevators are the simpler case: You can generally imagine that since an elevator has a constant weight, it should take a constant amount of force to hold it up. This means the elevator Gravity gain is simply a constant value, affecting the output as  ; You don't need any other considerations regarding the system motion, because gravity is always constant. <br>A more complex kG calculation is needed for pivot or arm system. You can get a good sense of this by grabbing a heavy book, and holding it at your side with your arm down. Then, rotate your arm outward, fully horizontal. Then, rotate your arm all the way upward. You'll probably notice that the book is much harder to hold steady when it's horizontal than up or down.<br>The same is true for these systems, where the force needed to counter gravity changes based on the angle of the system. To be precise, it's maximum at horizontal, zero when directly above or below the pivot. Mathematically, it follows the function  ratio, lending this version of the feed-forward the nickname kCos.<br>This form of the gravity constant affects the output according to<br>
+, where  is is the maximum output, at horizontal. <a data-footref="kcos" href="https://stormbots.github.io/KnowledgeBase/about:blank#fn-1-1d064277bcacf9d4" class="footnote-link" target="_self" rel="noopener nofollow">[1]</a> <br><br>The velocity feed-forward represents the expected output to maintain a target velocity. This term accounts for physical effects like dynamic friction and air resistance, and a handful of  <br>This is most easily visualized on systems with a velocity goal state. In that case,  is easily known, and contributes to the output as  .<br>In contrast, for positional control systems, knowing the desired system velocity is quite a challenge. In general, you won't know the target velocity unless you're using a <a data-href="Motion Profiles" href="https://stormbots.github.io/KnowledgeBase/level-2/motion-profiles.html" class="internal-link" target="_self" rel="noopener nofollow">Motion Profiles</a> to to generate the instantaneous velocity target. <br><br>The acceleration feed-forward largely negates a few inertial effects. It simply provides a boost to output to achieve the target velocity quicker.<br>like ,  is typically only known when you're working with <a data-href="Motion Profiles" href="https://stormbots.github.io/KnowledgeBase/level-2/motion-profiles.html" class="internal-link" target="_self" rel="noopener nofollow">Motion Profiles</a>. <br><br>Putting this all together, it's helpful to de-mystify the math happening behind the scenes.<br>The short form is just a re-clarification of the terms and their units<br>
+: Output to overcome gravity ()<br>
+: Output to overcome static friction ()<br>
+: Output per unit of target velocity ()<br>
+: Output per unit of target acceleration ()<br>A roller system will often simply be<br>
+If you don't have a motion profile, kA will simply be zero, and and kS might also be negligible unless you plan to operate at very low RPM.<br>An elevator system will look similar:<br>
+Without a motion profile, you cannot properly utilize kV and kA, which simplifies down to<br>
+where  is generally derived by  (since you know the current and previous positions).<br>Lastly, elevator systems differ only by the cosine term to scale kG.<br>
+Again simplifying for systems with no motion profile, you get<br>
+It's helpful to recognize that because the angle is being fed to a  function, you cannot use degrees here! Make sure to convert. <br>Of course, the intent of a feed-forward is to model your mechanics to improve control. As your system increases in complexity, and demands for precision increase, optimal control might require additional complexity! A few common cases: <br>
+<br>If you have a pivot arm that extends, your kG won't be constant! 
+<br>Moving an empty system and one loaded with heavy objects might require different feed-forward models entirely.
+<br>Long arms might be impacted by motion of systems they're mounted on, like elevators or the chassis itself! You can add that in and apply corrective forces right away.
+<br><br>Since a feed-forward is prediction about how your system behaves, it works very well for fast, responsive control. However, it's not perfect; If something goes wrong, your feed-forward simply doesn't know about it, because it's not measuring what actually happens. <br>In contrast, feed-back controllers like a  <a data-href="PID" href="https://stormbots.github.io/KnowledgeBase/level-1/pid.html" class="internal-link" target="_self" rel="noopener nofollow">PID</a> are designed to act on the error between a system's current state and target state, and make corrective actions based on the error. Without first encountering system error, it doesn't do anything.<br>The combination of a feed-forward along with a feed-back system is the power combo that provides robust, predictable motion.<br><br>WPILib has several classes that streamline the underlying math for common systems, although knowing the math still comes in handy! The docs explain them (and associated warnings) well.<br>
+<a rel="noopener nofollow" class="external-link" href="https://docs.wpilib.org/en/stable/docs/software/advanced-controls/controllers/feedforward.html" target="_blank">https://docs.wpilib.org/en/stable/docs/software/advanced-controls/controllers/feedforward.html</a><br>Integrating in a robot project is as simple as crunching the numbers for your feed-forward and adding it to your motor value that you write every loop.<br>ExampleSystem extends SubsystemBase(){
+
+	SparkMax motor = new SparkMax(...)
+	// Declare our FF terms and our object to help us compute things.
+	double kS = 0.0;
+	double kG = 0.0;
+	double kV = 0.0;
+	double kA = 0.0;
+	ElevatorFeedforward feedforward = new ElevatorFeedforward(kS, kG, kV, kA);
+	
+	ExampleSubsystem(){}
+
+	Command moveManual(double percentOutput){
+		return run(()-&gt;{
+			var output ;
+			//We don't have a motion profile or other velocity control
+			//Therefore, we can only assert that the velocity and accel are zero
+			output = percentOutput+feedforward.calculate(0,0);
+			// If we check the math, this feedforward.calculate() thus 
+			// evaluates as simply kg;
+			
+			// We can improve this by instead manually calculating a bit
+			// since we known the direction we want to move in
+			output = percentOutput + Math.signOf(percentOutput) + kG;
+			motor.set(output);
+		})
+	}
+
+	Command movePID(double targetPosition){
+		return run(()-&gt;{
+			//Same notes as moveManual's calculations 
+			var feedforwardOutput = feedforward.calculate(0,0);
+			// When using the Spark closed loop control, 
+			// we can pass the feed-forward directly to the onboard PID
+			motor
+			.getClosedLoopController()
+			.setReference(
+				targetPosition,
+				ControlType.kPosition,
+				ClosedLoopSlot.kSlot0,
+				feedforwardOutput, 
+				ArbFFUnits.kPercentOut
+			);
+			//Note, the ArbFFUnits should match the units you calculated!
+		})
+	}
+
+	Command moveProfiled(double targetPosition){
+		// This is the only instance where we know all parameters to make 
+		// full use of a feedforward.
+		// Check [[Motion Profiles]] for further reading
+	}
+	
+}
+<br>2026 update?
+Rev released a new FeedForward config API that might allow advanced feed-forwards to be run directly on controller. Look into it and add examples!<br>
+<a rel="noopener nofollow" class="external-link" href="https://codedocs.revrobotics.com/java/com/revrobotics/spark/config/feedforwardconfig" target="_blank">https://codedocs.revrobotics.com/java/com/revrobotics/spark/config/feedforwardconfig</a>
+<br><br>High gains
+When tuning feed-forwards, it's helpful to recognize that values being too high will result in notable problems, but gains being too low generally result in lower performance.<br>
+Just remember that the lowest possible value is 0; Which is equivalent to not using that feed forward in the first place. Can only improve from there. 
+<br>FeedForward Units
+It's worth clarifying that the "units" of feedForward are usually provided in "volts", rather than "percent output". This allows FeedForwards to operate reliably in spite of changes of supply voltage, which can vary from 13 volts on a fresh battery to ~10 volts at the end of a match.<br>
+Percent output on the other hand is just how much of the available voltage to output; This makes it suboptimal for controlled calculations in this case. 
+<br><br>These two terms are defined at the boundary between "moving" and "not moving", and thus are closely intertwined. Or, in other words, they interfere with finding the other. So it's best to find them both at once.<br>It's easiest to find these with manual input, with your controller input scaled down to give you the most possible control.<br>Start by positioning your system so you have room to move both up and down. Then, hold the system perfectly steady, and increase output until it just barely moves upward. Record that value.<br>
+Hold the system stable again, and then decrease output until it just barely starts moving down. Again, record the value. <br>Thinking back to what each term represents, if a system starts moving up, then the provided input must be equal to ; You've negated both gravity and the friction holding it in place. Similarly, to start moving down, you need to be applying . This insight means you can generate the following two equations  <br><br>Helpfully, for systems where  like roller systems, several terms cancel out and you just get  .<br>For pivot/arm systems, this routine works as described if you can calculate kG at approximately horizontal. It cannot work if the pivot is vertical. If your system cannot be held horizontal, you may need to be creative, or do a bit of trig to account for your recorded  being decreased by <br>Importantly, this routine actually returns a kS that's often slightly too high, resulting in undesired oscillation. That's because we recorded a minimum that causes motion, rather than the maximum value that doesn't cause motion. Simply put, it's easier to find this way. So, we can just compensate by reducing the calculated kS slightly; Usually multiplying it by 0.9 works great. <br><br>Because this type of system system is also relatively linear and simple, finding it is pretty simple. We know that , and expect . <br>We know  is going to be constrained by our motor's maximum RPM, and that maxOutput is defined by our api units (either +/-1.0 for "percentage" or +/-12 for "volt output"). <br>This means we can quickly assert that  should be pretty close to . <br><br>Beyond roller kV, kA and kV values are tricky to identify with simple routines, and require <a data-href="Motion Profiles" href="https://stormbots.github.io/KnowledgeBase/level-2/motion-profiles.html" class="internal-link" target="_self" rel="noopener nofollow">Motion Profiles</a> to take advantage of. As such, they're somewhat beyond the scope of this article.<br>The optimal option is using <a data-href="System Identification" href="https://stormbots.github.io/KnowledgeBase/level-2/system-identification.html" class="internal-link" target="_self" rel="noopener nofollow">System Identification</a> to calculate the system response to inputs over time. This can provide optimal, easily repeatable results. However, it involves a lot of setup, and potentially hazardous to your robot when done without caution.<br>The other option is to tune by hand; This is not especially challenging, and mostly involves a process of moving between goal states, watching graphs, and twiddling numbers. It usually looks like this:<br>
+<br>Identify two setpoints, away from hard stops but with sufficient range of motion you can hit target velocities. 
+<br>While cycling between setpoints, increase increase kV until the system generates velocities that match the target velocities. They'll generally lag behind during the acceleration phase. 
+<br>Then, increase kA until the acceleration shifts and the system perfectly tracks your profile. 
+<br>Increase profile constraints and and repeat until system performance is attained. Starting small and slow prevents damage to the mechanics of your system.
+<br>This process benefits from a relatively low P gain, which helps keep the system stable and near the intended setpoints, but running without a PID at all is actually very informative too.<br>Once your system is tuned, you'll probably want a relatively high P gain, now that you can assert the feed-forward is keeping your error close to zero, but be aware that this can result in slight kV errors resulting in a "jerky" motion. Lowering kV slightly below nominal can help resolve this.<br><br>NEEDS TESTING We haven't had to do this much! Be mindful that this section may contain structural errors, or we may find better ways to approach these issues<br>When considering these systems, remember that they're linear systems: This helpful quirk means we can simply add the system responses together: <br>ElevatorFeedforward feedforward = new ElevatorFeedforward(kS, kG, kV, kA);
+ElevatorFeedforrward ff_gamepiece = new ElevatorFeedforward(kS, kG, kV, kA);
+//...
+var output = feedforward.calculate(...) + ff_gamepiece.calculate(...)
+<br>This lets you respond to things such as a heavy game piece being loaded. <br><br>As systems increase in complexity and precision requirements, you might need to do more advanced modelling, while keeping in mind the mathematical flexibility of adding and multiplying smaller feed-forward components together!<br>Here's some examples:<br>
+<br>If your arm extends, you can simply interpolate between a "fully retracted" feedforward and a "fully extended" ones; Thanks to the system linearity, this allows you to model the entire range of values quickly and easily.
+<br>Arm motions can be impacted by the acceleration of a chassis or elevator; While gravity is a constant acceleration (and thus constant force), other non-constant accelerations can also be modeled as part of your feedforward and added to the base calculations.
+<br><br><br>
+<br>
+<br>Note, you might observe that the kCos output,   is reading the current system state, and say "hey!  That's a feed back system, not a feed forward!" and you are technically correct; the best kind of correct. However, kCos is often implemented this way, as it's much more stable than the feed-forward version. In that version, you apply , regardless of what  happens to actually be. Feel free to do a thought experiment on how this might present problems in real-world systems.<a href="https://stormbots.github.io/KnowledgeBase/about:blank#fnref-1-1d064277bcacf9d4" class="footnote-backref footnote-link" target="_self" rel="noopener nofollow">↩︎</a>
+]]></description><link>https://stormbots.github.io/KnowledgeBase/level-1/feedforwards.html</link><guid isPermaLink="false">Level 1/FeedForwards.md</guid><pubDate>Mon, 20 Oct 2025 00:23:20 GMT</pubDate></item><item><title><![CDATA[SuperStructure Arm]]></title><description><![CDATA[ 
+ <br>Requires:<br>
+<a data-href="FeedForwards" href="https://stormbots.github.io/KnowledgeBase/level-1/feedforwards.html" class="internal-link" target="_self" rel="noopener nofollow">FeedForwards</a><br>
+<a data-href="PID" href="https://stormbots.github.io/KnowledgeBase/level-1/pid.html" class="internal-link" target="_self" rel="noopener nofollow">PID</a><br><br>
+<br>Create an Arm subsystem
+<br>Set Encoders
+
+<br>find the encoder range and conversion to have real-world angle values
+<br>Find the system range, apply soft limits
+
+
+<br>Get control
+
+<br>Determine the system Gravity feed-forward value
+<br>Create a PID controller
+<br>Tune the PID to an acceptable level for control
+
+
+<br>Create a default command that holds the system at the current angle
+<br>Create a setAngle function that takes a angle, and returns a command that runs indefinitely to the target angle
+<br>Create a Trigger that indicates if the system is within a suitable tolerance of the commanded height.
+<br>Bind several target positions to a controller
+<br>Create a small auto sequence that moves to multiple positions in sequence.
+<br>WPILib web sim
+For a quick intro into Arm FeedForwards, WPILib's docs have a useful tool<br>
+<a rel="noopener nofollow" class="external-link" href="https://docs.wpilib.org/en/stable/docs/software/advanced-controls/introduction/tuning-vertical-arm.html" target="_blank">https://docs.wpilib.org/en/stable/docs/software/advanced-controls/introduction/tuning-vertical-arm.html</a>
+<br><br>Arms introduce several areas where you can inadvertently cause damage to the environment and robot. When prototyping and developing them, there's a few important considerations:<br>
+<br>Arms have a limited range of motion: Carelessly commanding them beyond their physical constraints can damage the robot, the motors, and eject parts at nearby people!
+<br>Arms and drive belts/ropes generate many pinch points that can snag fingers if the system is moved by hand or by gravity, even when disabled. 
+<br>Rapid motion can de-stabilize a robot that's sitting on a cart or on blocks
+<br>Arms that are "placed up" might seem stable, but if someone bumps a bot or turns it off, things might shift unexpectedly. Arms should be down when working on the bot, or physically blocked/held when needing to be up for access.
+<br>Arms technically have much more torque than connected parts have mechanical robustness. Make sure to configure soft limits ASAP to prevent system damage.
+<br>When making changes to arm behaviors and tuning, make sure someone nearby is ready to disable the robot if anything goes wrong.<br><br>This uses the streamlined WPILib <a data-tooltip-position="top" aria-label="https://docs.wpilib.org/en/stable/docs/software/advanced-controls/controllers/profiled-pidcontroller.html" rel="noopener nofollow" class="external-link" href="https://docs.wpilib.org/en/stable/docs/software/advanced-controls/controllers/profiled-pidcontroller.html" target="_blank">ProfiledPIDController</a> providing the simplest complete implementation.<br>
+There's many useful methods here : <a data-tooltip-position="top" aria-label="https://github.wpilib.org/allwpilib/docs/release/java/edu/wpi/first/math/controller/ProfiledPIDController.html" rel="noopener nofollow" class="external-link" href="https://github.wpilib.org/allwpilib/docs/release/java/edu/wpi/first/math/controller/ProfiledPIDController.html" target="_blank">ProfiledPIDController Method Reference</a><br>UNITS  This is configured to use Volts for feedforward and PID gains, so be mindful! If you've calibrated your gains for "percent output" you'll need to convert them.<br>Homing This template does not include <a data-tooltip-position="top" aria-label="Homing Sequences" data-href="Homing Sequences" href="https://stormbots.github.io/KnowledgeBase/level-1/homing-sequences.html" class="internal-link" target="_self" rel="noopener nofollow">Homing</a>, and assumes a "zeroed on boot" approach. It's recommended to determine and implement  a robust strategy for most bots. Since arms usually have absolute encoders, this typically provides the ideal workflow.<br>public class ExampleArm extends SubsystemBase {
+	SparkMax motor = new SparkMax(42,MotorType.kBrushless);
+
+	//Define our system's maximum motion constraints
+	//When in doubt, 
+	//- set maxVelocity at a low value. 30 deg/s is a great starter value 
+	//- set kMaxAccelleration somewhat low, at roughly 2*kmaxVelocity
+	private final TrapezoidProfile.Constraints constraints =
+		new TrapezoidProfile.Constraints(0, 0);
+	//Create a PID that obeys those constraints in it's motion
+	//Likely, you will have kI=0 and kD=0
+	private final ProfiledPIDController controller =
+		new ProfiledPIDController(0, 0, 0, constraints, 0.02);
+	//Our feedforward object
+	//When in doubt, set these to zero (equivilent to no feedforward)
+	//Will be calculated as part of our tuning.
+	private final ArmFeedforward feedforward = 
+		new ArmFeedforward(0, 0, 0);
+	
+	ExampleArm(){
+		//These documented below to better demonstrate the general structure
+		configMotor();
+		configProfiledPID();
+		//DefaultCommands help avoid leaving a system in an uncontrolled
+		//state. For elevators, we often want no motion
+		setDefaultCommand(stop());
+		//For systems using an I gain, you likely want to 
+		//command the PID controller at all times rather than use stop(), 
+		//which behaves better with the I term's summing behavior.
+		//holdPosition() is better than stop() for this use case.
+	}
+	
+	///Prepare Telemetry for tuning
+	public void periodic(){
+		var output=motor.getAppliedOutput();
+		// We cannot get the applied voltage directly, but since
+		// it's a percentage we can multiply by the provided battery voltage
+		var voltage=motor.getAppliedOutput()*RobotController.getBatteryVoltage();
+		var angle=motor.getEncoder().getPosition();
+		var velocity=motor.getEncoder().getVelocity();
+		var setpoint=controller.getSetpoint();
+		var goal=controller.getGoal();
+		
+		//Generally useful values
+		SmartDashboard.putNumber("arm/output",output);
+		SmartDashboard.putNumber("arm/voltage",voltage);
+		SmartDashboard.putBoolean("arm/atSetpoint",controller.atSetpoint());
+		SmartDashboard.putBoolean("arm/atGoal",controller.atGoal());
+		//Our relevant Positional values
+		SmartDashboard.putNumber("arm/angle/measured",angle);
+		SmartDashboard.putNumber("arm/angle/setpoint",setpoint.position);
+		SmartDashboard.putNumber("arm/angle/goal",goal.position);
+		SmartDashboard.putNumber("arm/angle/error",
+			controller.getPositionError());
+		//Our relevant Velocity values
+		SmartDashboard.putNumber("arm/velocity/measured",velocity);
+		SmartDashboard.putNumber("arm/velocity/setpoint",setpoint.velocity);
+		SmartDashboard.putNumber("arm/velocity/goal",goal.velocity);
+		SmartDashboard.putNumber("arm/velocity/error",
+			controller.getVelocityError());
+	}
+
+	//Triggers form the optimal way to transfer subsystem states/conditions
+	//to external subsystems.
+	//The PID contains this method, so we can just check it
+	//ProfiledPID objects's other useful indicators of completion as well,
+	//such as .timeRemaining for the intended motion.
+	public Trigger isAtPosition = new Trigger(controller::atGoal);
+	
+	/** Return the height of our elevator, using Unit measures */
+	public Angle getAngle(){
+		return Degrees.of(motor.getEncoder().getPosition());
+	}
+	
+	/** Provide manual output. Should generally only be used internally
+	 * for debugging, other commands, or occasional special cases.
+	 */
+	private Command setPower(DoubleSupplier percentOutput){
+		// Due to the non-linear effect of a fixed power on an arm, 
+		// the feedforward with kg is critical for sensible control.
+		return run(()-&gt;{
+			var vpercent=
+				percentOutput.getAsDouble()*RobotController.getBatteryVoltage();
+			var vff = feedforward.calculate(getAngle().in(Radian), 0);	
+			motor.setVoltage(vpercent+vff);
+		});
+	}
+	
+	/** Disable the elevator's motion entirely */
+	public Command stop(){
+		//Since we handle kG in setPower, a value of 0 represents "stop" effectively
+		return setPower(()-&gt;0);
+	}
+	
+	/** Command the Elevator to go to the target position */
+	public Command setAngle(Supplier&lt;Angle&gt; position){
+		return run(()-&gt;{
+			//Update our goal with any new targets
+			controller.setGoal(position.get().in(Degrees));
+			//Calculate the voltage contributing to the output
+			var vpid = controller.calculate(motor.getEncoder().getPosition());
+			var vff = feedforward.calculateWithVelocities(
+				motor.getEncoder().getPosition(),
+				motor.getEncoder().getVelocity(),
+				controller.getSetpoint().velocity);
+			//Apply to the motor
+			motor.setVoltage(vff+vpid);
+		});
+	}
+	
+	/** Set the angle to a fixed value */
+	public Command setAngle(Angle position){
+		return setAngle(()-&gt;position);
+	};
+
+
+	/** Actively maintain the position command was started at */
+	public Command holdPosition(){
+		//Deferred commands are needed here to capture the angle
+		//at the time the command is initiated
+		return defer(()-&gt;setAngle(getAngle()));
+	}
+}
+
+
+<br>// Important configuration parameters for an Elevator subsystem
+void configMotor(){
+	//These are the important ones for Elevators specifically
+	SparkBaseConfig config = new SparkMaxConfig();
+	//Default current limit should be low until the system is homed.
+	//.. but this requires a homing process.
+	config.smartCurrentLimit(40);
+	//You want "forward" to be positive, with increasing encoder values
+	config.inverted(false); 
+	//Soft 
+	config.softLimit
+	.forwardSoftLimit(18) //Whatever max angle is
+	.forwardSoftLimitEnabled(true)
+	.reverseSoftLimit(0) //Sometimes zero, or the lowest attainable angle
+	.reverseSoftLimitEnabled(true);
+	;
+	//The conversion/gearing needed to put your system in a sensible
+	// unit; Degrees is generaly preferable.
+	// It's recommended to set this, even if you use the absolute encoder
+	// as your primary input
+	var conversionfactor = 1;
+	config.encoder
+	.positionConversionFactor(conversionfactor)
+	.velocityConversionFactor(conversionfactor / 60.0)
+	;
+	//The absolute encoder will *also* need configuration. 
+	//However, since it avoids gearing, it's generally easy
+	config.absoluteEncoder
+	.zeroCentered(false)// false -&gt;0...360 range. True -&gt;-180...180 range
+	.positionConversionFactor(360) //Configure for Degrees
+	.velocityConversionFactor(360/60)
+	;
+	
+	//Apply the configs
+	elevatorMotor.configure(
+		config,
+		ResetMode.kResetSafeParameters,
+		PersistMode.kPersistParameters
+	);
+}
+
+void configProfiledPID(){
+	//Configure the ProfiledPIDController
+	
+	//This value constraints the output added by the I term 
+	//in the PID controller. This is very helpful to prevent damage in cases
+	//where the elevator system jams or collides with the environment and 
+	//cannot move.
+	// This will be system dependent, and should (needs testing) be 
+	// in PID ouptut units (normally Volts)
+	controller.setIntegratorRange(-1, 1); //Configure to +/-1 volt
+	
+	//When the robot is disabled, the elevator might move, invalidating
+	// the controller's internal state, and invalidating the I term's sum.
+	//This needs to be reset whenever the robot is enabled, and a Trigger
+	// provides a clean way of handling this
+	new Trigger(DriverStation::isEnabled).onTrue(
+		()-&gt;controller.reset(motor.getEncoder.getPosition())
+	);
+	
+	//There's other methods for interacting with the PID values 
+	// and constraints, should the need arise
+}
+<br>Advanced usage can easily extend this to handle position dependent constraints, or provide alternate constraints for certain motions. <br><br>Unlike other systems, Arms are almost impossible to properly control using just PID controls! PIDs are a "linear" controller, and expect the system to respond the to a change in output in a consistent way. Arms do not do this, and respond differently according to it's current position.<br>As a result, the kG is the most valuable detail of tuning an Arm: This removes the effect of gravity, bringing the system back into a linear state and making a PID function as expected.<br>The inertia of arms is proportional to mass and square of the arm length: Meaning, a fast moving arm will take a significant amount of force to stop. Having a <a data-tooltip-position="top" aria-label="Motion Profiles" data-href="Motion Profiles" href="https://stormbots.github.io/KnowledgeBase/level-2/motion-profiles.html" class="internal-link" target="_self" rel="noopener nofollow">Motion Profile</a> with a sensible max velocity greatly improves the safety and consistency of an arm.<br>Similarly, the high inertia combined with very small teeth on our gearboxes, you get very small, critical points of contact with enormous physical stresses. Because of this, a motion profile's acceleration constraint is extremely helpful in preventing damage to the arm.<br>In general, when examining arm tunings:<br>
+<br>finding the arm kG, kV, and kS will ensure that your arm will quickly get to the goal positions.
+<br>Your MaxAccel constraint is typically much more important than your maxVelocity: MaxAccel constraints the force applied by the motor, and for most Arm systems you will spend the majority of the motion accelerating or decelerating rather than coasting at max speed. 
+<br>The MaxVelocity tends to help constrain the tangential force: Eg, your robot losing objects midway through a fast motion and flinging them unexpectedly.
+<br>Depending on your arm's role, you may need a kI or kD on your PID: Because forces are magnified by the arm length, even a relatively small forces can have a notable impact on your system's precision, possibly preventing it from reaching your goal state. However, in such cases you might consider amount of available motor power you're using at such goal states, and see if you can have the mechanism geared lower to provide more torque. Since the max speed is often unattainable in practice, more torque helps provide snappier, more controlled motion. 
+<br><br><a data-href="Absolute Encoders" href="https://stormbots.github.io/KnowledgeBase/hardware/absolute-encoders.html" class="internal-link" target="_self" rel="noopener nofollow">Absolute Encoders</a> are commonly used to fully capture the rotation of an Arm system. This greatly simplifies (or removes) the <a data-tooltip-position="top" aria-label="Homing Sequences" data-href="Homing Sequences" href="https://stormbots.github.io/KnowledgeBase/level-1/homing-sequences.html" class="internal-link" target="_self" rel="noopener nofollow">Homing</a> process. <br>However, it's critical that you ensure the encoder reports continuous angles through the entire motion plus some on each end, avoiding any <a data-tooltip-position="top" aria-label="Absolute Encoders > Discontinuities" data-href="Absolute Encoders#Discontinuities" href="https://stormbots.github.io/KnowledgeBase/hardware/absolute-encoders.html#Discontinuities" class="internal-link" target="_self" rel="noopener nofollow">discontinuities</a>. Rev Through-bore encoders have an option to report -180..180 to assist many mechanisms. For systems that need a -90..+270 option, there's no API to move the discontinuity: You have to handle it in software before feeding it to your PID.<br>Most practical systems can be driven equally effectively by using the absolute encoder directly, or by using relative encoder and simply using the absolute encoder's position for initial setup. The choice comes down to handling several factors in the system, such as <br>
+<br>Discontinuity location
+<br>Trust in the wiring to the absolute encoder during operation
+<br>System backlash (and impact on each encoder)
+<br>
+<br><br><a data-tooltip-position="top" aria-label="Mechanical Backlash" data-href="Mechanical Backlash" href="https://stormbots.github.io/KnowledgeBase/misc/mechanical-backlash.html" class="internal-link" target="_self" rel="noopener nofollow">Backlash</a> has a significant impact on Arm mechanisms. <br>
+<br>The mechanism length means that as backlash worsens, even a minor angular difference can result in notable end-effector position errors. 
+<br>If the backlash occurs on the mounting arm, this desyncs both encoders from the arm position. If it occurs inside the gear train, then it reduces the alignment between absolute encoder and relative encoders.
+<br>The effect of backlash causes position stability errors as the arm sweeps through a motion: at the lower hard limit (random backlash alignment), as it goes up/down (aligned to bottom of teeth), as it approaches vertical (random again), and flipped (aligned to opposite side of teeth). This means your position tolerance is +/-(backlash/2) or -0/+backlash<br>
+Like all backlash, a mechanical fix should be prioritized, but should also be considered in software.  In the case where the system operates in a single mode (indicated above), this is easy to resolve. For systems that operate within multiple quadrants, careful choices of the 
+<br>Care should be taken when using Absolute encoders directly when backlash is involved; In this configuration, the arm bouncing actually generates error, causing a system response opposite the arm motion. This can easily generates thrashing, quickly worsening the backlash and putting strain on the arm. However, the actual bounce will generally be more constrained, improving precision.<br>
+In contrast, when using the motor's relative encoder, the bounce is not captured, resulting in no response. You'll have a bouncy arm, but will not have accelerated forces worsening backlash.<br><br><br>kG is the first step toward an arm being remotely controllable, but not easily gotten until you get an approximate value first. This is easily gotten in a couple simple steps:<br>
+<br>Set the P value of your system to be relatively low, guessable value
+<br>Set the arm position to horizontal, and let it settle (it will not likely be at horizontal)
+<br>Read the output (in volts), and set as your kG
+<br>Repeat once or twice until the arm is approximately horizontal
+<br>Now, you can reliably use the standard method for finding kG+kS: Move the system up/down, recording the voltages to do it. The difference is kS, and the average is kG.<br><br>Standard <a data-tooltip-position="top" aria-label="Motion Profiles" data-href="Motion Profiles" href="https://stormbots.github.io/KnowledgeBase/level-2/motion-profiles.html" class="internal-link" target="_self" rel="noopener nofollow">Motion Profile</a> practices apply: Increase kV until your system is accurate in tracking the setpoints over time.<br>
+Increase kA as needed to better handle the velocity transitions. This is more likely to be needed on arms than most other systems.<br><br>kP is relatively simple: Just increase the value until it starts oscillating, and then decrease them. Be careful with high PID gains: If the system starts bouncing due to backlash, a high kP can incite thrashing.<br><br>These are often unnecessary, but can help with certain cases where the system has inconsistent loading caused by variances in game piece weights, or if the system itself is not reliably constructed. <br>kD can reduce (and/or cause) PID thrashing, and kI can help cover for minor discrepencies that might prevent you from hitting goal states. However, it's important to constrain kI using the izone tools. Remember: the PID is a linear response, but system disturbances such as game piece weight are nonlinear (sinusoidal, specifically). As such, kI is mostly ineffective in responding to major changes in system dynamics without inducing other errors.<br>In cases where your system dynamics change significantly based due to the game piece, consider <a data-tooltip-position="top" aria-label="FeedForwards > Modelling changing systems" data-href="FeedForwards#Modelling changing systems" href="https://stormbots.github.io/KnowledgeBase/level-1/feedforwards.html#Modelling_changing_systems" class="internal-link" target="_self" rel="noopener nofollow">modelling game pieces</a>  as part of your feedforward. This will be faster and more reliable than kI and kD.]]></description><link>https://stormbots.github.io/KnowledgeBase/level-1/superstructure-arm.html</link><guid isPermaLink="false">Level 1/SuperStructure Arm.md</guid><pubDate>Mon, 20 Oct 2025 00:34:23 GMT</pubDate></item><item><title><![CDATA[SuperStructure Elevator]]></title><description><![CDATA[ 
+ <br>Requires:<br>
+<a data-href="FeedForwards" href="https://stormbots.github.io/KnowledgeBase/level-1/feedforwards.html" class="internal-link" target="_self" rel="noopener nofollow">FeedForwards</a><br>
+<a data-href="PID" href="https://stormbots.github.io/KnowledgeBase/level-1/pid.html" class="internal-link" target="_self" rel="noopener nofollow">PID</a><br>
+Reading Resources:<br>
+<a data-tooltip-position="top" aria-label="Homing Sequences" data-href="Homing Sequences" href="https://stormbots.github.io/KnowledgeBase/level-1/homing-sequences.html" class="internal-link" target="_self" rel="noopener nofollow">Homing</a><br><br>
+<br>Create an Elevator subsystem
+<br>Set Encoders
+
+<br>find the encoder range and conversion to have real-world values
+<br>Find the system range, apply soft limits
+
+
+<br>Get control
+
+<br>Determine the system Gravity feed-forward value
+<br>Create a PID controller
+<br>Tune the PID to an acceptable level for control
+
+
+<br>Create a default command that holds the system at the current height
+<br>Create a setHeight function that takes a height, and returns a command that runs indefinitely to the target height
+<br>Create a Trigger that indicates if the system is within a suitable tolerance of the commanded height.
+<br>Bind several target positions to a controller
+<br>Create a small auto sequence that moves to multiple positions in sequence.
+<br><br>Elevators are a common linear motion system in FRC, generally used to raise game pieces from the floor to a high scoring objective. <br>While mechanically straightforward, Elevators wind up generating a notable step up in code and control complexity compared to <a data-tooltip-position="top" aria-label="SuperStructure Rollers" data-href="SuperStructure Rollers" href="https://stormbots.github.io/KnowledgeBase/level-1/superstructure-rollers.html" class="internal-link" target="_self" rel="noopener nofollow">Roller</a> systems.<br><br>Elevators introduce several areas where you can inadvertently cause damage to the environment and robot. When prototyping and developing them, there's a few important considerations:<br>
+<br>Elevators have a limited range of motion: Carelessly commanding them beyond their physical constraints can damage the robot, the motors, and eject parts at nearby people!
+<br>Elevators and drive belts/ropes generate many pinch points that can snag fingers if the system is moved by hand, even when disabled. 
+<br>Rapid motion can de-stabilize a robot that's sitting on a cart or on blocks
+<br>When making changes to elevator behaviors and tuning, make sure someone nearby is ready to disable the robot if anything goes wrong.<br><br>Controlling an elevator requires the use of a <a data-href="PID" href="https://stormbots.github.io/KnowledgeBase/level-1/pid.html" class="internal-link" target="_self" rel="noopener nofollow">PID</a>, and greatly benefits from aspects of both <a data-href="FeedForwards" href="https://stormbots.github.io/KnowledgeBase/level-1/feedforwards.html" class="internal-link" target="_self" rel="noopener nofollow">FeedForwards</a> and <a data-href="Motion Profiles" href="https://stormbots.github.io/KnowledgeBase/level-2/motion-profiles.html" class="internal-link" target="_self" rel="noopener nofollow">Motion Profiles</a>.<br>A PID by itself can control an elevator, but it will be difficult to tune and require significant time and resources to "hack" into a usable state. Any time you change setpoints, the whole system is in for a bad time: The output power rapidly changes to move to the new position,  putting significant strain on the robot, causing excess wear, and potential damage. Moving a significant distance can also slam the elevator carriage into the limits of motion, causing damage.<br>FeedForwards, or at least the kS and kG terms, will greatly improve stability and accuracy, and reduce the time it takes for tuning a PID. However, it does not mitigate the issues cause changing setpoints.<br><a data-href="Motion Profiles" href="https://stormbots.github.io/KnowledgeBase/level-2/motion-profiles.html" class="internal-link" target="_self" rel="noopener nofollow">Motion Profiles</a> fix the setpoint problem, and lock the setpoint changes into a nicely defined ramp-up and ramp-down when changing positions. This means your PID never misbehaves, and provides additional feed-forward information to further simplify tuning. <br>While the combination may seem daunting at first, each of these 3 solves a particular motion problem effectively, and with straightforward individual adjustments. Using all 3 together provides a better performing system, with much less effort overall. <br>On occasion, you'll encounter linear systems with extremely high-torque gearing, such as screw-drive systems. These really do perform perfectly fine with just a PID controller, since the motor itself is never loaded, and a full motor output generates a slow motion with little inertia. In that case, you can simply ignore the FeedForward and Motion Profile.<br><br>The first few steps can be done before spinning the motor<br>
+<br>temporarily define the <a data-tooltip-position="top" aria-label="Homing Sequences" data-href="Homing Sequences" href="https://stormbots.github.io/KnowledgeBase/level-1/homing-sequences.html" class="internal-link" target="_self" rel="noopener nofollow">Homing</a> behavior as bootup zero. This streamlines the initial process.
+<br>Calibrate the encoder on the elevator to Inches, and ensure the encoder increases as you gain height. These steps were encountered in <a data-href="Encoder Basics" href="https://stormbots.github.io/KnowledgeBase/level-1/encoder-basics.html" class="internal-link" target="_self" rel="noopener nofollow">Encoder Basics</a>
+<br>Verify the correct calibration and encoder values by moving the elevator by hand when disabled.
+<br>Define soft limits to prevent driving past the frame limits. The important limit is the "reverse" limit heading toward the bottom, but the top limit can be set to an approximate or low value temporarily.
+<br>Estimate and configure a low P value. This will be used for controlled preliminary motion, and just needs to move the system and not oscillate at setpoints. 
+<br>Estimate and configure sane maxVelocity and maxAccelleration values for the motion profile.
+<br>plot motor output voltage and height, which you'll need for tuning.
+<br>You will need a setPower style command that allows arbitrary input.
+<br><br>With the system and code prepared, you can now work with the system a bit.<br>
+<br>Determine the approximate system kG: For this, you can use the manual command to drive the motor upward away from the hard stop, then and hold it still. Record the voltage, and add it to your feed-forward.
+<br>Now you can use easily use your manual adjustment command and approximate kG calculate a precise kS and kG, as indicated in <a data-href="FeedForwards#Finding kS and kG" href="https://stormbots.github.io/KnowledgeBase/level-1/feedforwards.html#Finding_kS_and_kG" class="internal-link" target="_self" rel="noopener nofollow">FeedForwards &gt; Finding kS and kG</a>. It helps to divide the joystick value by 4 to 10 to give you more range on the physical input side.
+<br>With the FeedForward configured, almost any kP will work to get the system to setpoints, but slowly. If your system is oscillating, you can lower kP. 
+<br>Optionally, you can attempt to calculate kV and kA, or use <a data-href="System Identification" href="https://stormbots.github.io/KnowledgeBase/level-2/system-identification.html" class="internal-link" target="_self" rel="noopener nofollow">System Identification</a> to assist.
+<br>At this point, your system should be travelling between setpoints fairly cleanly. The plot of your position during motion should be smooth, and your velocity a clean trapezoidal shape.
+<br>Now that you have optimized motion, you can set the upper soft limit properly.
+<br>Check your current limits! Now is a reasonable time to increase them, and you will want to plot them to see what currents are needed so you can limit them properly. 
+<br><br>
+<br>System oscillates or rattles around setpoint: This is likely due to a high kS value, but it may be caused by a high kP value.
+<br>There's odd hitches/jolts during a motion: Your kV or kA gain is probably too high. Set kA to zero, and then lower kV until it moves smoothly. Then try to add kA back in, lowering if needed. This is possible with a high P gain, but less probable.
+<br>The system drifts up/down: Your kG is too high or too low.
+<br>System not getting to setpoint: If it's not going up enough, kG+kS is too small. If it's not going down enough, kG-kS is too small. Recalculate those two.
+<br>Any of the above, but only when loaded/unloaded with game pieces: This can be caused due to the weight difference causing your gains to no longer properly approximate your system output. One option is to tune for the "lightest" elevator, which should result in stable motion when weight is added, and will lean on the PID to handle the error. The ideal option is to configure two or more feed-forwards, and swap the feed-forward values when each condition occurs.
+<br>Any of the above, but only in some parts of the travel. This can be caused by design quirks, as some elevator configurations have physical differences at different points in travel. Similar to above, you can tune to the "lowest output" variant and let the PID handle problems, or configure several feed-forwards and select them as your elevator enters specific regions of travel.
+<br><br><img alt="motion-profile-time-plots.png" src="https://stormbots.github.io/KnowledgeBase/lib/media/motion-profile-time-plots.png"><br>
+If your FF+PID tuning looks good, it's time to play with the Motion Profile. The goal is to make your max Velocity and max Accel as high as possible, representing the fastest possible motion. However, you do not want to set these higher than the system can physically manage, and it should never move so fast as to be unsafe or self-damaging. So, it's something of an iterative, incremental increase until you get the motions you want.<br>The best two plots for this are <br>
+<br>Current height and setpoint height
+<br>Current velocity and setpoint velocity<br>
+These both represent what you're telling the system to do and what it's actually doing. 
+<br>Once you have plots, you just need two buttons on a controller, moving the elevator to two different heights. You should choose heights far apart to have a relatively long travel, but stays a couple inches away from any hard stops or soft limits. The extra space at the end provides a safety net in case of an error, and allows the system to avoid crashing into them at high speeds. The long travel ensures you can reach high speeds during the motion, and test the max velocity.<br>Now, you should be able to see both the height and velocity closely track the setpoint versions. There's a few ways that they can deviate<br>
+<br>The velocity setpoint graph is always a triangle, never a trapezoid: This is ok! This just means you're constrained by range and the acceleration. As you increase acceleration, you 
+<br>The real velocity/position "lags" behind the setpoint. This is expected if you do not have a kV or kA on your feedforward. Adding a kV will bring them closer together and reduce this lag. A kA can also help, but is less critical.
+<br>The real position/velocity "bounces": See troubleshooting above. It's likely that your P gain is too high.
+<br>Instead of a trapezoidal shape, the velocity start and end have curved lines, and/or overshoots setpoint: This means your max acceleration is too high, and the motor cannot output enough power to hit the target velocity. Check your current limit, increase if needed. If you cannot provide more current, or do not wish to do so, decrease the acceleration until the system is on track.
+<br>The robot emits concerning creaky/crunchy noises: Your acceleration is higher than the bot is capable of surviving. The motor can keep up, but the geartrain will explode in short order. Lower the acceleration until it goes away. Remember, F=M*A : The acceleration is what imparts the force to the elevator. 
+<br><br>Until now, we've assumed an initial physical position against a hard stop. This is perfectly suitable for setup, testing, and diagnostics, but can be hazardous over the full life cycle of a robot.<br>Every time the battery is changed or the power is cycled, there's a chance that the robot wasn't where you expected, and if caught off guard you can damage the robot pretty severely, on top of failing to play the game as intended. <br>Elevators tend to require <a data-tooltip-position="top" aria-label="Homing Sequences" data-href="Homing Sequences" href="https://stormbots.github.io/KnowledgeBase/level-1/homing-sequences.html" class="internal-link" target="_self" rel="noopener nofollow">Homing</a> more than other systems, as there's no robust, readily available sensor to capture the height directly. <br>There's several valid homing strategies, but often elevators start near the lowest point of travel, making it simple to use a <a data-tooltip-position="top" aria-label="Homing Sequences > Current Detection" data-href="Homing Sequences#Current Detection" href="https://stormbots.github.io/KnowledgeBase/level-1/homing-sequences.html#Current_Detection" class="internal-link" target="_self" rel="noopener nofollow">Current Detection</a> process. Helpfully, our feed forward analysis also tell you what the needed output power is: something just below  .<br>Homing should start automatically (or be run at start of auto), but it's also wise to give Drivers a "home" button just in case. They can't touch the robot on the field, making a home operation a necessary option for recovery from reboots or unexpected field events.<br><br>This uses the streamlined WPILib <a data-tooltip-position="top" aria-label="https://docs.wpilib.org/en/stable/docs/software/advanced-controls/controllers/profiled-pidcontroller.html" rel="noopener nofollow" class="external-link" href="https://docs.wpilib.org/en/stable/docs/software/advanced-controls/controllers/profiled-pidcontroller.html" target="_blank">ProfiledPIDController</a> providing the simplest complete implementation.<br>
+There's many useful methods here : <a data-tooltip-position="top" aria-label="https://github.wpilib.org/allwpilib/docs/release/java/edu/wpi/first/math/controller/ProfiledPIDController.html" rel="noopener nofollow" class="external-link" href="https://github.wpilib.org/allwpilib/docs/release/java/edu/wpi/first/math/controller/ProfiledPIDController.html" target="_blank">ProfiledPIDController Method Reference</a><br>UNITS  This is configured to use Volts for feedforward and PID gains, so be mindful!<br>Homing This template does not include <a data-tooltip-position="top" aria-label="Homing Sequences" data-href="Homing Sequences" href="https://stormbots.github.io/KnowledgeBase/level-1/homing-sequences.html" class="internal-link" target="_self" rel="noopener nofollow">Homing</a>, and assumes a "zeroed on boot" approach. It's recommended to determine and implement  a robust strategy for most bots.<br>ExampleElevator extends SubsystemBase{
+	SparkMax motor = new SparkMax(42,MotorType.kBrushless);
+
+	//Define our system's maximum motion constraints
+	//When in doubt, 
+	//- set maxVelocity at a low value. 12 in/s is a great starter value 
+	//- set kMaxAccelleration high, at roughly 4*kMaxVelocity
+	private final TrapezoidProfile.Constraints constraints =
+		new TrapezoidProfile.Constraints(kMaxVelocity, kMaxAcceleration);
+	//Create a PID that obeys those constraints in it's motion
+	//Likely, you will have kI=0 and kD=0
+	private final ProfiledPIDController controller =
+		new ProfiledPIDController(kP, kI, kD, constraints, 0.02);
+	//Our feedforward object
+	//When in doubt, set these to zero (equivilent to no feedforward)
+	//Will be calculated as part of our tuning.
+	private final ElevatorFeedforward feedforward = 
+		new ElevatorFeedforward(kS, kG, kV);
+	
+	ExampleElevator(){
+		//These documented below to better demonstrate the general structure
+		configMotor();
+		configProfiledPID();
+		//DefaultCommands help avoid leaving a system in an uncontrolled
+		//state. For elevators, we often want no motion
+		setDefaultCommand(stop());
+		//For systems using an I gain, you likely want to 
+		//command the PID controller at all times rather than use stop(), 
+		//which behaves better with the I term's summing behavior.
+		//holdPosition() is better than stop() for this use case.
+	}
+	
+	///Prepare Telemetry for tuning
+	public void periodic(){
+		var output=motor.getAppliedOutput();
+		// We cannot get the applied voltage directly, but since
+		// it's a percentage we can multiply by the provided battery voltage
+		var voltage=motor.getAppliedOutput()*RobotController.getBatteryVoltage();
+		var height=motor.getEncoder().getPosition();
+		var velocity=motor.getEncoder().getVelocity();
+		var setpoint=controller.getSetpoint();
+		
+		SmartDashboard.putNumber("elevator/voltage",voltage);
+		SmartDashboard.putNumber("elevator/height",height);
+		SmartDashboard.putNumber("elevator/velocity",velocity);
+		SmartDashboard.putNumber("elevator/set position",setpoint.position);
+		SmartDashboard.putNumber("elevator/set velocity",setpoint.velocity);
+	}
+
+	//Triggers form the optimal way to transfer subsystem states/conditions
+	//to external subsystems.
+	//The PID contains this method, so we can just check it
+	//ProfiledPID objects's other useful indicators of completion as well,
+	//such as .timeRemaining for the intended motion.
+	public Trigger isAtPosition = new Trigger(controller::atGoal);
+	
+	/// Return the height of our elevator, using Unit measures
+	public Distance getHeight(){
+		return Inches.of(motor.getEncoder().getPosition());
+	}
+	
+	/// Provide manual output. Should only be used for
+	/// debugging, tuning, and homing
+	public Command setPower(DoubleSupplier percentOutput){
+		//Including the feed-forward here, but can be removed
+		//if your testing is easier without it.
+		return run(()-&gt;motor.setVoltage(
+			percentOutput.getAsDouble()*RobotController.getBatteryVoltage()
+			+ feedforward.getKg()
+			)
+		); 
+	}
+	
+	/// Disable the elevator's motion entirely
+	public Command stop(){
+		//Note, an output of 0 usually falls down, which is *not* the 
+		//same as stopping! So, we instead use kg to resist gravity.
+		//A "stopped" subsystem can still be moved by hand or 
+		//external forces though!
+		return setPower(feedforward::getKg)
+	}
+	
+	///Command the Elevator to go to the target position
+	public Command setHeight(Supplier&lt;Distance&gt; position){
+		return run(()-&gt;{
+			//Update our goal with any new targets
+			controller.setGoal(position.get().in(Inches));
+			//Calculate the voltage contributing to the output
+			var vff = feedforward.calculate(controller.getSetpoint().velocity);
+			var vpid = controller.calculate(motor.getEncoder().getPosition());
+			//Apply to the motor
+			motor.setVoltage(vff+vpid);
+		});
+	}
+	
+	/** Set the angle to a fixed value */
+	public Command setHeight(Distance position){
+		return setAngle(()-&gt;position);
+	};
+	
+	/** Actively maintain the position command was started at */
+	public Command holdPosition(){
+		//Deferred commands are needed here to capture the angle
+		//at the time the command is initiated
+		return defer(()-&gt;setHeight(getHeight()));
+	}
+
+}
+<br>// Important configuration parameters for an Elevator subsystem
+void configMotor(){
+	//These are the important ones for Elevators specifically
+	SparkBaseConfig config = new SparkMaxConfig();
+	//Default current limit should be low until the system is homed.
+	//.. but this requires a homing process.
+	config.smartCurrentLimit(40);
+	//You want "forward" to be positive, with increasing encoder values
+	config.inverted(false); 
+	//Soft 
+	config.softLimit
+	.forwardSoftLimit(18) //Whatever max height is
+	.forwardSoftLimitEnabled(true)
+	.reverseSoftLimit(0) //Sometimes zero, or the lost attainable height
+	.reverseSoftLimitEnabled(true);
+	;
+	//The conversion/gearing needed to put your system in a sensible
+	// unit; Often Inches.
+	var elevatorConversionfactor = 1;
+	elevatorConfig.encoder
+	.positionConversionFactor(elevatorConversionfactor)
+	.velocityConversionFactor(elevatorConversionfactor / 60.0)
+	;
+	//Apply the configs
+	elevatorMotor.configure(
+		config,
+		ResetMode.kResetSafeParameters,
+		PersistMode.kPersistParameters
+	);
+}
+
+void configProfiledPID(){
+	//Configure the ProfiledPIDController
+	
+	//This value constraints the output added by the I term 
+	//in the PID controller. This is very helpful to prevent damage in cases
+	//where the elevator system jams or collides with the environment and 
+	//cannot move.
+	// This will be system dependent, and should (needs testing) be 
+	// in PID ouptut units (normally Volts)
+	controller.setIntegratorRange(-1, 1); //Configure to +/-1 volt
+	
+	//When the robot is disabled, the elevator might move, invalidating
+	// the controller's internal state, and invalidating the I term's sum.
+	//This needs to be reset whenever the robot is enabled, and a Trigger
+	// provides a clean way of handling this
+	new Trigger(DriverStation::isEnabled).onTrue(
+		()-&gt;controller.reset(motor.getEncoder.getPosition())
+	);
+	
+	//There's other methods for interacting with the PID values 
+	// and constraints, should the need arise
+}
+<br>Advanced usage can easily extend this to handle position dependent constraints, or provide alternate constraints for certain motions. <br><br>New API incoming
+Rev is developing a new Spark API that can run Feedforwards + Motion profiles entirely on the Spark Motor controller.<br>
+TrapezoidalProfiles + external PID is messy, and thus documented to a minimal extent below
+<br>Implementing mixed Spark PID + Trapezoidal  is not strongly recommended, due to the high levels of code jank and surprise complexity, combined with limited benefit in this context. However, a full example can be found in <a data-tooltip-position="top" aria-label="https://github.com/stormbots/Reefscape/tree/main/src/main/java/frc/robot/subsystems/Elevator#L264" rel="noopener nofollow" class="external-link" href="https://github.com/stormbots/Reefscape/tree/main/src/main/java/frc/robot/subsystems/Elevator#L264" target="_blank">2025 Stormbots Reefscape</a>  <br>The primary difference from above<br>
+<br>The need to create a Trapazoidal Profile object directly, rather than a ProfiledPID
+<br>You need to set the PID in the trapezoidal Profile to determine the expected state 
+<br>Need to query the calculated state and pass the value to the external PID.
+<br>Need to track the "Goal state" for completion testing
+<br>Note that a "Goal State" represents the final objective for the trap profile, which is used to calculate setpoints, serving as intermediate targets for motion.<br>
+private TrapezpoidProfile.Constraints constraints = 
+new TrapezpoidProfile.Constraints(
+	kElevatorMaxVelocity,
+	kElevatorMaxAcceleration
+);
+private final TrapezoidProfile elevatorTrapezoidProfile = 
+	new TrapezoidProfile(constraints);
+	
+//Needed to store the Final state of the motion so triggers can 
+//calculate finished motion
+TrapezoidProfile.State elevatorGoal=new TrapezoidProfile.State(0,0);
+//We also need to retain the intermediate steps; When these match, 
+//our planned motion has been completed.
+TrapezoidProfile.State elevatorSetpoint=new TrapezoidProfile.State(0,0);
+
+private Command setHeight(DoubleSupplier position){
+	return new SequentialCommandGroup(
+		//Seed the initial state/setpoint with the current state
+		//Maybe optional?
+		new InstantCommand( ()-&gt;{
+			elevatorSetpoint = new TrapezoidProfile.State(
+				getAngle().in(Degrees),
+				elevatorMotor.getEncoder().getVelocity()
+			);
+		}),
+		  
+		new RunCommand(()-&gt;{
+			//Make sure the goal is dynamically updated
+			elevatorGoal = new TrapezoidProfile.State(
+				position.getAsDouble(),
+				0
+			);
+			//update our existing setpoint to the next achievable state
+			elevatorSetpoint = elevatorTrapezoidProfile
+				.calculate(0.02, elevatorSetpoint, elevatorGoal);
+			//Query our feedforward for projected output
+			var ff = elevatorFF.calculate(
+				elevatorSetpoint.position,
+				elevatorSetpoint.velocity
+			);
+			//Pass all our info out to the motor for output and PID control
+			elevatorMotor.getClosedLoopController()
+			.setReference(
+				elevatorSetpoint.position,
+				ControlType.kPosition, ClosedLoopSlot.kSlot0,
+				ff, ArbFFUnits.kVoltage
+			);
+		})
+	);
+	}
+
+}
+]]></description><link>https://stormbots.github.io/KnowledgeBase/level-1/superstructure-elevator.html</link><guid isPermaLink="false">Level 1/SuperStructure Elevator.md</guid><pubDate>Sun, 19 Oct 2025 00:55:42 GMT</pubDate><enclosure url="https://stormbots.github.io/KnowledgeBase/lib/media/motion-profile-time-plots.png" length="0" type="image/png"/><content:encoded>&lt;figure&gt;&lt;img src="https://stormbots.github.io/KnowledgeBase/lib/media/motion-profile-time-plots.png"&gt;&lt;/figure&gt;</content:encoded></item><item><title><![CDATA[General Details]]></title><description><![CDATA[ 
+ <br><br>
+<br>Add Learning Objective to some/all items
+<br><br><a data-href="System Tuning" href="https://stormbots.github.io/KnowledgeBase/System Tuning" class="internal-link" target="_self" rel="noopener nofollow">System Tuning</a> -&gt; Cover real world tuning, pull from PID<br><a data-href="Subsystem Lighting" href="https://stormbots.github.io/KnowledgeBase/Subsystem Lighting" class="internal-link" target="_self" rel="noopener nofollow">Subsystem Lighting</a><br>
+triggers as state passing, strong and loose coupling.<br>
+Motors: Current, free, stall<br>
+<a data-href="Mechanism2d" href="https://stormbots.github.io/KnowledgeBase/level-2/mechanism2d.html" class="internal-link" target="_self" rel="noopener nofollow">Mechanism2d</a><br>
+<a data-href="Driver Station" href="https://stormbots.github.io/KnowledgeBase/misc/driver-station.html" class="internal-link" target="_self" rel="noopener nofollow">Driver Station</a> + Controllers<br>
+<a data-href="Lambdas" href="https://stormbots.github.io/KnowledgeBase/misc/lambdas.html" class="internal-link" target="_self" rel="noopener nofollow">Lambdas</a>  + Suppliers<br>
+Climber systems<br>
+<br>Training:
+
+<br>Deploying code
+
+
+<br>public/private fields and methods
+<br>Code planning/bringup stubs, and interfaces.
+<br>PID: Position control vs velocity control
+<br>Joystick and Input Basics
+<br>Solenoids + Pnuematics
+<br>Rev Hardware Client
+<br>PWM Output
+<br>DigitalInput channels and switches
+<br>LEDs
+<br>SPI, I2C, other communication busses
+<br>Custom controllers
+<br>Code structuring (Stormbreakers)
+<br>How to read documentation
+<br>Conventions: Use of Units
+<br>Sensor Pairing? Advanced: Information/state transfer (break beam -&gt; indexer position) <a data-href="Sensing Basics" href="https://stormbots.github.io/KnowledgeBase/level-1/sensing-basics.html" class="internal-link" target="_self" rel="noopener nofollow">Sensing Basics</a>? -&gt; State Transfer
+<br>defer/DeferredCommand
+<br><br>
+<br>Threading
+<br>Old docs
+<br><br><a data-href="Encoder Basics#Soft Limits" href="https://stormbots.github.io/KnowledgeBase/level-1/encoder-basics.html#Soft_Limits" class="internal-link" target="_self" rel="noopener nofollow">Encoder Basics &gt; Soft Limits</a> - Dependency jank due to need of motor control<br>
+<a data-href="clamping" href="https://stormbots.github.io/KnowledgeBase/misc/clamping.html" class="internal-link" target="_self" rel="noopener nofollow">clamping</a><br>
+<a data-href="Units" href="https://stormbots.github.io/KnowledgeBase/misc/units.html" class="internal-link" target="_self" rel="noopener nofollow">Units</a><br>
+<a data-href="Mechanical Backlash" href="https://stormbots.github.io/KnowledgeBase/misc/mechanical-backlash.html" class="internal-link" target="_self" rel="noopener nofollow">Mechanical Backlash</a><br>
+<a data-tooltip-position="top" aria-label="Homing Sequences" data-href="Homing Sequences" href="https://stormbots.github.io/KnowledgeBase/level-1/homing-sequences.html" class="internal-link" target="_self" rel="noopener nofollow">Hard Stops</a> -&gt; Does this need a mech design page?<br>
+<a data-href="Pnuematics" href="https://stormbots.github.io/KnowledgeBase/Pnuematics" class="internal-link" target="_self" rel="noopener nofollow">Pnuematics</a> and solenoids<br>
+<a data-href="Scheduler" href="https://stormbots.github.io/KnowledgeBase/Scheduler" class="internal-link" target="_self" rel="noopener nofollow">Scheduler</a> &lt;-- ? <br>Data Structures: <a rel="noopener nofollow" class="external-link" href="https://www.youtube.com/watch?v=KwBuV7YZido" target="_blank">https://www.youtube.com/watch?v=KwBuV7YZido</a><br><br>
+<br>Rev Hardware Client
+<br>Pathplanner/choreo
+<br>GrappleHook
+<br><a data-href="Driver Station" href="https://stormbots.github.io/KnowledgeBase/misc/driver-station.html" class="internal-link" target="_self" rel="noopener nofollow">Driver Station</a>
+<br>YAGSL Mechanisms Library <a rel="noopener nofollow" class="external-link" href="https://www.chiefdelphi.com/t/beta-frc-mechanisms-library-elevators-arms-turrets-w-sim-telemetry-built-in/503589" target="_blank">https://www.chiefdelphi.com/t/beta-frc-mechanisms-library-elevators-arms-turrets-w-sim-telemetry-built-in/503589</a>
+<br>another mechanism lib <a rel="noopener nofollow" class="external-link" href="https://www.chiefdelphi.com/t/introducing-excalib-a-mechanism-motor-wrappers-and-utilities-wpilibj-command-library/503814" target="_blank">https://www.chiefdelphi.com/t/introducing-excalib-a-mechanism-motor-wrappers-and-utilities-wpilibj-command-library/503814</a>
+<br><br>#stub<br>#todo<br><br><a rel="noopener nofollow" class="external-link" href="https://github.com/HighlanderRobotics/Highlanders-Training" target="_blank">https://github.com/HighlanderRobotics/Highlanders-Training</a>]]></description><link>https://stormbots.github.io/KnowledgeBase/todo.html</link><guid isPermaLink="false">TODO.md</guid><pubDate>Sun, 19 Oct 2025 00:53:06 GMT</pubDate></item><item><title><![CDATA[Compound Subsystem]]></title><description><![CDATA[<a class="tag" href="https://stormbots.github.io/KnowledgeBase/?query=tag:todo" style="background-color: rgb(4, 108, 116); color: white; font-weight: 700; border: none; border-radius: 1em; padding: 0.2em 0.5em;">#todo</a> 
  <br>A compound subsystem is one that has multiple, different components, usually linked together or operating in conjunction. Many common systems as <a data-tooltip-position="top" aria-label="SuperStructure Intake" data-href="SuperStructure Intake" href="https://stormbots.github.io/KnowledgeBase/level-1/superstructure-intake.html" class="internal-link" target="_self" rel="noopener nofollow">Intakes</a> or <a data-tooltip-position="top" aria-label="Superstructure Shooter" data-href="Superstructure Shooter" href="https://stormbots.github.io/KnowledgeBase/level-2/superstructure-shooter.html" class="internal-link" target="_self" rel="noopener nofollow">Shooters</a> fall into this, as do complex kinematic systems like extendable <a data-tooltip-position="top" aria-label="SuperStructure Arm" data-href="SuperStructure Arm" href="https://stormbots.github.io/KnowledgeBase/level-1/superstructure-arm.html" class="internal-link" target="_self" rel="noopener nofollow">Arms</a>, or Arms riding <a data-tooltip-position="top" aria-label="SuperStructure Elevator" data-href="SuperStructure Elevator" href="https://stormbots.github.io/KnowledgeBase/level-1/superstructure-elevator.html" class="internal-link" target="_self" rel="noopener nofollow">Elevators</a> form a compound subsystem.<br>These systems have common quirks in how they interact with <a data-tooltip-position="top" aria-label="Commands" data-href="Commands" href="https://stormbots.github.io/KnowledgeBase/level-1/commands.html" class="internal-link" target="_self" rel="noopener nofollow">Commands</a> and <a data-tooltip-position="top" aria-label="Subsystems" data-href="Subsystems" href="https://stormbots.github.io/KnowledgeBase/misc/subsystems.html" class="internal-link" target="_self" rel="noopener nofollow">Subsystem</a> control flow.<br><br>Generally, you do not want to bundle two or more actuators together into the same subsystem; Inevitably, you will need a Command that tries to require() one, but forcibly require the second. <br>This makes some command sequences awkward, since you need to require and control an actuator you don't care about. Alternatively, streamlining the system to automatically control just one or the other means extending the subsystem with multiple state tracking, as you can't rely on defaultCommands() which won't be active.<br>Combining multiple actuators in one system also can lead you to cases that block code re-use. Having simple commands that control "half" the system cannot be run in parallel without obscure, poorly documented command modifiers or forcibly removing the command mutexes. <br>Lastly, you need to name and manage commands to interact with both actuators, making the subsystem large and complicated.<br><br>A better structure is to simply break them into two subsystems, giving them the minimal controls needed to act independently. <br>You can then use a separate container class to house utility functions, or combined Command classes that interact with both systems.<br>Note, the wrapper class will not be a subsystem itself: WPILib does not support "requires" through nested subsystems.<br><br>DefaultCommands by their nature must require their own subsystem, and can only require that subsystem; This means it's not possible to have a "default" for two subsystems. <br>In some cases, you may be able to simply leave each individual part with a default command. <br>However, if you wish to have them default as a group, you can emulate the "default command" behavior through the use of a Trigger, and detection of the currently commanded state of any controlled systems. <br><a href="https://stormbots.github.io/KnowledgeBase?query=tag:todo" class="tag" target="_blank" rel="noopener nofollow">#todo</a> streamline these examples<br><br><br><br>Scheduling some actions based on sensors might wind up interfering with other ongoing robot tasks. Remember, they're exactly like a driver hitting a button!<br>For example, if you automatically "grab" a loaded game piece, like this: <br>public class IntakeSubsystem extends SubsystemBase{
 	public IntakeSubsystem(){
 		new Trigger(isGamePieceLoaded).onTrue(holdGamePiece());
@@ -3282,294 +3961,7 @@ During the climb action, setting the placement mechanism to "coast mode" and dis
 <br>The other considerations vary on climb: <br>
 <br>If the robot can safely de-climb in coast mode, apply Coast when the robot is enabled. This facilitates resets during practices, since the bot can be enabled+disabled to allow human assistance
 <br>If the robot cannot safely de-climb via coast, but can via actuation, provide this to your drivers for quick field resets.
-]]></description><link>https://stormbots.github.io/KnowledgeBase/level-1/superstructure-climber.html</link><guid isPermaLink="false">Level 1/SuperStructure Climber.md</guid><pubDate>Fri, 03 Oct 2025 20:09:01 GMT</pubDate></item><item><title><![CDATA[SuperStructure Elevator]]></title><description><![CDATA[ 
- <br>Requires:<br>
-<a data-href="FeedForwards" href="https://stormbots.github.io/KnowledgeBase/level-1/feedforwards.html" class="internal-link" target="_self" rel="noopener nofollow">FeedForwards</a><br>
-<a data-href="PID" href="https://stormbots.github.io/KnowledgeBase/level-1/pid.html" class="internal-link" target="_self" rel="noopener nofollow">PID</a><br>
-Reading Resources:<br>
-<a data-tooltip-position="top" aria-label="Homing Sequences" data-href="Homing Sequences" href="https://stormbots.github.io/KnowledgeBase/level-1/homing-sequences.html" class="internal-link" target="_self" rel="noopener nofollow">Homing</a><br><br>
-<br>Create an Elevator subsystem
-<br>Set Encoders
-
-<br>find the encoder range and conversion to have real-world values
-<br>Find the system range, apply soft limits
-
-
-<br>Get control
-
-<br>Determine the system Gravity feed-forward value
-<br>Create a PID controller
-<br>Tune the PID to an acceptable level for control
-
-
-<br>Create a default command that holds the system at the current height
-<br>Create a setHeight function that takes a height, and returns a command that runs indefinitely to the target height
-<br>Create a Trigger that indicates if the system is within a suitable tolerance of the commanded height.
-<br>Bind several target positions to a controller
-<br>Create a small auto sequence that moves to multiple positions in sequence.
-<br><br>Elevators are a common linear motion system in FRC, generally used to raise game pieces from the floor to a high scoring objective. <br>While mechanically straightforward, Elevators wind up generating a notable step up in code and control complexity compared to <a data-tooltip-position="top" aria-label="SuperStructure Rollers" data-href="SuperStructure Rollers" href="https://stormbots.github.io/KnowledgeBase/level-1/superstructure-rollers.html" class="internal-link" target="_self" rel="noopener nofollow">Roller</a> systems.<br><br>Elevators introduce several areas where you can inadvertently cause damage to the environment and robot. When prototyping and developing them, there's a few important considerations:<br>
-<br>Elevators have a limited range of motion: Carelessly commanding them beyond their physical constraints can damage the robot, the motors, and eject parts at nearby people!
-<br>Elevators and drive belts/ropes generate many pinch points that can snag fingers if the system is moved by hand, even when disabled. 
-<br>Rapid motion can de-stabilize a robot that's sitting on a cart or on blocks
-<br>When making changes to elevator behaviors and tuning, make sure someone nearby is ready to disable the robot if anything goes wrong.<br><br>Controlling an elevator requires the use of a <a data-href="PID" href="https://stormbots.github.io/KnowledgeBase/level-1/pid.html" class="internal-link" target="_self" rel="noopener nofollow">PID</a>, and greatly benefits from aspects of both <a data-href="FeedForwards" href="https://stormbots.github.io/KnowledgeBase/level-1/feedforwards.html" class="internal-link" target="_self" rel="noopener nofollow">FeedForwards</a> and <a data-href="Motion Profiles" href="https://stormbots.github.io/KnowledgeBase/level-2/motion-profiles.html" class="internal-link" target="_self" rel="noopener nofollow">Motion Profiles</a>.<br>A PID by itself can control an elevator, but it will be difficult to tune and require significant time and resources to "hack" into a usable state. Any time you change setpoints, the whole system is in for a bad time: The output power rapidly changes to move to the new position,  putting significant strain on the robot, causing excess wear, and potential damage. Moving a significant distance can also slam the elevator carriage into the limits of motion, causing damage.<br>FeedForwards, or at least the kS and kG terms, will greatly improve stability and accuracy, and reduce the time it takes for tuning a PID. However, it does not mitigate the issues cause changing setpoints.<br><a data-href="Motion Profiles" href="https://stormbots.github.io/KnowledgeBase/level-2/motion-profiles.html" class="internal-link" target="_self" rel="noopener nofollow">Motion Profiles</a> fix the setpoint problem, and lock the setpoint changes into a nicely defined ramp-up and ramp-down when changing positions. This means your PID never misbehaves, and provides additional feed-forward information to further simplify tuning. <br>While the combination may seem daunting at first, each of these 3 solves a particular motion problem effectively, and with straightforward individual adjustments. Using all 3 together provides a better performing system, with much less effort overall. <br>On occasion, you'll encounter linear systems with extremely high-torque gearing, such as screw-drive systems. These really do perform perfectly fine with just a PID controller, since the motor itself is never loaded, and a full motor output generates a slow motion with little inertia. In that case, you can simply ignore the FeedForward and Motion Profile.<br><br>The first few steps can be done before spinning the motor<br>
-<br>temporarily define the <a data-tooltip-position="top" aria-label="Homing Sequences" data-href="Homing Sequences" href="https://stormbots.github.io/KnowledgeBase/level-1/homing-sequences.html" class="internal-link" target="_self" rel="noopener nofollow">Homing</a> behavior as bootup zero. This streamlines the initial process.
-<br>Calibrate the encoder on the elevator to Inches, and ensure the encoder increases as you gain height. These steps were encountered in <a data-href="Encoder Basics" href="https://stormbots.github.io/KnowledgeBase/level-1/encoder-basics.html" class="internal-link" target="_self" rel="noopener nofollow">Encoder Basics</a>
-<br>Verify the correct calibration and encoder values by moving the elevator by hand when disabled.
-<br>Define soft limits to prevent driving past the frame limits. The important limit is the "reverse" limit heading toward the bottom, but the top limit can be set to an approximate or low value temporarily.
-<br>Estimate and configure a low P value. This will be used for controlled preliminary motion, and just needs to move the system and not oscillate at setpoints. 
-<br>Estimate and configure sane maxVelocity and maxAccelleration values for the motion profile.
-<br>plot motor output voltage and height, which you'll need for tuning.
-<br>You will need a setPower style command that allows arbitrary input.
-<br><br>With the system and code prepared, you can now work with the system a bit.<br>
-<br>Determine the approximate system kG: For this, you can use the manual command to drive the motor upward away from the hard stop, then and hold it still. Record the voltage, and add it to your feed-forward.
-<br>Now you can use easily use your manual adjustment command and approximate kG calculate a precise kS and kG, as indicated in <a data-href="FeedForwards#Finding kS and kG" href="https://stormbots.github.io/KnowledgeBase/level-1/feedforwards.html#Finding_kS_and_kG" class="internal-link" target="_self" rel="noopener nofollow">FeedForwards &gt; Finding kS and kG</a>. It helps to divide the joystick value by 4 to 10 to give you more range on the physical input side.
-<br>With the FeedForward configured, almost any kP will work to get the system to setpoints, but slowly. If your system is oscillating, you can lower kP. 
-<br>Optionally, you can attempt to calculate kV and kA, or use <a data-href="System Identification" href="https://stormbots.github.io/KnowledgeBase/level-2/system-identification.html" class="internal-link" target="_self" rel="noopener nofollow">System Identification</a> to assist.
-<br>At this point, your system should be travelling between setpoints fairly cleanly. The plot of your position during motion should be smooth, and your velocity a clean trapezoidal shape.
-<br>Now that you have optimized motion, you can set the upper soft limit properly.
-<br>Check your current limits! Now is a reasonable time to increase them, and you will want to plot them to see what currents are needed so you can limit them properly. 
-<br><br>
-<br>System oscillates or rattles around setpoint: This is likely due to a high kS value, but it may be caused by a high kP value.
-<br>There's odd hitches/jolts during a motion: Your kV or kA gain is probably too high. Set kA to zero, and then lower kV until it moves smoothly. Then try to add kA back in, lowering if needed. This is possible with a high P gain, but less probable.
-<br>The system drifts up/down: Your kG is too high or too low.
-<br>System not getting to setpoint: If it's not going up enough, kG+kS is too small. If it's not going down enough, kG-kS is too small. Recalculate those two.
-<br>Any of the above, but only when loaded/unloaded with game pieces: This can be caused due to the weight difference causing your gains to no longer properly approximate your system output. One option is to tune for the "lightest" elevator, which should result in stable motion when weight is added, and will lean on the PID to handle the error. The ideal option is to configure two or more feed-forwards, and swap the feed-forward values when each condition occurs.
-<br>Any of the above, but only in some parts of the travel. This can be caused by design quirks, as some elevator configurations have physical differences at different points in travel. Similar to above, you can tune to the "lowest output" variant and let the PID handle problems, or configure several feed-forwards and select them as your elevator enters specific regions of travel.
-<br><br><img alt="motion-profile-time-plots.png" src="https://stormbots.github.io/KnowledgeBase/lib/media/motion-profile-time-plots.png"><br>
-If your FF+PID tuning looks good, it's time to play with the Motion Profile. The goal is to make your max Velocity and max Accel as high as possible, representing the fastest possible motion. However, you do not want to set these higher than the system can physically manage, and it should never move so fast as to be unsafe or self-damaging. So, it's something of an iterative, incremental increase until you get the motions you want.<br>The best two plots for this are <br>
-<br>Current height and setpoint height
-<br>Current velocity and setpoint velocity<br>
-These both represent what you're telling the system to do and what it's actually doing. 
-<br>Once you have plots, you just need two buttons on a controller, moving the elevator to two different heights. You should choose heights far apart to have a relatively long travel, but stays a couple inches away from any hard stops or soft limits. The extra space at the end provides a safety net in case of an error, and allows the system to avoid crashing into them at high speeds. The long travel ensures you can reach high speeds during the motion, and test the max velocity.<br>Now, you should be able to see both the height and velocity closely track the setpoint versions. There's a few ways that they can deviate<br>
-<br>The velocity setpoint graph is always a triangle, never a trapezoid: This is ok! This just means you're constrained by range and the acceleration. As you increase acceleration, you 
-<br>The real velocity/position "lags" behind the setpoint. This is expected if you do not have a kV or kA on your feedforward. Adding a kV will bring them closer together and reduce this lag. A kA can also help, but is less critical.
-<br>The real position/velocity "bounces": See troubleshooting above. It's likely that your P gain is too high.
-<br>Instead of a trapezoidal shape, the velocity start and end have curved lines, and/or overshoots setpoint: This means your max acceleration is too high, and the motor cannot output enough power to hit the target velocity. Check your current limit, increase if needed. If you cannot provide more current, or do not wish to do so, decrease the acceleration until the system is on track.
-<br>The robot emits concerning creaky/crunchy noises: Your acceleration is higher than the bot is capable of surviving. The motor can keep up, but the geartrain will explode in short order. Lower the acceleration until it goes away. Remember, F=M*A : The acceleration is what imparts the force to the elevator. 
-<br><br>Until now, we've assumed an initial physical position against a hard stop. This is perfectly suitable for setup, testing, and diagnostics, but can be hazardous over the full life cycle of a robot.<br>Every time the battery is changed or the power is cycled, there's a chance that the robot wasn't where you expected, and if caught off guard you can damage the robot pretty severely, on top of failing to play the game as intended. <br>Elevators tend to require <a data-tooltip-position="top" aria-label="Homing Sequences" data-href="Homing Sequences" href="https://stormbots.github.io/KnowledgeBase/level-1/homing-sequences.html" class="internal-link" target="_self" rel="noopener nofollow">Homing</a> more than other systems, as there's no robust, readily available sensor to capture the height directly. <br>There's several valid homing strategies, but often elevators start near the lowest point of travel, making it simple to use a <a data-tooltip-position="top" aria-label="Homing Sequences > Current Detection" data-href="Homing Sequences#Current Detection" href="https://stormbots.github.io/KnowledgeBase/level-1/homing-sequences.html#Current_Detection" class="internal-link" target="_self" rel="noopener nofollow">Current Detection</a> process. Helpfully, our feed forward analysis also tell you what the needed output power is: something just below  .<br>Homing should start automatically (or be run at start of auto), but it's also wise to give Drivers a "home" button just in case. They can't touch the robot on the field, making a home operation a necessary option for recovery from reboots or unexpected field events.<br><br>This uses the streamlined WPILib <a data-tooltip-position="top" aria-label="https://docs.wpilib.org/en/stable/docs/software/advanced-controls/controllers/profiled-pidcontroller.html" rel="noopener nofollow" class="external-link" href="https://docs.wpilib.org/en/stable/docs/software/advanced-controls/controllers/profiled-pidcontroller.html" target="_blank">ProfiledPIDController</a> providing the simplest complete implementation.<br>
-There's many useful methods here : <a data-tooltip-position="top" aria-label="https://github.wpilib.org/allwpilib/docs/release/java/edu/wpi/first/math/controller/ProfiledPIDController.html" rel="noopener nofollow" class="external-link" href="https://github.wpilib.org/allwpilib/docs/release/java/edu/wpi/first/math/controller/ProfiledPIDController.html" target="_blank">ProfiledPIDController Method Reference</a><br>UNITS  This is configured to use Volts for feedforward and PID gains, so be mindful!<br>Homing This template does not include <a data-tooltip-position="top" aria-label="Homing Sequences" data-href="Homing Sequences" href="https://stormbots.github.io/KnowledgeBase/level-1/homing-sequences.html" class="internal-link" target="_self" rel="noopener nofollow">Homing</a>, and assumes a "zeroed on boot" approach. It's recommended to determine and implement  a robust strategy for most bots.<br>ExampleElevator extends SubsystemBase{
-	SparkMax motor = new SparkMax(42,kBrushless);
-
-	//Define our system's maximum motion constraints
-	//When in doubt, 
-	//- set maxVelocity at a low value. 12 in/s is a great starter value 
-	//- set kMaxAccelleration high, at roughly 4*kMaxVelocity
-	private final TrapezoidProfile.Constraints constraints =
-		new TrapezoidProfile.Constraints(kMaxVelocity, kMaxAcceleration);
-	//Create a PID that obeys those constraints in it's motion
-	//Likely, you will have kI=0 and kD=0
-	private final ProfiledPIDController controller =
-		new ProfiledPIDController(kP, kI, kD, constraints, 0.02);
-	//Our feedforward object
-	//When in doubt, set these to zero (equivilent to no feedforward)
-	//Will be calculated as part of our tuning.
-	private final ElevatorFeedforward feedforward = 
-		new ElevatorFeedforward(kS, kG, kV);
-	
-	ExampleElevator(){
-		//These documented below to better demonstrate the general structure
-		configMotor();
-		configProfiledPID();
-		//DefaultCommands help avoid leaving a system in an uncontrolled
-		//state. For elevators, we often want no motion
-		setDefaultCommand(stop());
-		//For systems using an I gain, you likely want to 
-		//command the PID controller at all times rather than use stop(), 
-		//which behaves better with the I term's summing behavior.
-		//holdPosition() is better than stop() for this use case.
-	}
-	
-	///Prepare Telemetry for tuning
-	public void periodic(){
-		var output=motor.getAppliedOutput();
-		// We cannot get the applied voltage directly, but since
-		// it's a percentage we can multiply by the provided battery voltage
-		var voltage=motor.getAppliedOutput()*RobotController.getBatteryVoltage();
-		var height=motor.getEncoder().getPosition();
-		var velocity=motor.getEncoder().getVelocity();
-		var setpoint=controller.getSetpoint();
-		
-		Smartdashboard.putNumber("elevator/voltage",voltage);
-		Smartdashboard.putNumber("elevator/height",height);
-		Smartdashboard.putNumber("elevator/velocity",velocity);
-		Smartdashboard.putNumber("elevator/set position",setpoint.position);
-		Smartdashboard.putNumber("elevator/set velocity",setpoint.velocity);
-	}
-
-	//Triggers form the optimal way to transfer subsystem states/conditions
-	//to external subsystems.
-	//The PID contains this method, so we can just check it
-	//ProfiledPID objects's other useful indicators of completion as well,
-	//such as .timeRemaining for the intended motion.
-	public Trigger isAtPosition = new Trigger(controller::atGoal);
-	
-	/// Return the height of our elevator, using Unit measures
-	public Distance getHeight(){
-		return Inches.of(motor.getEncoder().getPosition)
-	}
-	
-	/// Provide manual output. Should only be used for
-	/// debugging, tuning, and homing
-	public Command setPower(DoubleSupplier percentOutput){
-		//Including the feed-forward here, but can be removed
-		//if your testing is easier without it.
-		return run(()-&gt;motor.setVoltage(
-			percentOutput.getAsDouble()*RobotController.getBatteryVoltage()
-			+ ff.getKg()
-			)
-		); 
-	}
-	
-	/// Disable the elevator's motion entirely
-	public Command stop(){
-		//Note, an output of 0 usually falls down, which is *not* the 
-		//same as stopping! So, we instead use kg to resist gravity.
-		//A "stopped" subsystem can still be moved by hand or 
-		//external forces though!
-		return setPower(feedforward::getKg)
-	}
-	
-	/// Actively maintain the position command was started at
-	public Command holdPosition(){
-		var currentHeight=getHeight();
-		return setHeight(()-&gt;currentHeight);
-	}
-
-	///Command the Elevator to go to the target position
-	public Command setHeight(Supplier&lt;Distance&gt; position){
-		return startRun(
-		()-&gt;{
-			//Set our initial goal prior to starting the command
-			// Optional? Used previously to prevent trigger glitches
-			controller.setGoal(position.get().in(Inches));
-		},
-		()-&gt;{
-			//Update our goal with any new targets
-			controller.setGoal(position.get().in(Inches));
-			//Calculate the voltage
-			voltage=
-			motor.setVoltage(
-				controller.calculate(motor.getEncoder().getPosition()) 
-				+ feedforward.calculate(controller.getSetpoint().velocity)
-			);
-		});
-	}
-}
-<br>// Important configuration parameters for an Elevator subsystem
-void configMotor(){
-	//These are the important ones for Elevators specifically
-	SparkBaseConfig config = new SparkMaxConfig();
-	//Default current limit should be low until the system is homed.
-	//.. but this requires a homing process.
-	config.smartCurrentLimit(40);
-	//You want "forward" to be positive, with increasing encoder values
-	config.inverted(false); 
-	//Soft 
-	config.softLimit
-	.forwardSoftLimit(18) //Whatever max height is
-	.forwardSoftLimitEnabled(true)
-	.reverseSoftLimit(0) //Sometimes zero, or the lost attainable height
-	.reverseSoftLimitEnabled(true);
-	;
-	//The conversion/gearing needed to put your system in a sensible
-	// unit; Often Inches.
-	var elevatorConversionfactor = 1;
-	elevatorConfig.encoder
-	.positionConversionFactor(elevatorConversionfactor)
-	.velocityConversionFactor(elevatorConversionfactor / 60.0)
-	;
-	//Apply the configs
-	elevatorMotor.configure(
-		config,
-		ResetMode.kResetSafeParameters,
-		PersistMode.kPersistParameters
-	);
-}
-
-void configProfiledPID(){
-	//Configure the ProfiledPIDController
-	
-	//This value constraints the output added by the I term 
-	//in the PID controller. This is very helpful to prevent damage in cases
-	//where the elevator system jams or collides with the environment and 
-	//cannot move.
-	// This will be system dependent, and should (needs testing) be 
-	// in PID ouptut units (normally Volts)
-	controller.setIntegratorRange(-1, 1); //Configure to +/-1 volt
-	
-	//When the robot is disabled, the elevator might move, invalidating
-	// the controller's internal state, and invalidating the I term's sum.
-	//This needs to be reset whenever the robot is enabled, and a Trigger
-	// provides a clean way of handling this
-	new Trigger(DriverStation::isEnabled).onTrue(
-		()-&gt;controller.reset(motor.getEncoder.getPosition())
-	);
-	
-	//There's other methods for interacting with the PID values 
-	// and constraints, should the need arise
-}
-<br>Advanced usage can easily extend this to handle position dependent constraints, or provide alternate constraints for certain motions. <br><br>New API incoming
-Rev is developing a new Spark API that can run Feedforwards + Motion profiles entirely on the Spark Motor controller.<br>
-TrapezoidalProfiles + external PID is messy, and thus documented to a minimal extent below
-<br>Implementing mixed Spark PID + Trapezoidal  is not strongly recommended, due to the high levels of code jank and surprise complexity, combined with limited benefit in this context. However, a full example can be found in <a data-tooltip-position="top" aria-label="https://github.com/stormbots/Reefscape/tree/main/src/main/java/frc/robot/subsystems/Elevator#L264" rel="noopener nofollow" class="external-link" href="https://github.com/stormbots/Reefscape/tree/main/src/main/java/frc/robot/subsystems/Elevator#L264" target="_blank">2025 Stormbots Reefscape</a>  <br>The primary difference from above<br>
-<br>The need to create a Trapazoidal Profile object directly, rather than a ProfiledPID
-<br>You need to set the PID in the trapezoidal Profile to determine the expected state 
-<br>Need to query the calculated state and pass the value to the external PID.
-<br>Need to track the "Goal state" for completion testing
-<br>Note that a "Goal State" represents the final objective for the trap profile, which is used to calculate setpoints, serving as intermediate targets for motion.<br>
-private TrapezpoidProfile.Constraints constraints = 
-new TrapezpoidProfile.Constraints(
-	kElevatorMaxVelocity,
-	kElevatorMaxAcceleration
-);
-private final TrapezoidProfile elevatorTrapezoidProfile = 
-	new TrapezoidProfile(constraints);
-	
-//Needed to store the Final state of the motion so triggers can 
-//calculate finished motion
-TrapezoidProfile.State elevatorGoal=new TrapezoidProfile.State(0,0);
-//We also need to retain the intermediate steps; When these match, 
-//our planned motion has been completed.
-TrapezoidProfile.State elevatorSetpoint=new TrapezoidProfile.State(0,0);
-
-private Command setHeight(DoubleSupplier position){
-	return new SequentialCommandGroup(
-		//Seed the initial state/setpoint with the current state
-		//Maybe optional?
-		new InstantCommand( ()-&gt;{
-			elevatorSetpoint = new TrapezoidProfile.State(
-				getAngle().in(Degrees),
-				elevatorMotor.getEncoder().getVelocity()
-			);
-		}),
-		  
-		new RunCommand(()-&gt;{
-			//Make sure the goal is dynamically updated
-			elevatorGoal = new TrapezoidProfile.State(
-				position.getAsDouble(),
-				0
-			);
-			//update our existing setpoint to the next achievable state
-			elevatorSetpoint = elevatorTrapezoidProfile
-				.calculate(0.02, elevatorSetpoint, elevatorGoal);
-			//Query our feedforward for projected output
-			var ff = elevatorFF.calculate(
-				elevatorSetpoint.position,
-				elevatorSetpoint.velocity
-			);
-			//Pass all our info out to the motor for output and PID control
-			elevatorMotor.getClosedLoopController()
-			.setReference(
-				elevatorSetpoint.position,
-				ControlType.kPosition, ClosedLoopSlot.kSlot0,
-				ff, ArbFFUnits.kVoltage
-			);
-		})
-	);
-	}
-
-}
-]]></description><link>https://stormbots.github.io/KnowledgeBase/level-1/superstructure-elevator.html</link><guid isPermaLink="false">Level 1/SuperStructure Elevator.md</guid><pubDate>Tue, 30 Sep 2025 05:26:59 GMT</pubDate><enclosure url="https://stormbots.github.io/KnowledgeBase/lib/media/motion-profile-time-plots.png" length="0" type="image/png"/><content:encoded>&lt;figure&gt;&lt;img src="https://stormbots.github.io/KnowledgeBase/lib/media/motion-profile-time-plots.png"&gt;&lt;/figure&gt;</content:encoded></item><item><title><![CDATA[SuperStructure Intake]]></title><description><![CDATA[<a class="tag" href="https://stormbots.github.io/KnowledgeBase/?query=tag:todo" style="background-color: rgb(4, 108, 116); color: white; font-weight: 700; border: none; border-radius: 1em; padding: 0.2em 0.5em;">#todo</a> 
+]]></description><link>https://stormbots.github.io/KnowledgeBase/level-1/superstructure-climber.html</link><guid isPermaLink="false">Level 1/SuperStructure Climber.md</guid><pubDate>Fri, 03 Oct 2025 20:09:01 GMT</pubDate></item><item><title><![CDATA[SuperStructure Intake]]></title><description><![CDATA[<a class="tag" href="https://stormbots.github.io/KnowledgeBase/?query=tag:todo" style="background-color: rgb(4, 108, 116); color: white; font-weight: 700; border: none; border-radius: 1em; padding: 0.2em 0.5em;">#todo</a> 
  <br>Requires:<br>
 <a data-href="SuperStructure Rollers" href="https://stormbots.github.io/KnowledgeBase/level-1/superstructure-rollers.html" class="internal-link" target="_self" rel="noopener nofollow">SuperStructure Rollers</a><br>
 <a data-href="Sensing Basics" href="https://stormbots.github.io/KnowledgeBase/level-1/sensing-basics.html" class="internal-link" target="_self" rel="noopener nofollow">Sensing Basics</a><br>Recommends:<br>
@@ -4788,53 +5180,7 @@ Superstructure Shooter<br><br>Requires:<br>
 <br>Closed loop: Several fault conditions can be avoided by using a velocity PID and feed-forwards to generate a slower, more consistent initial interaction with game pieces, and automatically apply more power in fault condition.
 <br>Operate at the edge cases: Do not baby the intake, and do your best to generate repeatable fault conditions to inform the design. 
 <br>Operate in motion: Feeding the intake on a stationary chassis tends to feed differently than a mobile chassis and stationary game piece, or a mobile chassis + Mobile Game Piece. 
-<br><br><br>Generally,  intakes are not one "system", but often actuated to deploy it beyond the frame perimeter, or line it up with intake positions. These are often done using <a data-tooltip-position="top" aria-label="SuperStructure Arm" data-href="SuperStructure Arm" href="https://stormbots.github.io/KnowledgeBase/level-1/superstructure-arm.html" class="internal-link" target="_self" rel="noopener nofollow">Arms</a> or <a data-tooltip-position="top" aria-label="SuperStructure Elevator" data-href="SuperStructure Elevator" href="https://stormbots.github.io/KnowledgeBase/level-1/superstructure-elevator.html" class="internal-link" target="_self" rel="noopener nofollow">Elevators</a>. In some cases, it's a deployable linkage using motors or <a data-tooltip-position="top" aria-label="Level 1/Pnuematics" data-href="Level 1/Pnuematics" href="https://stormbots.github.io/KnowledgeBase/Level 1/Pnuematics" class="internal-link" target="_self" rel="noopener nofollow">Pnuematic Solenoids</a> .<br>Intakes often also interact with gamepiece management systems, usually an <a data-tooltip-position="top" aria-label="Superstructure Indexer" data-href="Superstructure Indexer" href="https://stormbots.github.io/KnowledgeBase/level-2/superstructure-indexer.html" class="internal-link" target="_self" rel="noopener nofollow">Indexer/Passthrough</a> that helps move the game piece through a scoring mechanism. In some systems, the intake is the scoring mechanism.<br><br>Regardless of the system setup, good <a data-tooltip-position="top" aria-label="Subsystems" data-href="Subsystems" href="https://stormbots.github.io/KnowledgeBase/misc/subsystems.html" class="internal-link" target="_self" rel="noopener nofollow">Subsystem</a> design remains, and the "Intake" name tends to be given to the end effector (usually <a data-tooltip-position="top" aria-label="SuperStructure Rollers" data-href="SuperStructure Rollers" href="https://stormbots.github.io/KnowledgeBase/level-1/superstructure-rollers.html" class="internal-link" target="_self" rel="noopener nofollow">Rollers</a>) contacting the game piece, with intake actuators being named appropriately (like IntakeArm or IntakeElevator)<br><br><a href="https://stormbots.github.io/KnowledgeBase?query=tag:todo" class="tag" target="_blank" rel="noopener nofollow">#todo</a>SuperStructure Intake]]></description><link>https://stormbots.github.io/KnowledgeBase/stormbots-tree.html</link><guid isPermaLink="false">Stormbots Tree.canvas</guid><pubDate>Tue, 30 Sep 2025 05:30:59 GMT</pubDate><enclosure url="https://stormbots.github.io/KnowledgeBase/assets/git-graph-commit-history.png" length="0" type="image/png"/><content:encoded>&lt;figure&gt;&lt;img src="https://stormbots.github.io/KnowledgeBase/assets/git-graph-commit-history.png"&gt;&lt;/figure&gt;</content:encoded></item><item><title><![CDATA[General Details]]></title><description><![CDATA[ 
- <br><br>
-<br>Add Learning Objective to some/all items
-<br><br><a data-href="System Tuning" href="https://stormbots.github.io/KnowledgeBase/System Tuning" class="internal-link" target="_self" rel="noopener nofollow">System Tuning</a> -&gt; Cover real world tuning, pull from PID<br><a data-href="Subsystem Lighting" href="https://stormbots.github.io/KnowledgeBase/Subsystem Lighting" class="internal-link" target="_self" rel="noopener nofollow">Subsystem Lighting</a><br>
-triggers as state passing, strong and loose coupling.<br>
-Motors: Current, free, stall<br>
-<a data-href="Mechanism2d" href="https://stormbots.github.io/KnowledgeBase/level-2/mechanism2d.html" class="internal-link" target="_self" rel="noopener nofollow">Mechanism2d</a><br>
-<a data-href="Driver Station" href="https://stormbots.github.io/KnowledgeBase/misc/driver-station.html" class="internal-link" target="_self" rel="noopener nofollow">Driver Station</a> + Controllers<br>
-<a data-href="Lambdas" href="https://stormbots.github.io/KnowledgeBase/misc/lambdas.html" class="internal-link" target="_self" rel="noopener nofollow">Lambdas</a>  + Suppliers<br>
-Climber systems<br>
-<br>Training:
-
-<br>Deploying code
-
-
-<br>public/private fields and methods
-<br>Code planning/bringup stubs, and interfaces.
-<br>PID: Position control vs velocity control
-<br>Joystick and Input Basics
-<br>Solenoids + Pnuematics
-<br>Rev Hardware Client
-<br>PWM Output
-<br>DigitalInput channels and switches
-<br>LEDs
-<br>SPI, I2C, other communication busses
-<br>Custom controllers
-<br>Code structuring (Stormbreakers)
-<br>How to read documentation
-<br>Conventions: Use of Units
-<br>Sensor Pairing? Advanced: Information/state transfer (break beam -&gt; indexer position) <a data-href="Sensing Basics" href="https://stormbots.github.io/KnowledgeBase/level-1/sensing-basics.html" class="internal-link" target="_self" rel="noopener nofollow">Sensing Basics</a>? -&gt; State Transfer
-<br><br>
-<br>Threading
-<br>Old docs
-<br><br><a data-href="Encoder Basics#Soft Limits" href="https://stormbots.github.io/KnowledgeBase/level-1/encoder-basics.html#Soft_Limits" class="internal-link" target="_self" rel="noopener nofollow">Encoder Basics &gt; Soft Limits</a> - Dependency jank due to need of motor control<br>
-<a data-href="clamping" href="https://stormbots.github.io/KnowledgeBase/misc/clamping.html" class="internal-link" target="_self" rel="noopener nofollow">clamping</a><br>
-<a data-href="Units" href="https://stormbots.github.io/KnowledgeBase/misc/units.html" class="internal-link" target="_self" rel="noopener nofollow">Units</a><br>
-<a data-href="Mechanical Backlash" href="https://stormbots.github.io/KnowledgeBase/misc/mechanical-backlash.html" class="internal-link" target="_self" rel="noopener nofollow">Mechanical Backlash</a><br>
-<a data-tooltip-position="top" aria-label="Homing Sequences" data-href="Homing Sequences" href="https://stormbots.github.io/KnowledgeBase/level-1/homing-sequences.html" class="internal-link" target="_self" rel="noopener nofollow">Hard Stops</a> -&gt; Does this need a mech design page?<br>
-<a data-href="Pnuematics" href="https://stormbots.github.io/KnowledgeBase/Pnuematics" class="internal-link" target="_self" rel="noopener nofollow">Pnuematics</a> and solenoids<br>
-<a data-href="Scheduler" href="https://stormbots.github.io/KnowledgeBase/Scheduler" class="internal-link" target="_self" rel="noopener nofollow">Scheduler</a> &lt;-- ? <br>Data Structures: <a rel="noopener nofollow" class="external-link" href="https://www.youtube.com/watch?v=KwBuV7YZido" target="_blank">https://www.youtube.com/watch?v=KwBuV7YZido</a><br><br>
-<br>Rev Hardware Client
-<br>Pathplanner/choreo
-<br>GrappleHook
-<br><a data-href="Driver Station" href="https://stormbots.github.io/KnowledgeBase/misc/driver-station.html" class="internal-link" target="_self" rel="noopener nofollow">Driver Station</a>
-<br>YAGSL Mechanisms Library <a rel="noopener nofollow" class="external-link" href="https://www.chiefdelphi.com/t/beta-frc-mechanisms-library-elevators-arms-turrets-w-sim-telemetry-built-in/503589" target="_blank">https://www.chiefdelphi.com/t/beta-frc-mechanisms-library-elevators-arms-turrets-w-sim-telemetry-built-in/503589</a>
-<br>another mechanism lib <a rel="noopener nofollow" class="external-link" href="https://www.chiefdelphi.com/t/introducing-excalib-a-mechanism-motor-wrappers-and-utilities-wpilibj-command-library/503814" target="_blank">https://www.chiefdelphi.com/t/introducing-excalib-a-mechanism-motor-wrappers-and-utilities-wpilibj-command-library/503814</a>
-<br><br>#stub<br>#todo<br><br><a rel="noopener nofollow" class="external-link" href="https://github.com/HighlanderRobotics/Highlanders-Training" target="_blank">https://github.com/HighlanderRobotics/Highlanders-Training</a>]]></description><link>https://stormbots.github.io/KnowledgeBase/todo.html</link><guid isPermaLink="false">TODO.md</guid><pubDate>Wed, 01 Oct 2025 01:27:23 GMT</pubDate></item><item><title><![CDATA[Basic Odometry+Telemetry]]></title><description><![CDATA[<a class="tag" href="https://stormbots.github.io/KnowledgeBase/?query=tag:stub" style="background-color: rgb(4, 108, 116); color: white; font-weight: 700; border: none; border-radius: 1em; padding: 0.2em 0.5em;">#stub</a> 
+<br><br><br>Generally,  intakes are not one "system", but often actuated to deploy it beyond the frame perimeter, or line it up with intake positions. These are often done using <a data-tooltip-position="top" aria-label="SuperStructure Arm" data-href="SuperStructure Arm" href="https://stormbots.github.io/KnowledgeBase/level-1/superstructure-arm.html" class="internal-link" target="_self" rel="noopener nofollow">Arms</a> or <a data-tooltip-position="top" aria-label="SuperStructure Elevator" data-href="SuperStructure Elevator" href="https://stormbots.github.io/KnowledgeBase/level-1/superstructure-elevator.html" class="internal-link" target="_self" rel="noopener nofollow">Elevators</a>. In some cases, it's a deployable linkage using motors or <a data-tooltip-position="top" aria-label="Level 1/Pnuematics" data-href="Level 1/Pnuematics" href="https://stormbots.github.io/KnowledgeBase/Level 1/Pnuematics" class="internal-link" target="_self" rel="noopener nofollow">Pnuematic Solenoids</a> .<br>Intakes often also interact with gamepiece management systems, usually an <a data-tooltip-position="top" aria-label="Superstructure Indexer" data-href="Superstructure Indexer" href="https://stormbots.github.io/KnowledgeBase/level-2/superstructure-indexer.html" class="internal-link" target="_self" rel="noopener nofollow">Indexer/Passthrough</a> that helps move the game piece through a scoring mechanism. In some systems, the intake is the scoring mechanism.<br><br>Regardless of the system setup, good <a data-tooltip-position="top" aria-label="Subsystems" data-href="Subsystems" href="https://stormbots.github.io/KnowledgeBase/misc/subsystems.html" class="internal-link" target="_self" rel="noopener nofollow">Subsystem</a> design remains, and the "Intake" name tends to be given to the end effector (usually <a data-tooltip-position="top" aria-label="SuperStructure Rollers" data-href="SuperStructure Rollers" href="https://stormbots.github.io/KnowledgeBase/level-1/superstructure-rollers.html" class="internal-link" target="_self" rel="noopener nofollow">Rollers</a>) contacting the game piece, with intake actuators being named appropriately (like IntakeArm or IntakeElevator)<br><br><a href="https://stormbots.github.io/KnowledgeBase?query=tag:todo" class="tag" target="_blank" rel="noopener nofollow">#todo</a>SuperStructure Intake]]></description><link>https://stormbots.github.io/KnowledgeBase/stormbots-tree.html</link><guid isPermaLink="false">Stormbots Tree.canvas</guid><pubDate>Tue, 30 Sep 2025 05:30:59 GMT</pubDate><enclosure url="https://stormbots.github.io/KnowledgeBase/assets/git-graph-commit-history.png" length="0" type="image/png"/><content:encoded>&lt;figure&gt;&lt;img src="https://stormbots.github.io/KnowledgeBase/assets/git-graph-commit-history.png"&gt;&lt;/figure&gt;</content:encoded></item><item><title><![CDATA[Basic Odometry+Telemetry]]></title><description><![CDATA[<a class="tag" href="https://stormbots.github.io/KnowledgeBase/?query=tag:stub" style="background-color: rgb(4, 108, 116); color: white; font-weight: 700; border: none; border-radius: 1em; padding: 0.2em 0.5em;">#stub</a> 
  <br><a href="https://stormbots.github.io/KnowledgeBase?query=tag:stub" class="tag" target="_blank" rel="noopener nofollow">#stub</a> <br><br><a rel="noopener nofollow" class="external-link" href="https://docs.wpilib.org/en/stable/docs/software/dashboards/glass/field2d-widget.html" target="_blank">https://docs.wpilib.org/en/stable/docs/software/dashboards/glass/field2d-widget.html</a><br><br>
 <br>Create a Widget on a dashboard to show the field
 <br>Populate the Field with your robot, and one or more targets
@@ -4955,102 +5301,7 @@ Climber systems<br>
 	
 
 }
-<br>In this use case, the work will likely be done inside your Auto class after selecting the appropriate one. ]]></description><link>https://stormbots.github.io/KnowledgeBase/level-1/basic-odometry+telemetry.html</link><guid isPermaLink="false">Level 1/Basic Odometry+Telemetry.md</guid><pubDate>Fri, 26 Sep 2025 02:29:39 GMT</pubDate><enclosure url="https://stormbots.github.io/KnowledgeBase/lib/media/telemetry-elastic.png" length="0" type="image/png"/><content:encoded>&lt;figure&gt;&lt;img src="https://stormbots.github.io/KnowledgeBase/lib/media/telemetry-elastic.png"&gt;&lt;/figure&gt;</content:encoded></item><item><title><![CDATA[FeedForwards]]></title><description><![CDATA[ 
- <br>Requires:<br>
-<a data-href="Motor Control" href="https://stormbots.github.io/KnowledgeBase/level-1/motor-control.html" class="internal-link" target="_self" rel="noopener nofollow">Motor Control</a><br><br>
-<br>Create a velocity FF for a roller system that enables you to set the output in RPM
-<br>Create a gravity FF for a elevator system that holds the system in place without resisting external movement
-<br>Create a gravity FF for an arm system that holds the system in place without resisting external movement
-<br><br>Feedforwards model an expected motor output for a  system to hit specific target values.<br>
-The easiest example is a motor roller. Let's say you want to run at ~3000 RPM. You know your motor has a top speed of ~6000 RPM at 100% output, so you'd correctly expect that driving the motor at 50% would get about 3000 RPM. This simple correlation is the essence of a feed-forward. The details are specific to the system at play. <br><br>The WPILib docs have good fundamentals on feedforwards that is worth reading.<br>
-<a rel="noopener nofollow" class="external-link" href="https://docs.wpilib.org/en/stable/docs/software/advanced-controls/controllers/feedforward.html" target="_blank">https://docs.wpilib.org/en/stable/docs/software/advanced-controls/controllers/feedforward.html</a><br><br>Feed-forwards are specifically tuned to the system you're trying to operate, but helpfully fall into a few simple terms, and straightforward calculations. In many cases, the addition of one or two terms can be sufficient to improve and simplify control. <br><br>The simplest feedforward you'll encounter is the "static feed-forward". This term represents initial momentum, friction, and certain motor dynamics. <br>You can see this in systems by simply trying to move very slow. You'll often notice that the output doesn't move it until you hit a certain threshhold. That threshhold is approximately equal to kS.<br>The static feed-forward affects output according to the simple equation of  <br><br>a kG value effectively represents the value needed for a system to negate gravity. <br>Elevators are the simpler case: You can generally imagine that since an elevator has a constant weight, it should take a constant amount of force to hold it up. This means the elevator Gravity gain is simply a constant value, affecting the output as  ; You don't need any other considerations regarding the system motion, because gravity is always constant. <br>A more complex kG calculation is needed for pivot or arm system. You can get a good sense of this by grabbing a heavy book, and holding it at your side with your arm down. Then, rotate your arm outward, fully horizontal. Then, rotate your arm all the way upward. You'll probably notice that the book is much harder to hold steady when it's horizontal than up or down.<br>The same is true for these systems, where the force needed to counter gravity changes based on the angle of the system. To be precise, it's maximum at horizontal, zero when directly above or below the pivot. Mathematically, it follows the function  ratio, lending this version of the feed-forward the nickname kCos.<br>This form of the gravity constant affects the output according to<br>
-, where  is is the maximum output, at horizontal. <a data-footref="kcos" href="https://stormbots.github.io/KnowledgeBase/about:blank#fn-1-eccb17358eb5b44f" class="footnote-link" target="_self" rel="noopener nofollow">[1]</a> <br><br>The velocity feed-forward represents the expected output to maintain a target velocity. This term accounts for physical effects like dynamic friction and air resistance, and a handful of  <br>This is most easily visualized on systems with a velocity goal state. In that case,  is easily known, and contributes to the output as  .<br>In contrast, for positional control systems, knowing the desired system velocity is quite a challenge. In general, you won't know the target velocity unless you're using a <a data-href="Motion Profiles" href="https://stormbots.github.io/KnowledgeBase/level-2/motion-profiles.html" class="internal-link" target="_self" rel="noopener nofollow">Motion Profiles</a> to to generate the instantaneous velocity target. <br><br>The acceleration feed-forward largely negates a few inertial effects. It simply provides a boost to output to achieve the target velocity quicker.<br>like ,  is typically only known when you're working with <a data-href="Motion Profiles" href="https://stormbots.github.io/KnowledgeBase/level-2/motion-profiles.html" class="internal-link" target="_self" rel="noopener nofollow">Motion Profiles</a>. <br><br>Putting this all together, it's helpful to de-mystify the math happening behind the scenes.<br>The short form is just a re-clarification of the terms and their units<br>
-: Output to overcome gravity ()<br>
-: Output to overcome static friction ()<br>
-: Output per unit of target velocity ()<br>
-: Output per unit of target acceleration ()<br>A roller system will often simply be<br>
-If you don't have a motion profile, kA will simply be zero, and and kS might also be negligible unless you plan to operate at very low RPM.<br>An elevator system will look similar:<br>
-Without a motion profile, you cannot properly utilize kV and kA, which simplifies down to<br>
-where  is generally derived by  (since you know the current and previous positions).<br>Lastly, elevator systems differ only by the cosine term to scale kG.<br>
-Again simplifying for systems with no motion profile, you get<br>
-It's helpful to recognize that because the angle is being fed to a  function, you cannot use degrees here! Make sure to convert. <br>Of course, the intent of a feed-forward is to model your mechanics to improve control. As your system increases in complexity, and demands for precision increase, optimal control might require additional complexity! A few common cases: <br>
-<br>If you have a pivot arm that extends, your kG won't be constant! 
-<br>Moving an empty system and one loaded with heavy objects might require different feed-forward models entirely.
-<br>Long arms might be impacted by motion of systems they're mounted on, like elevators or the chassis itself! You can add that in and apply corrective forces right away.
-<br><br>Since a feed-forward is prediction about how your system behaves, it works very well for fast, responsive control. However, it's not perfect; If something goes wrong, your feed-forward simply doesn't know about it, because it's not measuring what actually happens. <br>In contrast, feed-back controllers like a  <a data-href="PID" href="https://stormbots.github.io/KnowledgeBase/level-1/pid.html" class="internal-link" target="_self" rel="noopener nofollow">PID</a> are designed to act on the error between a system's current state and target state, and make corrective actions based on the error. Without first encountering system error, it doesn't do anything.<br>The combination of a feed-forward along with a feed-back system is the power combo that provides robust, predictable motion.<br><br>WPILib has several classes that streamline the underlying math for common systems, although knowing the math still comes in handy! The docs explain them (and associated warnings) well.<br>
-<a rel="noopener nofollow" class="external-link" href="https://docs.wpilib.org/en/stable/docs/software/advanced-controls/controllers/feedforward.html" target="_blank">https://docs.wpilib.org/en/stable/docs/software/advanced-controls/controllers/feedforward.html</a><br>Integrating in a robot project is as simple as crunching the numbers for your feed-forward and adding it to your motor value that you write every loop.<br>ExampleSystem extends SubsystemBase(){
-
-	SparkMax motor = new SparkMax(...)
-	// Declare our FF terms and our object to help us compute things.
-	double kS = 0.0;
-	double kG = 0.0;
-	double kV = 0.0;
-	double kA = 0.0;
-	ElevatorFeedforward feedforward = new ElevatorFeedforward(kS, kG, kV, kA);
-	
-	ExampleSubsystem(){}
-
-	Command moveManual(double percentOutput){
-		return run(()-&gt;{
-			var output ;
-			//We don't have a motion profile or other velocity control
-			//Therefore, we can only assert that the velocity and accel are zero
-			output = percentOutput+feedforward.calculate(0,0);
-			// If we check the math, this feedforward.calculate() thus 
-			// evaluates as simply kg;
-			
-			// We can improve this by instead manually calculating a bit
-			// since we known the direction we want to move in
-			output = percentOutput + Math.signOf(percentOutput) + kG;
-			motor.set(output);
-		})
-	}
-
-	Command movePID(double targetPosition){
-		return run(()-&gt;{
-			//Same notes as moveManual's calculations 
-			var feedforwardOutput = feedforward.calculate(0,0);
-			// When using the Spark closed loop control, 
-			// we can pass the feed-forward directly to the onboard PID
-			motor
-			.getClosedLoopController()
-			.setReference(
-				targetPosition,
-				ControlType.kPosition,
-				ClosedLoopSlot.kSlot0,
-				feedforwardOutput, 
-				ArbFFUnits.kPercentOut
-			);
-			//Note, the ArbFFUnits should match the units you calculated!
-		})
-	}
-
-	Command moveProfiled(double targetPosition){
-		// This is the only instance where we know all parameters to make 
-		// full use of a feedforward.
-		// Check [[Motion Profiles]] for further reading
-	}
-	
-}
-<br>2026 update?
-Rev released a new FeedForward config API that might allow advanced feed-forwards to be run directly on controller. Look into it and add examples!<br>
-<a rel="noopener nofollow" class="external-link" href="https://codedocs.revrobotics.com/java/com/revrobotics/spark/config/feedforwardconfig" target="_blank">https://codedocs.revrobotics.com/java/com/revrobotics/spark/config/feedforwardconfig</a>
-<br><br>High gains
-When tuning feed-forwards, it's helpful to recognize that values being too high will result in notable problems, but gains being too low generally result in lower performance.<br>
-Just remember that the lowest possible value is 0; Which is equivalent to not using that feed forward in the first place. Can only improve from there. 
-<br>FeedForward Units
-It's worth clarifying that the "units" of feedForward are usually provided in "volts", rather than "percent output". This allows FeedForwards to operate reliably in spite of changes of supply voltage, which can vary from 13 volts on a fresh battery to ~10 volts at the end of a match.<br>
-Percent output on the other hand is just how much of the available voltage to output; This makes it suboptimal for controlled calculations in this case. 
-<br><br>These two terms are defined at the boundary between "moving" and "not moving", and thus are closely intertwined. Or, in other words, they interfere with finding the other. So it's best to find them both at once.<br>It's easiest to find these with manual input, with your controller input scaled down to give you the most possible control.<br>Start by positioning your system so you have room to move both up and down. Then, hold the system perfectly steady, and increase output until it just barely moves upward. Record that value.<br>
-Hold the system stable again, and then decrease output until it just barely starts moving down. Again, record the value. <br>Thinking back to what each term represents, if a system starts moving up, then the provided input must be equal to ; You've negated both gravity and the friction holding it in place. Similarly, to start moving down, you need to be applying . This insight means you can generate the following two equations  <br><br>Helpfully, for systems where  like roller systems, several terms cancel out and you just get  .<br>For pivot/arm systems, this routine works as described if you can calculate kG at approximately horizontal. It cannot work if the pivot is vertical. If your system cannot be held horizontal, you may need to be creative, or do a bit of trig to account for your recorded  being decreased by <br>Importantly, this routine actually returns a kS that's often slightly too high, resulting in undesired oscillation. That's because we recorded a minimum that causes motion, rather than the maximum value that doesn't cause motion. Simply put, it's easier to find this way. So, we can just compensate by reducing the calculated kS slightly; Usually multiplying it by 0.9 works great. <br><br>Because this type of system system is also relatively linear and simple, finding it is pretty simple. We know that , and expect . <br>We know  is going to be constrained by our motor's maximum RPM, and that maxOutput is defined by our api units (either +/-1.0 for "percentage" or +/-12 for "volt output"). <br>This means we can quickly assert that  should be pretty close to . <br><br>Beyond roller kV, kA and kV values are tricky to identify with simple routines, and require <a data-href="Motion Profiles" href="https://stormbots.github.io/KnowledgeBase/level-2/motion-profiles.html" class="internal-link" target="_self" rel="noopener nofollow">Motion Profiles</a> to take advantage of. As such, they're somewhat beyond the scope of this article.<br>The optimal option is using <a data-href="System Identification" href="https://stormbots.github.io/KnowledgeBase/level-2/system-identification.html" class="internal-link" target="_self" rel="noopener nofollow">System Identification</a> to calculate the system response to inputs over time. This can provide optimal, easily repeatable results. However, it involves a lot of setup, and potentially hazardous to your robot when done without caution.<br>The other option is to tune by hand; This is not especially challenging, and mostly involves a process of moving between goal states, watching graphs, and twiddling numbers. It usually looks like this:<br>
-<br>Identify two setpoints, away from hard stops but with sufficient range of motion you can hit target velocities. 
-<br>While cycling between setpoints, ihen increase kV until the system generates velocities that match the target velocities. They'll generally lag behind during the accelleration phase. 
-<br>Then, increase kA until the accelleration shifts and the system perfectly tracks your profile. 
-<br>Increase profile constraints and and repeat until system performance is attained. Starting small and slow prevents damage to the mechanics of your system.
-<br>This process benefits from a relatively low P gain, which helps keep the system stable. Once your system is tuned, you'll probably want a relatively high P gain, now that you can assert the feed-forward is keeping your error close to zero. <br><br>
-<br>
-<br>Note, you might observe that the kCos output,   is reading the current system state, and say "hey!  That's a feed back system, not a feed forward!" and you are technically correct; the best kind of correct. However, kCos is often implemented this way, as it's much more stable than the feed-forward version. In that version, you apply , regardless of what  happens to actually be. Feel free to do a thought experiment on how this might present problems in real-world systems.<a href="https://stormbots.github.io/KnowledgeBase/about:blank#fnref-1-eccb17358eb5b44f" class="footnote-backref footnote-link" target="_self" rel="noopener nofollow">↩︎</a>
-]]></description><link>https://stormbots.github.io/KnowledgeBase/level-1/feedforwards.html</link><guid isPermaLink="false">Level 1/FeedForwards.md</guid><pubDate>Sat, 27 Sep 2025 21:15:38 GMT</pubDate></item><item><title><![CDATA[Motor Control]]></title><description><![CDATA[ 
+<br>In this use case, the work will likely be done inside your Auto class after selecting the appropriate one. ]]></description><link>https://stormbots.github.io/KnowledgeBase/level-1/basic-odometry+telemetry.html</link><guid isPermaLink="false">Level 1/Basic Odometry+Telemetry.md</guid><pubDate>Fri, 26 Sep 2025 02:29:39 GMT</pubDate><enclosure url="https://stormbots.github.io/KnowledgeBase/lib/media/telemetry-elastic.png" length="0" type="image/png"/><content:encoded>&lt;figure&gt;&lt;img src="https://stormbots.github.io/KnowledgeBase/lib/media/telemetry-elastic.png"&gt;&lt;/figure&gt;</content:encoded></item><item><title><![CDATA[Motor Control]]></title><description><![CDATA[ 
  <br>Requires:<a data-href="Robot Code Basics" href="https://stormbots.github.io/KnowledgeBase/level-1/robot-code-basics.html" class="internal-link" target="_self" rel="noopener nofollow">Robot Code Basics</a><br>
 Recommends:<a data-href="Commands" href="https://stormbots.github.io/KnowledgeBase/level-1/commands.html" class="internal-link" target="_self" rel="noopener nofollow">Commands</a><br><br>
 <br>Spin a motor
@@ -7268,30 +7519,7 @@ which axis are you reading
 <br>Ensure the above button allows drivers to move toward and away from target while it's held
 <br>Create a pipeline that allows you to drive to the left/right of the target instead of directly at it
 <br>Create a button that aligns you with a game piece, and allows drivers to drive at it
-]]></description><link>https://stormbots.github.io/KnowledgeBase/level-1/limelight-assist-driving.html</link><guid isPermaLink="false">Level 1/Limelight Assist Driving.md</guid><pubDate>Sat, 28 Jun 2025 19:23:36 GMT</pubDate></item><item><title><![CDATA[SuperStructure Arm]]></title><description><![CDATA[ 
- <br>Requires:<br>
-<a data-href="FeedForwards" href="https://stormbots.github.io/KnowledgeBase/level-1/feedforwards.html" class="internal-link" target="_self" rel="noopener nofollow">FeedForwards</a><br>
-<a data-href="PID" href="https://stormbots.github.io/KnowledgeBase/level-1/pid.html" class="internal-link" target="_self" rel="noopener nofollow">PID</a><br><br>
-<br>Create an Arm subsystem
-<br>Set Encoders
-
-<br>find the encoder range and conversion to have real-world angle values
-<br>Find the system range, apply soft limits
-
-
-<br>Get control
-
-<br>Determine the system Gravity feed-forward value
-<br>Create a PID controller
-<br>Tune the PID to an acceptable level for control
-
-
-<br>Create a default command that holds the system at the current angle
-<br>Create a setAngle function that takes a angle, and returns a command that runs indefinitely to the target angle
-<br>Create a Trigger that indicates if the system is within a suitable tolerance of the commanded height.
-<br>Bind several target positions to a controller
-<br>Create a small auto sequence that moves to multiple positions in sequence.
-]]></description><link>https://stormbots.github.io/KnowledgeBase/level-1/superstructure-arm.html</link><guid isPermaLink="false">Level 1/SuperStructure Arm.md</guid><pubDate>Sat, 28 Jun 2025 19:27:04 GMT</pubDate></item><item><title><![CDATA[Singletons]]></title><description><![CDATA[ 
+]]></description><link>https://stormbots.github.io/KnowledgeBase/level-1/limelight-assist-driving.html</link><guid isPermaLink="false">Level 1/Limelight Assist Driving.md</guid><pubDate>Sat, 28 Jun 2025 19:23:36 GMT</pubDate></item><item><title><![CDATA[Singletons]]></title><description><![CDATA[ 
  <br><br>
 <br>Create a Singleton class
 <br>Use it in multiple places in your code
