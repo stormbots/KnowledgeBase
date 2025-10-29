@@ -1,0 +1,8 @@
+#Obsidian's workspace configuration: This changes constantly as people adjust to desktops
+.obsidian/workspace.json
+#Automatically created empty database
+Untitled*base
+
+#Sync temp files
+*.sync-conflict.*
+

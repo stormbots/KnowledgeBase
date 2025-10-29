@@ -1,5 +1,9 @@
 # Contributing
 
+## Setting Up the Workspace
+The [[TODO.md]] file has some helpful utilities to help you find work that needs doing. If you're new to obsidian, you can copy `.obsidian/workspace.json.template` to `.obsidian/workspace.json`, which configures the interface to show it on the right side for quickly hopping around files. 
+
+
 ## Document Formatting Reference
 
 Documents should generally be structured with the consideration that they're a small part of a whole; Each document is a little workshop, and intended to both provide some education, and provide a small task for the reader. 
