@@ -11,13 +11,17 @@ tags:
 
 
 
-## Introduction to the Hardware CLient
+## Introduction to the Hardware Client
+The Rev hardware client allows us to configure and update rev hardware such as motor controllers.
+Official Documentation here:
 https://docs.revrobotics.com/rev-hardware-client/gs/navigation
+![[rev-hardware-client.png]]
 
 
 ### Configuring a Spark
-
+After selecting a device from the connected hardware, you can access the configuration settings. We mostly use this to set the CAN id, as we configure the rest in code.
 https://docs.revrobotics.com/rev-hardware-client/ion/spark-max
+![[rev-hardware-config.png]]
 
 
 ## Identifying a motor ID
@@ -42,7 +46,7 @@ https://docs.revrobotics.com/rev-hardware-client/ion/spark-max
 > This shows up as a error on your line for 
 >  `motor.config(....);`
 
-^fb223b
+
 
 
 ###### Configuration Parameters

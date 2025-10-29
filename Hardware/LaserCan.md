@@ -2,9 +2,13 @@
 aliases:
   - RangeFinder
   - Distance Sensor
+tags:
+  - stub
+  - hardware
 ---
+Official documentation is here:
+https://docs.thethriftybot.com/lasercan
 
-#hardware #stub 
 
 ## Success Criteria
 - [ ] Connect to the LaserCan using GrappleHook

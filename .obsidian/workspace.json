@@ -27,22 +27,22 @@
             }
           },
           {
-            "id": "4dbde2795665d3d4",
+            "id": "98f4390925de2544",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Level 1/FeedForwards.md",
+                "file": "CONTRIBUTING.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "FeedForwards"
+              "title": "CONTRIBUTING"
             }
           },
           {
-            "id": "9f94cd8cd13252fc",
+            "id": "e120e648cfadde29",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -146,17 +146,17 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Level 2/Motion Profiles.md",
+                "file": "Hardware/NavX.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
-                "showSearch": false,
+                "showSearch": true,
                 "searchQuery": "",
                 "backlinkCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks for Motion Profiles"
+              "title": "Backlinks for NavX"
             }
           },
           {
@@ -263,8 +263,7 @@
               "title": "All properties"
             }
           }
-        ],
-        "currentTab": 7
+        ]
       },
       {
         "id": "fd90a05aa47b0988",
@@ -292,10 +291,11 @@
       }
     ],
     "direction": "horizontal",
-    "width": 344.5
+    "width": 342.5
   },
   "left-ribbon": {
     "hiddenItems": {
+      "vscode-editor:Create Code File": false,
       "bases:Create new base": false,
       "switcher:Open quick switcher": false,
       "graph:Open graph view": false,
@@ -305,12 +305,10 @@
       "command-palette:Open command palette": false,
       "obsidian-git:Open Git source control": false,
       "terminal:Open terminal": false,
-      "webpage-html-export:Export Vault to HTML": false,
-      "vscode-editor:Create Code File": false,
-      "webpage-html-export:Export as HTML": false
+      "webpage-html-export:Export Vault to HTML": false
     }
   },
-  "active": "6df780ef8a47652e",
+  "active": "5397393b82d5cad0",
   "lastOpenFiles": [
     "Level 1/FeedForwards.md",
     "Level 2/Swerve Odometry.md",

@@ -362,42 +362,6 @@
       "y": -1540
     },
     {
-      "file": "Level 1/Motor Control.md",
-      "height": 400,
-      "id": "77b0ad903304cd3d",
-      "type": "file",
-      "width": 400,
-      "x": -1160,
-      "y": -1640
-    },
-    {
-      "file": "Level 1/Differential Drive.md",
-      "height": 400,
-      "id": "b1044c48fab582a7",
-      "type": "file",
-      "width": 400,
-      "x": 160,
-      "y": -2080
-    },
-    {
-      "file": "Level 1/FeedForwards.md",
-      "height": 400,
-      "id": "5b6e3d856a2c11c8",
-      "type": "file",
-      "width": 400,
-      "x": 40,
-      "y": -1320
-    },
-    {
-      "file": "Level 1/Limelight Basics.md",
-      "height": 400,
-      "id": "9a40762c0f7eefa1",
-      "type": "file",
-      "width": 400,
-      "x": 160,
-      "y": 1360
-    },
-    {
       "file": "Level 1/Gyro Sensing.md",
       "height": 400,
       "id": "4a87dce74a833996",
@@ -407,7 +371,52 @@
       "y": 880
     },
     {
-      "file": "Level 1/Robot Code Basics.md",
+      "file": "Misc/Git Basics.md",
+      "height": 400,
+      "id": "809496a857f23df6",
+      "type": "file",
+      "width": 400,
+      "x": -1760,
+      "y": 2400
+    },
+    {
+      "file": "Level 1/Robot Design Analysis.md",
+      "height": 400,
+      "id": "378652d7a90156b4",
+      "type": "file",
+      "width": 400,
+      "x": -2200,
+      "y": 2400
+    },
+    {
+      "file": "Level 1/Limelight Assist Driving.md",
+      "height": 400,
+      "id": "26d2b69ebeb77abe",
+      "type": "file",
+      "width": 400,
+      "x": 2120,
+      "y": 1080
+    },
+    {
+      "file": "Level 1/Gyro Sensing.md",
+      "height": 400,
+      "id": "bd556bb6f4381bdb",
+      "type": "file",
+      "width": 400,
+      "x": 2640,
+      "y": 1560
+    },
+    {
+      "file": "Level 1/Homing Sequences.md",
+      "height": 400,
+      "id": "05b53d1526ce4835",
+      "type": "file",
+      "width": 400,
+      "x": 1000,
+      "y": 2400
+    },
+    {
+      "file": "Hardware/LaserCan.md",
       "height": 400,
       "id": "f5fdc14e32e8e80b",
       "type": "file",
