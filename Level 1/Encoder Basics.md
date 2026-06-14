@@ -2,6 +2,7 @@
 aliases:
   - Relative Encoder
 tags:
+  - sensor
 ---
 
 Requires:

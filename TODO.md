@@ -68,7 +68,7 @@ Data Structures: https://www.youtube.com/watch?v=KwBuV7YZido
 #stub
 ```
 ```query 
-#todo 
+#todo OR tag:todo
 ```
 
 ## Other Resources to reference

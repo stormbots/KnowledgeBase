@@ -148,3 +148,9 @@ This is a more mathematically complex differential-equation based control system
 https://docs.wpilib.org/en/stable/docs/software/advanced-controls/state-space/state-space-intro.html
 
 These can model physical systems *extremely* accurately, and actually are what is used internally when using [[Physics Simulation|Simulation]] .
+
+
+# ADRC 
+
+
+https://en.wikipedia.org/wiki/Active_disturbance_rejection_control

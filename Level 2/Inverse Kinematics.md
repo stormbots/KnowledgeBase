@@ -4,3 +4,5 @@
 
 
 https://robotics-explained.com/inversekinematics
+
+dh-Parameters

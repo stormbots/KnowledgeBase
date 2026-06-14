@@ -1,0 +1,371 @@
+{
+  "edges": [
+    {
+      "fromNode": "e35df302fa819701",
+      "fromSide": "right",
+      "id": "072bc82aee15692a",
+      "styleAttributes": {
+      },
+      "toNode": "9eb3e7e989d3682c",
+      "toSide": "left"
+    },
+    {
+      "fromNode": "dad611a5e20c3d25",
+      "fromSide": "right",
+      "id": "22afd81a43875d16",
+      "styleAttributes": {
+      },
+      "toNode": "4d13cc604e7f1a7e",
+      "toSide": "left"
+    },
+    {
+      "fromNode": "9eb3e7e989d3682c",
+      "fromSide": "right",
+      "id": "7dc98dd2052d8bbe",
+      "styleAttributes": {
+      },
+      "toNode": "524ed696c0126d18",
+      "toSide": "left"
+    },
+    {
+      "fromNode": "6c6895daf9e3c0b5",
+      "fromSide": "right",
+      "id": "660512dd1bbd4c66",
+      "styleAttributes": {
+      },
+      "toNode": "a3764b8700a68760",
+      "toSide": "left"
+    },
+    {
+      "fromNode": "a3764b8700a68760",
+      "fromSide": "right",
+      "id": "fa68258a0d4180f3",
+      "styleAttributes": {
+      },
+      "toNode": "f5b90f8cb606ae30",
+      "toSide": "left"
+    },
+    {
+      "fromNode": "f5b90f8cb606ae30",
+      "fromSide": "right",
+      "id": "2a33029f96d32c2a",
+      "styleAttributes": {
+      },
+      "toNode": "e35df302fa819701",
+      "toSide": "left"
+    },
+    {
+      "fromNode": "f5b90f8cb606ae30",
+      "fromSide": "right",
+      "id": "88f973cba7a7685a",
+      "styleAttributes": {
+      },
+      "toNode": "399d8a3019bf41f9",
+      "toSide": "left"
+    },
+    {
+      "fromNode": "399d8a3019bf41f9",
+      "fromSide": "right",
+      "id": "85f2e44315f9303a",
+      "styleAttributes": {
+      },
+      "toNode": "dad611a5e20c3d25",
+      "toSide": "left"
+    },
+    {
+      "fromNode": "399d8a3019bf41f9",
+      "fromSide": "right",
+      "id": "2db17b99a0076898",
+      "styleAttributes": {
+      },
+      "toNode": "523d3025c07e90b1",
+      "toSide": "left"
+    },
+    {
+      "fromNode": "399d8a3019bf41f9",
+      "fromSide": "right",
+      "id": "85fde7de54db53a4",
+      "styleAttributes": {
+      },
+      "toNode": "d90461ac7daae146",
+      "toSide": "left"
+    },
+    {
+      "fromNode": "e35df302fa819701",
+      "fromSide": "right",
+      "id": "d85103e9332092b7",
+      "styleAttributes": {
+      },
+      "toNode": "d90461ac7daae146",
+      "toSide": "left"
+    },
+    {
+      "fromNode": "523d3025c07e90b1",
+      "fromSide": "right",
+      "id": "102ce098fefa318b",
+      "styleAttributes": {
+      },
+      "toNode": "78d733eb58819490",
+      "toSide": "left"
+    },
+    {
+      "fromNode": "78d733eb58819490",
+      "fromSide": "right",
+      "id": "c4e347078605af14",
+      "styleAttributes": {
+      },
+      "toNode": "3bcec54409fa3144",
+      "toSide": "left"
+    },
+    {
+      "fromNode": "f5b90f8cb606ae30",
+      "fromSide": "right",
+      "id": "8a0ff0b29e6c3299",
+      "styleAttributes": {
+      },
+      "toNode": "50cb08c15ec10d32",
+      "toSide": "left"
+    },
+    {
+      "fromNode": "9eb3e7e989d3682c",
+      "fromSide": "right",
+      "id": "53a5cf5597ad771a",
+      "styleAttributes": {
+      },
+      "toNode": "f1aca579cbc4b279",
+      "toSide": "left"
+    }
+  ],
+  "metadata": {
+    "frontmatter": {
+    },
+    "version": "1.0-1.0"
+  },
+  "nodes": [
+    {
+      "height": 870,
+      "id": "d12b624e7bc0f891",
+      "label": "Kitbot Minimum",
+      "type": "group",
+      "width": 1920,
+      "x": -1440,
+      "y": -600
+    },
+    {
+      "height": 480,
+      "id": "f1aca579cbc4b279",
+      "label": "Advanced Control",
+      "type": "group",
+      "width": 760,
+      "x": 560,
+      "y": -210
+    },
+    {
+      "height": 420,
+      "id": "9eb3e7e989d3682c",
+      "label": "Mechanism Types",
+      "type": "group",
+      "width": 340,
+      "x": 40,
+      "y": -480
+    },
+    {
+      "height": 219,
+      "id": "d90461ac7daae146",
+      "styleAttributes": {
+      },
+      "text": "Managing System State\n- State = robot/mechanism configuration\n- Multi-system interactions\n- Subsystem initialization\n- Command Groups\n- State Machines? \n- Sequencing?",
+      "type": "text",
+      "width": 260,
+      "x": 80,
+      "y": 21
+    },
+    {
+      "height": 120,
+      "id": "dad611a5e20c3d25",
+      "styleAttributes": {
+      },
+      "text": "Limelight 101\n- Target servoing\n- Localization",
+      "type": "text",
+      "width": 260,
+      "x": 80,
+      "y": 341
+    },
+    {
+      "height": 100,
+      "id": "740acfc52ed5d67d",
+      "styleAttributes": {
+      },
+      "text": "Linear Motion Systems\n- Lifters/Elevators\n- Climbers",
+      "type": "text",
+      "width": 260,
+      "x": 80,
+      "y": -459
+    },
+    {
+      "height": 60,
+      "id": "d3388b24187d1478",
+      "styleAttributes": {
+      },
+      "text": "Rollers",
+      "type": "text",
+      "width": 260,
+      "x": 80,
+      "y": -329
+    },
+    {
+      "height": 60,
+      "id": "eecaa4e868327cf1",
+      "styleAttributes": {
+      },
+      "text": "Shooters",
+      "type": "text",
+      "width": 260,
+      "x": 80,
+      "y": -234
+    },
+    {
+      "height": 60,
+      "id": "52f3da964f5cd8ab",
+      "styleAttributes": {
+      },
+      "text": "Arms",
+      "type": "text",
+      "width": 260,
+      "x": 80,
+      "y": -139
+    },
+    {
+      "height": 246,
+      "id": "524ed696c0126d18",
+      "styleAttributes": {
+      },
+      "text": "Sensing\n- Triggers\n- Encoders\n- Switches\n- Lasercan Distance\n- Lasercan Presence",
+      "type": "text",
+      "width": 260,
+      "x": 620,
+      "y": -540
+    },
+    {
+      "height": 180,
+      "id": "50cb08c15ec10d32",
+      "styleAttributes": {
+      },
+      "text": "Telemetry\n- Reading robot inputs\n- Graphs\n- AdvantageScope?",
+      "type": "text",
+      "width": 260,
+      "x": -370,
+      "y": 341
+    },
+    {
+      "height": 242,
+      "id": "e35df302fa819701",
+      "styleAttributes": {
+      },
+      "text": "Evaluating Kibot Structures\n- Trace game piece flow\n- Determine mechanism types\n- Determine mechanism activation orders+combinations",
+      "type": "text",
+      "width": 260,
+      "x": -370,
+      "y": -302
+    },
+    {
+      "height": 60,
+      "id": "399d8a3019bf41f9",
+      "styleAttributes": {
+      },
+      "text": "Differential Drivetrain",
+      "type": "text",
+      "width": 260,
+      "x": -370,
+      "y": 70
+    },
+    {
+      "height": 60,
+      "id": "4d13cc604e7f1a7e",
+      "styleAttributes": {
+      },
+      "text": "Path Following +LTV",
+      "type": "text",
+      "width": 260,
+      "x": 440,
+      "y": 371
+    },
+    {
+      "height": 60,
+      "id": "523d3025c07e90b1",
+      "styleAttributes": {
+      },
+      "text": "Gyro Based Alignment",
+      "type": "text",
+      "width": 260,
+      "x": 80,
+      "y": 500
+    },
+    {
+      "height": 60,
+      "id": "78d733eb58819490",
+      "styleAttributes": {
+      },
+      "text": "Field-Oreinted Drive",
+      "type": "text",
+      "width": 260,
+      "x": 440,
+      "y": 500
+    },
+    {
+      "height": 60,
+      "id": "3bcec54409fa3144",
+      "styleAttributes": {
+      },
+      "text": "Swerve Concepts",
+      "type": "text",
+      "width": 260,
+      "x": 800,
+      "y": 500
+    },
+    {
+      "height": 237,
+      "id": "f5b90f8cb606ae30",
+      "styleAttributes": {
+      },
+      "text": "Commands+Controllers\n- Creating simple commands\n- Binding to a joystick\n- Mechanisms + Requires\n- Triggers",
+      "type": "text",
+      "width": 260,
+      "x": -720,
+      "y": -197
+    },
+    {
+      "height": 190,
+      "id": "a3764b8700a68760",
+      "styleAttributes": {
+      },
+      "text": "Rev Motor Basics\n- Basic creation + configuration\n- Current limits\n- Open Loop operation",
+      "type": "text",
+      "width": 260,
+      "x": -1060,
+      "y": -174
+    },
+    {
+      "height": 210,
+      "id": "6c6895daf9e3c0b5",
+      "styleAttributes": {
+      },
+      "text": "Basic Code Structure\n- What the files do\n- Periodic  + Code Loops\n- Mechanisms",
+      "type": "text",
+      "width": 260,
+      "x": -1400,
+      "y": -184
+    },
+    {
+      "height": 281,
+      "id": "67a3e013518198b2",
+      "styleAttributes": {
+      },
+      "text": "Advanced Control\n\nDetermine control options\n- Model/Feedforwards?\n- Feedback\n\t- PID\n\t- Bang-Bang\n\t- State-oriented\n- Motion Profiles?",
+      "type": "text",
+      "width": 260,
+      "x": 620,
+      "y": -139
+    }
+  ]
+}

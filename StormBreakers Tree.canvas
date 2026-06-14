@@ -8,34 +8,6 @@
       "toSide": "left"
     },
     {
-      "fromNode": "f5fdc14e32e8e80b",
-      "fromSide": "right",
-      "id": "2d87a895dcf65d0d",
-      "toNode": "77b0ad903304cd3d",
-      "toSide": "left"
-    },
-    {
-      "fromNode": "77b0ad903304cd3d",
-      "fromSide": "right",
-      "id": "cb7619fd4efbfe18",
-      "toNode": "b1044c48fab582a7",
-      "toSide": "left"
-    },
-    {
-      "fromNode": "f739df0f46b49c97",
-      "fromSide": "right",
-      "id": "f81d28bbd5d885e4",
-      "toNode": "b1044c48fab582a7",
-      "toSide": "left"
-    },
-    {
-      "fromNode": "b1044c48fab582a7",
-      "fromSide": "right",
-      "id": "e35c9ad58c68c2e7",
-      "toNode": "f55d4586901cd00f",
-      "toSide": "left"
-    },
-    {
       "fromNode": "a8aa39e9a066166b",
       "fromSide": "right",
       "id": "eb752d5abe8e6043",
@@ -102,20 +74,6 @@
       "toSide": "left"
     },
     {
-      "fromNode": "d385afd6608b95e5",
-      "fromSide": "right",
-      "id": "7e213ce37350e238",
-      "toNode": "9a40762c0f7eefa1",
-      "toSide": "left"
-    },
-    {
-      "fromNode": "77b0ad903304cd3d",
-      "fromSide": "right",
-      "id": "d78150123d4c17a7",
-      "toNode": "5b6e3d856a2c11c8",
-      "toSide": "left"
-    },
-    {
       "fromNode": "f739df0f46b49c97",
       "fromSide": "right",
       "id": "290cd3c3d00bfe86",
@@ -125,30 +83,12 @@
       "toSide": "left"
     },
     {
-      "fromNode": "9a40762c0f7eefa1",
-      "fromSide": "right",
-      "id": "c3415692412d3ebb",
-      "styleAttributes": {
-      },
-      "toNode": "26d2b69ebeb77abe",
-      "toSide": "left"
-    },
-    {
       "fromNode": "f55d4586901cd00f",
       "fromSide": "right",
       "id": "fa37e04bc45b7d14",
       "styleAttributes": {
       },
       "toNode": "26d2b69ebeb77abe",
-      "toSide": "left"
-    },
-    {
-      "fromNode": "77b0ad903304cd3d",
-      "fromSide": "right",
-      "id": "99abead526c3ef9f",
-      "styleAttributes": {
-      },
-      "toNode": "c5a6533ece0a8e0c",
       "toSide": "left"
     },
     {
@@ -179,49 +119,12 @@
       "toSide": "left"
     },
     {
-      "fromNode": "77b0ad903304cd3d",
-      "fromSide": "right",
-      "id": "79487d041996071e",
-      "styleAttributes": {
-      },
-      "toNode": "c6a8fbee833fbd11",
-      "toSide": "left"
-    },
-    {
-      "fromNode": "f739df0f46b49c97",
-      "fromSide": "top",
-      "id": "7e93c394cff6ad9b",
-      "styleAttributes": {
-        "path": "long-dashed"
-      },
-      "toNode": "77b0ad903304cd3d",
-      "toSide": "bottom"
-    },
-    {
-      "fromNode": "9a40762c0f7eefa1",
-      "fromSide": "right",
-      "id": "6bfc744544b7efe4",
-      "styleAttributes": {
-      },
-      "toNode": "2cf69a37fb2b4def",
-      "toSide": "left"
-    },
-    {
       "fromNode": "2cf69a37fb2b4def",
       "fromSide": "right",
       "id": "3b5901feb6a6c361",
       "styleAttributes": {
       },
       "toNode": "bd556bb6f4381bdb",
-      "toSide": "left"
-    },
-    {
-      "fromNode": "5b6e3d856a2c11c8",
-      "fromSide": "right",
-      "id": "e5c15c07fd38069c",
-      "styleAttributes": {
-      },
-      "toNode": "8aa4907d2e8e4c23",
       "toSide": "left"
     },
     {
@@ -281,16 +184,6 @@
       "toSide": "left"
     },
     {
-      "fromNode": "5b6e3d856a2c11c8",
-      "fromSide": "bottom",
-      "id": "770b214e76c42e72",
-      "styleAttributes": {
-        "path": "long-dashed"
-      },
-      "toNode": "6dbbc28aeec06ad1",
-      "toSide": "left"
-    },
-    {
       "fromNode": "c6a8fbee833fbd11",
       "fromSide": "top",
       "id": "5611f96504c747d4",
@@ -344,7 +237,7 @@
       "y": 2160
     },
     {
-      "height": 1060,
+      "height": 1580,
       "id": "b2d6ab6c302f76f6",
       "label": "Complex SuperStructure",
       "type": "group",
@@ -362,6 +255,15 @@
       "y": -1540
     },
     {
+      "file": "Level 1/Triggers.md",
+      "height": 400,
+      "id": "d385afd6608b95e5",
+      "type": "file",
+      "width": 400,
+      "x": -640,
+      "y": 360
+    },
+    {
       "file": "Level 1/Gyro Sensing.md",
       "height": 400,
       "id": "4a87dce74a833996",
@@ -371,49 +273,49 @@
       "y": 880
     },
     {
-      "file": "Misc/Git Basics.md",
+      "file": "Hardware/Absolute Encoders.md",
       "height": 400,
-      "id": "809496a857f23df6",
+      "id": "ebf424ba1ca4edff",
       "type": "file",
       "width": 400,
-      "x": -1760,
-      "y": 2400
+      "x": -640,
+      "y": 960
     },
     {
-      "file": "Level 1/Robot Design Analysis.md",
+      "file": "Level 1/Encoder Basics.md",
       "height": 400,
-      "id": "378652d7a90156b4",
+      "id": "a8aa39e9a066166b",
       "type": "file",
       "width": 400,
-      "x": -2200,
-      "y": 2400
+      "x": -1320,
+      "y": 360
     },
     {
-      "file": "Level 1/Limelight Assist Driving.md",
+      "file": "Level 1/Sensing Basics.md",
       "height": 400,
-      "id": "26d2b69ebeb77abe",
+      "id": "8b06beff1d680bba",
       "type": "file",
       "width": 400,
-      "x": 2120,
-      "y": 1080
+      "x": 160,
+      "y": 120
     },
     {
-      "file": "Level 1/Gyro Sensing.md",
+      "file": "Level 1/PID.md",
       "height": 400,
-      "id": "bd556bb6f4381bdb",
+      "id": "c6a8fbee833fbd11",
       "type": "file",
       "width": 400,
-      "x": 2640,
-      "y": 1560
+      "x": 40,
+      "y": -440
     },
     {
-      "file": "Level 1/Homing Sequences.md",
+      "file": "Level 1/Commands.md",
       "height": 400,
-      "id": "05b53d1526ce4835",
+      "id": "f739df0f46b49c97",
       "type": "file",
       "width": 400,
-      "x": 1000,
-      "y": 2400
+      "x": -1320,
+      "y": -840
     },
     {
       "file": "Hardware/LaserCan.md",
@@ -425,22 +327,13 @@
       "y": -840
     },
     {
-      "file": "Level 0/Coding Basics.canvas",
+      "file": "Level 1/Homing Sequences.md",
       "height": 400,
-      "id": "7a464cc02c36a1ae",
+      "id": "05b53d1526ce4835",
       "type": "file",
       "width": 400,
-      "x": -2760,
-      "y": -840
-    },
-    {
-      "file": "Level 1/PID.md",
-      "height": 400,
-      "id": "c6a8fbee833fbd11",
-      "type": "file",
-      "width": 400,
-      "x": 40,
-      "y": -440
+      "x": 1000,
+      "y": 2400
     },
     {
       "file": "Misc/Robot Radio.md",
@@ -461,33 +354,6 @@
       "y": 2400
     },
     {
-      "file": "Level 1/Auto Differential.md",
-      "height": 400,
-      "id": "f55d4586901cd00f",
-      "type": "file",
-      "width": 400,
-      "x": 1000,
-      "y": -2080
-    },
-    {
-      "file": "Level 2/Motion Profiles.md",
-      "height": 400,
-      "id": "6dbbc28aeec06ad1",
-      "type": "file",
-      "width": 400,
-      "x": 440,
-      "y": -880
-    },
-    {
-      "file": "Level 1/Homing Sequences.md",
-      "height": 400,
-      "id": "05b53d1526ce4835",
-      "type": "file",
-      "width": 400,
-      "x": 1000,
-      "y": 2400
-    },
-    {
       "file": "Misc/Git Basics.md",
       "height": 400,
       "id": "809496a857f23df6",
@@ -506,31 +372,85 @@
       "y": 2400
     },
     {
-      "file": "Level 1/Sensing Basics.md",
+      "file": "Level 1/SuperStructure Climber.md",
       "height": 400,
-      "id": "8b06beff1d680bba",
+      "id": "dc11ea62fa81459b",
       "type": "file",
       "width": 400,
-      "x": 160,
-      "y": 120
+      "x": 2120,
+      "y": -1440
     },
     {
-      "file": "Level 1/State Machines.md",
+      "file": "Level 2/Superstructure Indexer.md",
       "height": 400,
-      "id": "7eee36baa0e518a6",
+      "id": "da05037cc1eb6a99",
       "type": "file",
       "width": 400,
-      "x": 1000,
-      "y": 120
+      "x": 2120,
+      "y": -960
     },
     {
-      "file": "Hardware/LaserCan.md",
+      "file": "Level 1/SuperStructure Intake.md",
       "height": 400,
-      "id": "127eaaa1140d4b12",
+      "id": "d1a3217df999c22d",
       "type": "file",
       "width": 400,
-      "x": 1000,
+      "x": 2640,
+      "y": -1440
+    },
+    {
+      "file": "Level 1/Gyro Driving.md",
+      "height": 400,
+      "id": "474905cd77ef301a",
+      "type": "file",
+      "width": 400,
+      "x": 2120,
       "y": 600
+    },
+    {
+      "file": "Level 1/Limelight Assist Driving.md",
+      "height": 400,
+      "id": "26d2b69ebeb77abe",
+      "type": "file",
+      "width": 400,
+      "x": 2120,
+      "y": 1080
+    },
+    {
+      "file": "Level 1/Basic Odometry+Telemetry.md",
+      "height": 400,
+      "id": "2cf69a37fb2b4def",
+      "type": "file",
+      "width": 400,
+      "x": 2120,
+      "y": 1560
+    },
+    {
+      "file": "Level 1/Limelight Odometry.md",
+      "height": 400,
+      "id": "bd556bb6f4381bdb",
+      "type": "file",
+      "width": 400,
+      "x": 2640,
+      "y": 1560
+    },
+    {
+      "file": "Level 0/Coding Basics.canvas",
+      "height": 400,
+      "id": "7a464cc02c36a1ae",
+      "type": "file",
+      "width": 400,
+      "x": -2760,
+      "y": -840
+    },
+    {
+      "file": "Level 2/Superstructure Shooter.md",
+      "height": 400,
+      "id": "7893622659a2ee20",
+      "type": "file",
+      "width": 400,
+      "x": 2640,
+      "y": -960
     },
     {
       "file": "Level 1/SuperStructure Elevator.md",
@@ -560,112 +480,40 @@
       "y": -440
     },
     {
-      "file": "Level 1/SuperStructure Climber.md",
+      "file": "Level 1/Auto Differential.md",
       "height": 400,
-      "id": "dc11ea62fa81459b",
+      "id": "f55d4586901cd00f",
       "type": "file",
       "width": 400,
-      "x": 2120,
-      "y": -1440
+      "x": 1000,
+      "y": -2080
     },
     {
-      "file": "Level 1/SuperStructure Intake.md",
+      "file": "Level 1/State Machines.md",
       "height": 400,
-      "id": "d1a3217df999c22d",
+      "id": "7eee36baa0e518a6",
       "type": "file",
       "width": 400,
-      "x": 2640,
-      "y": -1440
+      "x": 1000,
+      "y": 120
     },
     {
-      "file": "Level 2/Superstructure Indexer.md",
+      "file": "Hardware/LaserCan.md",
       "height": 400,
-      "id": "da05037cc1eb6a99",
+      "id": "127eaaa1140d4b12",
       "type": "file",
       "width": 400,
-      "x": 2120,
-      "y": -960
-    },
-    {
-      "file": "Hardware/Absolute Encoders.md",
-      "height": 400,
-      "id": "ebf424ba1ca4edff",
-      "type": "file",
-      "width": 400,
-      "x": -640,
-      "y": 960
-    },
-    {
-      "file": "Level 1/Triggers.md",
-      "height": 400,
-      "id": "d385afd6608b95e5",
-      "type": "file",
-      "width": 400,
-      "x": -640,
-      "y": 360
-    },
-    {
-      "file": "Level 1/Encoder Basics.md",
-      "height": 400,
-      "id": "a8aa39e9a066166b",
-      "type": "file",
-      "width": 400,
-      "x": -1320,
-      "y": 360
-    },
-    {
-      "file": "Level 1/Basic Odometry+Telemetry.md",
-      "height": 400,
-      "id": "2cf69a37fb2b4def",
-      "type": "file",
-      "width": 400,
-      "x": 2120,
-      "y": 1560
-    },
-    {
-      "file": "Level 1/Limelight Assist Driving.md",
-      "height": 400,
-      "id": "26d2b69ebeb77abe",
-      "type": "file",
-      "width": 400,
-      "x": 2120,
-      "y": 1080
-    },
-    {
-      "file": "Level 1/Gyro Driving.md",
-      "height": 400,
-      "id": "474905cd77ef301a",
-      "type": "file",
-      "width": 400,
-      "x": 2120,
+      "x": 1000,
       "y": 600
     },
     {
-      "file": "Level 1/Limelight Odometry.md",
+      "file": "Level 2/Motion Profiles.md",
       "height": 400,
-      "id": "bd556bb6f4381bdb",
+      "id": "6dbbc28aeec06ad1",
       "type": "file",
       "width": 400,
-      "x": 2640,
-      "y": 1560
-    },
-    {
-      "file": "Level 1/Commands.md",
-      "height": 400,
-      "id": "f739df0f46b49c97",
-      "type": "file",
-      "width": 400,
-      "x": -1320,
-      "y": -840
-    },
-    {
-      "file": "Level 2/Superstructure Shooter.md",
-      "height": 400,
-      "id": "7893622659a2ee20",
-      "type": "file",
-      "width": 400,
-      "x": 2640,
-      "y": -960
+      "x": 440,
+      "y": -880
     }
   ]
 }

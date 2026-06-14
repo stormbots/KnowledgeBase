@@ -15,3 +15,11 @@ Official Documentation: https://pdocs.kauailabs.com/navx-mxp/wp-content/uploads/
 
 >[!danger] Indicator Lights
 >The NavX should have a red power indicator light illuminated while it is on. If there are no lights, something is wrong and the NavX is not getting power. Check for a pin short on the RoboRIO (this has happened to us before).
+
+
+
+
+> [!BUG] Navx Ports + Swerve
+> In general, the kMXP port is the easiest to use on the RoboRio. 
+> However, when using YAGSL and some drive libraries, this interface gets reset on first run, causing random auto failures. 
+> As a result, using kUSB is the recommended interface for the 2025 Season.

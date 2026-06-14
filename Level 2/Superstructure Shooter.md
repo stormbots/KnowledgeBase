@@ -9,3 +9,4 @@ Typically a "shooter" consists of
 - A [[Superstructure Indexer]] to time shots and ensure the shooter is at the indended speed
 - A targeting system, often using Odometry or Vision
 - A trajectory evaluation to control target RPM. This can be fixed targets, [[Lookup Tables]], or more complex trajectory calculations
+
