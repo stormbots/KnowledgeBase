@@ -255,51 +255,6 @@
       "y": -1540
     },
     {
-      "file": "Level 1/Triggers.md",
-      "height": 400,
-      "id": "d385afd6608b95e5",
-      "type": "file",
-      "width": 400,
-      "x": -640,
-      "y": 360
-    },
-    {
-      "file": "Level 1/Gyro Sensing.md",
-      "height": 400,
-      "id": "4a87dce74a833996",
-      "type": "file",
-      "width": 400,
-      "x": 160,
-      "y": 880
-    },
-    {
-      "file": "Hardware/Absolute Encoders.md",
-      "height": 400,
-      "id": "ebf424ba1ca4edff",
-      "type": "file",
-      "width": 400,
-      "x": -640,
-      "y": 960
-    },
-    {
-      "file": "Level 1/Encoder Basics.md",
-      "height": 400,
-      "id": "a8aa39e9a066166b",
-      "type": "file",
-      "width": 400,
-      "x": -1320,
-      "y": 360
-    },
-    {
-      "file": "Level 1/Sensing Basics.md",
-      "height": 400,
-      "id": "8b06beff1d680bba",
-      "type": "file",
-      "width": 400,
-      "x": 160,
-      "y": 120
-    },
-    {
       "file": "Level 1/PID.md",
       "height": 400,
       "id": "c6a8fbee833fbd11",
@@ -327,6 +282,69 @@
       "y": -840
     },
     {
+      "file": "Level 0/Coding Basics.canvas",
+      "height": 400,
+      "id": "7a464cc02c36a1ae",
+      "type": "file",
+      "width": 400,
+      "x": -2760,
+      "y": -840
+    },
+    {
+      "file": "Level 1/SuperStructure Elevator.md",
+      "height": 400,
+      "id": "343dddd73632643e",
+      "type": "file",
+      "width": 400,
+      "x": 1220,
+      "y": -960
+    },
+    {
+      "file": "Level 1/Auto Differential.md",
+      "height": 400,
+      "id": "f55d4586901cd00f",
+      "type": "file",
+      "width": 400,
+      "x": 1000,
+      "y": -2080
+    },
+    {
+      "file": "Level 2/Motion Profiles.md",
+      "height": 400,
+      "id": "6dbbc28aeec06ad1",
+      "type": "file",
+      "width": 400,
+      "x": 440,
+      "y": -880
+    },
+    {
+      "file": "Level 1/Triggers.md",
+      "height": 400,
+      "id": "d385afd6608b95e5",
+      "type": "file",
+      "width": 400,
+      "x": -640,
+      "y": 360
+    },
+    {
+      "file": "Hardware/Absolute Encoders.md",
+      "height": 400,
+      "id": "ebf424ba1ca4edff",
+      "type": "file",
+      "width": 400,
+      "x": -640,
+      "y": 960
+    },
+    {
+      "file": "Level 1/Encoder Basics.md",
+      "height": 400,
+      "id": "a8aa39e9a066166b",
+      "type": "file",
+      "width": 400,
+      "x": -1320,
+      "y": 360
+    },
+    {
       "file": "Level 1/Homing Sequences.md",
       "height": 400,
       "id": "05b53d1526ce4835",
@@ -343,6 +361,42 @@
       "width": 400,
       "x": -1200,
       "y": 2400
+    },
+    {
+      "file": "Level 1/SuperStructure Rollers.md",
+      "height": 400,
+      "id": "c5a6533ece0a8e0c",
+      "type": "file",
+      "width": 400,
+      "x": 1220,
+      "y": -1440
+    },
+    {
+      "file": "Level 1/SuperStructure Arm.md",
+      "height": 400,
+      "id": "c8672d6648e0f7ee",
+      "type": "file",
+      "width": 400,
+      "x": 1220,
+      "y": -440
+    },
+    {
+      "file": "Level 1/Gyro Sensing.md",
+      "height": 400,
+      "id": "4a87dce74a833996",
+      "type": "file",
+      "width": 400,
+      "x": 160,
+      "y": 880
+    },
+    {
+      "file": "Level 1/Sensing Basics.md",
+      "height": 400,
+      "id": "8b06beff1d680bba",
+      "type": "file",
+      "width": 400,
+      "x": 160,
+      "y": 120
     },
     {
       "file": "Level 1/Basic Telemetry.md",
@@ -381,24 +435,6 @@
       "y": -1440
     },
     {
-      "file": "Level 2/Superstructure Indexer.md",
-      "height": 400,
-      "id": "da05037cc1eb6a99",
-      "type": "file",
-      "width": 400,
-      "x": 2120,
-      "y": -960
-    },
-    {
-      "file": "Level 1/SuperStructure Intake.md",
-      "height": 400,
-      "id": "d1a3217df999c22d",
-      "type": "file",
-      "width": 400,
-      "x": 2640,
-      "y": -1440
-    },
-    {
       "file": "Level 1/Gyro Driving.md",
       "height": 400,
       "id": "474905cd77ef301a",
@@ -415,78 +451,6 @@
       "width": 400,
       "x": 2120,
       "y": 1080
-    },
-    {
-      "file": "Level 1/Basic Odometry+Telemetry.md",
-      "height": 400,
-      "id": "2cf69a37fb2b4def",
-      "type": "file",
-      "width": 400,
-      "x": 2120,
-      "y": 1560
-    },
-    {
-      "file": "Level 1/Limelight Odometry.md",
-      "height": 400,
-      "id": "bd556bb6f4381bdb",
-      "type": "file",
-      "width": 400,
-      "x": 2640,
-      "y": 1560
-    },
-    {
-      "file": "Level 0/Coding Basics.canvas",
-      "height": 400,
-      "id": "7a464cc02c36a1ae",
-      "type": "file",
-      "width": 400,
-      "x": -2760,
-      "y": -840
-    },
-    {
-      "file": "Level 2/Superstructure Shooter.md",
-      "height": 400,
-      "id": "7893622659a2ee20",
-      "type": "file",
-      "width": 400,
-      "x": 2640,
-      "y": -960
-    },
-    {
-      "file": "Level 1/SuperStructure Elevator.md",
-      "height": 400,
-      "id": "343dddd73632643e",
-      "type": "file",
-      "width": 400,
-      "x": 1220,
-      "y": -960
-    },
-    {
-      "file": "Level 1/SuperStructure Rollers.md",
-      "height": 400,
-      "id": "c5a6533ece0a8e0c",
-      "type": "file",
-      "width": 400,
-      "x": 1220,
-      "y": -1440
-    },
-    {
-      "file": "Level 1/SuperStructure Arm.md",
-      "height": 400,
-      "id": "c8672d6648e0f7ee",
-      "type": "file",
-      "width": 400,
-      "x": 1220,
-      "y": -440
-    },
-    {
-      "file": "Level 1/Auto Differential.md",
-      "height": 400,
-      "id": "f55d4586901cd00f",
-      "type": "file",
-      "width": 400,
-      "x": 1000,
-      "y": -2080
     },
     {
       "file": "Level 1/State Machines.md",
@@ -507,13 +471,49 @@
       "y": 600
     },
     {
-      "file": "Level 2/Motion Profiles.md",
+      "file": "Level 2/Superstructure Indexer.md",
       "height": 400,
-      "id": "6dbbc28aeec06ad1",
+      "id": "da05037cc1eb6a99",
       "type": "file",
       "width": 400,
-      "x": 440,
-      "y": -880
+      "x": 2120,
+      "y": -960
+    },
+    {
+      "file": "Level 1/SuperStructure Intake.md",
+      "height": 400,
+      "id": "d1a3217df999c22d",
+      "type": "file",
+      "width": 400,
+      "x": 2640,
+      "y": -1440
+    },
+    {
+      "file": "Level 1/Basic Odometry+Telemetry.md",
+      "height": 400,
+      "id": "2cf69a37fb2b4def",
+      "type": "file",
+      "width": 400,
+      "x": 2120,
+      "y": 1560
+    },
+    {
+      "file": "Level 1/Limelight Odometry.md",
+      "height": 400,
+      "id": "bd556bb6f4381bdb",
+      "type": "file",
+      "width": 400,
+      "x": 2640,
+      "y": 1560
+    },
+    {
+      "file": "Level 2/Superstructure Shooter.md",
+      "height": 400,
+      "id": "7893622659a2ee20",
+      "type": "file",
+      "width": 400,
+      "x": 2640,
+      "y": -960
     }
   ]
 }

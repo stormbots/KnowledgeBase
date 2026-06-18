@@ -73,42 +73,6 @@
       "toSide": "left"
     },
     {
-      "fromNode": "399d8a3019bf41f9",
-      "fromSide": "right",
-      "id": "2db17b99a0076898",
-      "styleAttributes": {
-      },
-      "toNode": "523d3025c07e90b1",
-      "toSide": "left"
-    },
-    {
-      "fromNode": "399d8a3019bf41f9",
-      "fromSide": "right",
-      "id": "85fde7de54db53a4",
-      "styleAttributes": {
-      },
-      "toNode": "d90461ac7daae146",
-      "toSide": "left"
-    },
-    {
-      "fromNode": "e35df302fa819701",
-      "fromSide": "right",
-      "id": "d85103e9332092b7",
-      "styleAttributes": {
-      },
-      "toNode": "d90461ac7daae146",
-      "toSide": "left"
-    },
-    {
-      "fromNode": "523d3025c07e90b1",
-      "fromSide": "right",
-      "id": "102ce098fefa318b",
-      "styleAttributes": {
-      },
-      "toNode": "78d733eb58819490",
-      "toSide": "left"
-    },
-    {
       "fromNode": "78d733eb58819490",
       "fromSide": "right",
       "id": "c4e347078605af14",
@@ -134,6 +98,33 @@
       },
       "toNode": "f1aca579cbc4b279",
       "toSide": "left"
+    },
+    {
+      "fromNode": "a3764b8700a68760",
+      "fromSide": "bottom",
+      "id": "42cbfcd5ed77a252",
+      "styleAttributes": {
+      },
+      "toNode": "049bb01ef251a640",
+      "toSide": "top"
+    },
+    {
+      "fromNode": "f5b90f8cb606ae30",
+      "fromSide": "bottom",
+      "id": "49621ef8c1c055c2",
+      "styleAttributes": {
+      },
+      "toNode": "cb21d6eaf149f5c8",
+      "toSide": "top"
+    },
+    {
+      "fromNode": "399d8a3019bf41f9",
+      "fromSide": "right",
+      "id": "dd668434225df3ef",
+      "styleAttributes": {
+      },
+      "toNode": "7cd42c00c062595a",
+      "toSide": "left"
     }
   ],
   "metadata": {
@@ -152,13 +143,22 @@
       "y": -600
     },
     {
-      "height": 480,
+      "height": 870,
       "id": "f1aca579cbc4b279",
       "label": "Advanced Control",
       "type": "group",
       "width": 760,
       "x": 560,
-      "y": -210
+      "y": -600
+    },
+    {
+      "height": 360,
+      "id": "7cd42c00c062595a",
+      "label": "Vision+Localization",
+      "type": "group",
+      "width": 1160,
+      "x": -40,
+      "y": 360
     },
     {
       "height": 420,
@@ -168,28 +168,6 @@
       "width": 340,
       "x": 40,
       "y": -480
-    },
-    {
-      "height": 219,
-      "id": "d90461ac7daae146",
-      "styleAttributes": {
-      },
-      "text": "Managing System State\n- State = robot/mechanism configuration\n- Multi-system interactions\n- Subsystem initialization\n- Command Groups\n- State Machines? \n- Sequencing?",
-      "type": "text",
-      "width": 260,
-      "x": 80,
-      "y": 21
-    },
-    {
-      "height": 120,
-      "id": "dad611a5e20c3d25",
-      "styleAttributes": {
-      },
-      "text": "Limelight 101\n- Target servoing\n- Localization",
-      "type": "text",
-      "width": 260,
-      "x": 80,
-      "y": 341
     },
     {
       "height": 100,
@@ -236,17 +214,6 @@
       "y": -139
     },
     {
-      "height": 246,
-      "id": "524ed696c0126d18",
-      "styleAttributes": {
-      },
-      "text": "Sensing\n- Triggers\n- Encoders\n- Switches\n- Lasercan Distance\n- Lasercan Presence",
-      "type": "text",
-      "width": 260,
-      "x": 620,
-      "y": -540
-    },
-    {
       "height": 180,
       "id": "50cb08c15ec10d32",
       "styleAttributes": {
@@ -255,7 +222,30 @@
       "type": "text",
       "width": 260,
       "x": -370,
-      "y": 341
+      "y": 440
+    },
+    {
+      "height": 120,
+      "id": "dad611a5e20c3d25",
+      "styleAttributes": {
+      },
+      "text": "Limelight 101\n- Target servoing\n- Localization",
+      "type": "text",
+      "width": 260,
+      "x": 80,
+      "y": 440
+    },
+    {
+      "color": "1",
+      "height": 160,
+      "id": "cedce8d31e7039c2",
+      "styleAttributes": {
+      },
+      "text": "# Vision Goals\n- Controlled Autos\n- Automated Alignment\n- Automated positioning",
+      "type": "text",
+      "width": 260,
+      "x": -50,
+      "y": 720
     },
     {
       "height": 242,
@@ -269,59 +259,15 @@
       "y": -302
     },
     {
-      "height": 60,
+      "height": 130,
       "id": "399d8a3019bf41f9",
       "styleAttributes": {
       },
-      "text": "Differential Drivetrain",
+      "text": "Differential Drivetrain\n- Sequencing\n- encoders\n- gyro",
       "type": "text",
       "width": 260,
       "x": -370,
       "y": 70
-    },
-    {
-      "height": 60,
-      "id": "4d13cc604e7f1a7e",
-      "styleAttributes": {
-      },
-      "text": "Path Following +LTV",
-      "type": "text",
-      "width": 260,
-      "x": 440,
-      "y": 371
-    },
-    {
-      "height": 60,
-      "id": "523d3025c07e90b1",
-      "styleAttributes": {
-      },
-      "text": "Gyro Based Alignment",
-      "type": "text",
-      "width": 260,
-      "x": 80,
-      "y": 500
-    },
-    {
-      "height": 60,
-      "id": "78d733eb58819490",
-      "styleAttributes": {
-      },
-      "text": "Field-Oreinted Drive",
-      "type": "text",
-      "width": 260,
-      "x": 440,
-      "y": 500
-    },
-    {
-      "height": 60,
-      "id": "3bcec54409fa3144",
-      "styleAttributes": {
-      },
-      "text": "Swerve Concepts",
-      "type": "text",
-      "width": 260,
-      "x": 800,
-      "y": 500
     },
     {
       "height": 237,
@@ -357,6 +303,80 @@
       "y": -184
     },
     {
+      "color": "1",
+      "height": 200,
+      "id": "78be9115eaa73e2b",
+      "styleAttributes": {
+      },
+      "text": "# Kitbot Minimum Goals\n- Open Loop Control\n- Teleop Control\n- Simple control states + Commands\n- Simple time-oriented sequences",
+      "type": "text",
+      "width": 420,
+      "x": -1060,
+      "y": -800
+    },
+    {
+      "file": "Level 1 redo/Basic Motor Control.md",
+      "height": 220,
+      "id": "049bb01ef251a640",
+      "type": "file",
+      "width": 320,
+      "x": -1250,
+      "y": 330
+    },
+    {
+      "file": "Level 1 redo/Commands+Controllers.md",
+      "height": 400,
+      "id": "cb21d6eaf149f5c8",
+      "type": "file",
+      "width": 400,
+      "x": -860,
+      "y": 330
+    },
+    {
+      "height": 60,
+      "id": "4d13cc604e7f1a7e",
+      "styleAttributes": {
+      },
+      "text": "Path Following +LTV",
+      "type": "text",
+      "width": 260,
+      "x": 440,
+      "y": 470
+    },
+    {
+      "height": 60,
+      "id": "78d733eb58819490",
+      "styleAttributes": {
+      },
+      "text": "Field-Oreinted Drive",
+      "type": "text",
+      "width": 260,
+      "x": 440,
+      "y": 599
+    },
+    {
+      "height": 246,
+      "id": "524ed696c0126d18",
+      "styleAttributes": {
+      },
+      "text": "Sensing\n- Triggers\n- Encoders\n- Switches\n- Lasercan Distance\n- Lasercan Presence",
+      "type": "text",
+      "width": 260,
+      "x": 620,
+      "y": -540
+    },
+    {
+      "height": 60,
+      "id": "3bcec54409fa3144",
+      "styleAttributes": {
+      },
+      "text": "Swerve Concepts",
+      "type": "text",
+      "width": 260,
+      "x": 800,
+      "y": 599
+    },
+    {
       "height": 281,
       "id": "67a3e013518198b2",
       "styleAttributes": {
@@ -365,7 +385,41 @@
       "type": "text",
       "width": 260,
       "x": 620,
-      "y": -139
+      "y": -249
+    },
+    {
+      "height": 219,
+      "id": "d90461ac7daae146",
+      "styleAttributes": {
+      },
+      "text": "Managing System State\n- State = robot/mechanism configuration\n- Multi-system interactions\n- Subsystem initialization\n- Command Groups\n- State Machines? \n- Sequencing?",
+      "type": "text",
+      "width": 260,
+      "x": 620,
+      "y": 80
+    },
+    {
+      "color": "1",
+      "height": 200,
+      "id": "1ff73508012b26c5",
+      "styleAttributes": {
+      },
+      "text": "# Advanced Control Goals\n-  Simple feed-forward modelling\n- Basic P feedback\n- Basic motion profile",
+      "type": "text",
+      "width": 420,
+      "x": 900,
+      "y": -800
+    },
+    {
+      "height": 260,
+      "id": "306449ef4260b658",
+      "styleAttributes": {
+      },
+      "text": "Creating a Differential Drive\n- Create motors\n- Create different drive object\n- current limit\n- open loop\n- make spin",
+      "type": "text",
+      "width": 260,
+      "x": -1060,
+      "y": -339
     }
   ]
 }

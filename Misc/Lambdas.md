@@ -72,7 +72,7 @@ The main difference is the `->` ; This is just the special lambda syntax. It mig
 
 
 ## Supplier classes
-Just as "Runnable" defines "A function that accepts no arguments and returns nothing", there's a whole bunch of standard references for functions that "Take X" and "Return X". 
+Just as "Runnable" defines "A function that accepts no arguments and returns nothing", there's a whole bunch of standard references for functions that "Take X" and "Return Y". 
 
 These are generally broken down into Suppliers (returns a value) and Consumers (accepts a value). Here's a few.
 ```java
@@ -88,7 +88,7 @@ That's about it! These helper classes are only necessary as type indicators for 
 
 ## More complete example
 
-A great reference is the `FunctionalCommand` class. This class takes 4 lambdas, replacing each of the core parts of a [[Commands|Command]] with a simple code. It looks like this. 
+A great reference is the `FunctionalCommand` class. This class takes 4 lambdas, replacing each of the core parts of a [[Commands|Command]] with an appropriate Lambda type. It looks like this. 
 
 ```java
 FunctionalCommand(
