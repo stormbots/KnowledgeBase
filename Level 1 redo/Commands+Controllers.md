@@ -5,7 +5,7 @@
 
 # Coding up a controller
 
-Most example projects have a controller. In some examples it's in Robot.java, but in most it's in RobotContainer.java . We'll generally use the latter.
+Most example projects have a controller. In the ones we'll use, it's usually in RobotContainer.java.
 
 There's a few different ways to construct controller objects, but the common one is CommandXBoxController
 

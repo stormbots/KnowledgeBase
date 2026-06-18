@@ -1,23 +1,26 @@
 ### Goals
 - Create a Motor
-- Establish current limits
+- Set up the drivetrain with Spark Maxes
+- Establish current limits and configs
 - Open Loop Control
 
 
 
-# Creating a motor
+# Creating a Motor
 
-To create a motor, you would create an appropriate motor object. Motors generally should be declared inside a subsystem. 
+To create a motor, you would create an appropriate motor Object.  Motors generally should be declared inside a subsystem. For now, we'll use ExampleSubsystem.java as part of the created template.
 
 ```java
 public class ExampleSubsystem extends SubsystemBase{
 	//The first parameter is the motor's ID, and unique to each motor.
 	// Ther second is the type of motor; We only use Brushless.
-	SparkMax motor = new SparkMax(10, MotorType.kBrushless);
+	SparkMax motor = new SparkMax(1, MotorType.kBrushless);
 }
 ```
 
-You'll likely need to find your motor's ID using the  [[Rev Hardware Client]] . This also allows you to change it to prevent overlaps, or to get the motor into an established configuration.
+Note the "type" of the motor is a SparkMax ; This is the type of motor controller we're talking to. For the most part, we'll use "Spark Max" interchangeably with "motor".
+
+You'll likely need to find your motor's ID using the  [[Rev Hardware Client]] . The Hardware Client allows you to change it to prevent overlaps, or change motor settings directly.
 # Spinning a motor
 
 The easiest interaction with a motor is to directly set the output.
@@ -26,7 +29,7 @@ The code for this should be put somewhere that executes every loop. For simplici
 
 ```java
 public class ExampleSubsystem extends SubsystemBase{
-	SparkMax motor = new SparkMax(10, MotorType.kBrushless);
+	SparkMax motor = new SparkMax(1, MotorType.kBrushless);
 	
 	public void periodic(){
 		//Set the motor's output to 20% of it's capability
@@ -40,7 +43,7 @@ public class ExampleSubsystem extends SubsystemBase{
 ```
 
 
-We also need to tell our robot that this subsystem (consisting of a single motor) exists. This might be done in some examples.
+Generally, we also need to ensure the Subsystem containing our motor exists.  In our example, we'll see that this example is in RobotContainer.java , so we're covered.
 ```java
 public class RobotContainer{
 	public ExampleSubsystem exampleSubsystem = new ExampleSubsystem();
@@ -51,17 +54,17 @@ public class RobotContainer{
 
 You now have a spinning motor! 
 
-Note, it runs when the robot is enabled, and can't be _stopped_ without disabling the robot. This makes this way of controlling a motor fairly useless outside of tutorials, but we'll fix this shortly with Commands.
+Note, it runs when the robot is enabled, and can't be _stopped_ without disabling the robot. This makes this way of controlling a motor fairly useless outside of tutorials, but we'll fix this soon using Commands.
 
 # Configuring a motor
 
-Motors are configured using a Config object. This config can be saved and reused, but in general you only need to do so once, so it's often in a constructor. 
+Motors are configured using a Config object. This config can be saved and reused, but in general you only need to do so once per motor, so it's often in a constructor for your subsystem. 
 
-There's a lot of settings that will be touched on over time, but for now there's just a couple basics seen on almost every motor
+There's a lot of settings that we'll encounter for more complex robots, but for now there's just a couple basics we'll need right away.
 
 ```java
 public class ExampleSubsystem extends SubsystemBase{
-	SparkMax motor = new SparkMax(10, MotorType.kBrushless);
+	SparkMax motor = new SparkMax(1, MotorType.kBrushless);
 	
 	public ExampleSubsystem(){
 		//This creats a new motor config
@@ -71,8 +74,9 @@ public class ExampleSubsystem extends SubsystemBase{
 		//A proper motor limit makes them safer to operate.
 		config.smartCurrentLimit(10);
 		
-		//This lets you switch the "Forward" direction of a motor
-		//We'll form opinions on "correct directions" later
+		//This lets you switch which direction the motor spins 
+		// when you tell it to "go forward".
+		//We'll form opinions on "correct directions" later!
 		config.inverted(false);
 		
 		//Controls whether the motor tries resist or allow external motion
@@ -80,7 +84,7 @@ public class ExampleSubsystem extends SubsystemBase{
 		// IdleMode.kCoast will not
 		config.idleMode(IdleMode.kBrake) 
 		
-		//Apply our config
+		//Now, we can Apply our config to the motor
 		motor.configure(
 			config,
 			ResetMode.kNoResetSafeParameters,
@@ -97,38 +101,3 @@ public class ExampleSubsystem extends SubsystemBase{
 For now, you can change `config.inverted(false)` to `config.inverted(true)` and see the motor switch directions on enable. 
 
 You can also set `idleMode(Idlemode.kCoast)`, and when the bot is disabled, you'll see that the mechanism is much easier to turn.
-
-# Other Common Motor Interactions
-
-### Voltage Control
-
-Instead of directly setting a "percent of maximum power" using `.set(...)` you can provide a voltage.
-```java
-public class ExampleSubsystem extends SubsystemBase{
-	SparkMax motor = new SparkMax(10, MotorType.kBrushless);
-	
-	public void periodic(){
-		//Set the motor's output to 2 volts
-		motor.setVoltage(2); 
-	}
-}
-```
-
-The advantage of direct voltage control is predictability and stability over a match. This is due to the behaviour of the battery itself. As the battery is drained, the voltage it provides decreases. 
-
-When setting the throttle/percentage using `.set(...)` the "provided output" decreases in proportion to the  battery drain! This means things that "work well" at the start of a match might be less effective at the end of a match.
-
-In contrast, setting the voltage directly ensures the output doesn't change based on the battery,
-![[voltage-vs-percent.svg]]
-
-Note, that setVoltage *still* can't provide more voltage than is physically available!
-
-If you like using `.set(...)` you can also also use the Voltage Compensation option on your motor controller. 
-```java
-	//... when configuring your motor
-	var config = new SparkMaxConfig();
-	config.voltageCompensation(10) // We've now declared 100% to be 10 volts
-	//... and when setting it
-	motor.set(0.75) // Now is 7.5 volts!
-```
-

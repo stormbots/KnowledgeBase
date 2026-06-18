@@ -28,24 +28,6 @@
       "toSide": "left"
     },
     {
-      "fromNode": "6c6895daf9e3c0b5",
-      "fromSide": "right",
-      "id": "660512dd1bbd4c66",
-      "styleAttributes": {
-      },
-      "toNode": "a3764b8700a68760",
-      "toSide": "left"
-    },
-    {
-      "fromNode": "a3764b8700a68760",
-      "fromSide": "right",
-      "id": "fa68258a0d4180f3",
-      "styleAttributes": {
-      },
-      "toNode": "f5b90f8cb606ae30",
-      "toSide": "left"
-    },
-    {
       "fromNode": "f5b90f8cb606ae30",
       "fromSide": "right",
       "id": "2a33029f96d32c2a",
@@ -100,15 +82,6 @@
       "toSide": "left"
     },
     {
-      "fromNode": "a3764b8700a68760",
-      "fromSide": "bottom",
-      "id": "42cbfcd5ed77a252",
-      "styleAttributes": {
-      },
-      "toNode": "049bb01ef251a640",
-      "toSide": "top"
-    },
-    {
       "fromNode": "f5b90f8cb606ae30",
       "fromSide": "bottom",
       "id": "49621ef8c1c055c2",
@@ -125,6 +98,51 @@
       },
       "toNode": "7cd42c00c062595a",
       "toSide": "left"
+    },
+    {
+      "fromNode": "306449ef4260b658",
+      "fromSide": "right",
+      "id": "54dae3cb3f3bcc37",
+      "styleAttributes": {
+      },
+      "toNode": "f5b90f8cb606ae30",
+      "toSide": "left"
+    },
+    {
+      "fromNode": "6c6895daf9e3c0b5",
+      "fromSide": "right",
+      "id": "660512dd1bbd4c66",
+      "styleAttributes": {
+      },
+      "toNode": "a3764b8700a68760",
+      "toSide": "left"
+    },
+    {
+      "fromNode": "a3764b8700a68760",
+      "fromSide": "bottom",
+      "id": "42cbfcd5ed77a252",
+      "styleAttributes": {
+      },
+      "toNode": "049bb01ef251a640",
+      "toSide": "top"
+    },
+    {
+      "fromNode": "a3764b8700a68760",
+      "fromSide": "right",
+      "id": "607bfc9a60dfbcd6",
+      "styleAttributes": {
+      },
+      "toNode": "306449ef4260b658",
+      "toSide": "left"
+    },
+    {
+      "fromNode": "306449ef4260b658",
+      "fromSide": "top",
+      "id": "e399029210dcad1b",
+      "styleAttributes": {
+      },
+      "toNode": "77eee1da2a998b26",
+      "toSide": "bottom"
     }
   ],
   "metadata": {
@@ -138,8 +156,8 @@
       "id": "d12b624e7bc0f891",
       "label": "Kitbot Minimum",
       "type": "group",
-      "width": 1920,
-      "x": -1440,
+      "width": 2180,
+      "x": -1700,
       "y": -600
     },
     {
@@ -281,28 +299,6 @@
       "y": -197
     },
     {
-      "height": 190,
-      "id": "a3764b8700a68760",
-      "styleAttributes": {
-      },
-      "text": "Rev Motor Basics\n- Basic creation + configuration\n- Current limits\n- Open Loop operation",
-      "type": "text",
-      "width": 260,
-      "x": -1060,
-      "y": -174
-    },
-    {
-      "height": 210,
-      "id": "6c6895daf9e3c0b5",
-      "styleAttributes": {
-      },
-      "text": "Basic Code Structure\n- What the files do\n- Periodic  + Code Loops\n- Mechanisms",
-      "type": "text",
-      "width": 260,
-      "x": -1400,
-      "y": -184
-    },
-    {
       "color": "1",
       "height": 200,
       "id": "78be9115eaa73e2b",
@@ -313,15 +309,6 @@
       "width": 420,
       "x": -1060,
       "y": -800
-    },
-    {
-      "file": "Level 1 redo/Basic Motor Control.md",
-      "height": 220,
-      "id": "049bb01ef251a640",
-      "type": "file",
-      "width": 320,
-      "x": -1250,
-      "y": 330
     },
     {
       "file": "Level 1 redo/Commands+Controllers.md",
@@ -415,11 +402,51 @@
       "id": "306449ef4260b658",
       "styleAttributes": {
       },
-      "text": "Creating a Differential Drive\n- Create motors\n- Create different drive object\n- current limit\n- open loop\n- make spin",
+      "text": "Creating a Differential Drive\n- Create left/right motors\n- Create different drive object\n- Invert the appropriate side\n- Make drivetrain go",
       "type": "text",
       "width": 260,
-      "x": -1060,
-      "y": -339
+      "x": -1040,
+      "y": -208
+    },
+    {
+      "height": 190,
+      "id": "a3764b8700a68760",
+      "styleAttributes": {
+      },
+      "text": "Rev Motor Basics\n- Basic creation + configuration\n- Current limits\n- Open Loop operation\n- Periodic ",
+      "type": "text",
+      "width": 260,
+      "x": -1350,
+      "y": -173
+    },
+    {
+      "height": 210,
+      "id": "6c6895daf9e3c0b5",
+      "styleAttributes": {
+      },
+      "text": "Basic Code Structure\n- What the files do\n- Periodic  + Code Loops\n- Mechanisms",
+      "type": "text",
+      "width": 260,
+      "x": -1660,
+      "y": -181
+    },
+    {
+      "file": "Level 1 redo/Basic Motor Control.md",
+      "height": 220,
+      "id": "049bb01ef251a640",
+      "type": "file",
+      "width": 320,
+      "x": -1480,
+      "y": 330
+    },
+    {
+      "file": "Level 1 redo/Creating a Differential Drive.md",
+      "height": 400,
+      "id": "77eee1da2a998b26",
+      "type": "file",
+      "width": 400,
+      "x": -1080,
+      "y": -780
     }
   ]
 }
