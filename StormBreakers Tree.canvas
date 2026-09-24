@@ -1,105 +1,112 @@
 {
   "edges": [
     {
-      "fromNode": "dad611a5e20c3d25",
+      "fromNode": "8b0f96f7883bfdba",
       "fromSide": "right",
-      "id": "22afd81a43875d16",
+      "id": "59d444b8f700ab9f",
       "styleAttributes": {
       },
-      "toNode": "4d13cc604e7f1a7e",
+      "toNode": "d834d830339c33bd",
       "toSide": "left"
     },
     {
-      "fromNode": "78d733eb58819490",
+      "fromNode": "83d215b6866a9c40",
       "fromSide": "right",
-      "id": "c4e347078605af14",
+      "id": "a97068ec9584add1",
       "styleAttributes": {
       },
-      "toNode": "3bcec54409fa3144",
+      "toNode": "7b9863f057fc16a4",
       "toSide": "left"
     },
     {
-      "fromNode": "080e6bc719d6c0d7",
+      "fromNode": "7b9863f057fc16a4",
       "fromSide": "right",
-      "id": "a76e1c1aa730c224",
+      "id": "06d6ca1c7b1f5080",
       "styleAttributes": {
       },
-      "toNode": "049bb01ef251a640",
+      "toNode": "cdf28644e7f266ba",
       "toSide": "left"
     },
     {
-      "fromNode": "049bb01ef251a640",
+      "fromNode": "616bf96a9a610f8e",
       "fromSide": "right",
-      "id": "fbf046fd6f8bc8d2",
+      "id": "2f3e796e41a1f392",
       "styleAttributes": {
       },
-      "toNode": "77eee1da2a998b26",
+      "toNode": "17c2a717aa632c73",
       "toSide": "left"
     },
     {
-      "fromNode": "77eee1da2a998b26",
+      "fromNode": "17c2a717aa632c73",
       "fromSide": "right",
-      "id": "11307d3fbb062b97",
+      "id": "6766aea973d9d6d8",
       "styleAttributes": {
       },
-      "toNode": "cb21d6eaf149f5c8",
+      "toNode": "4dca48ed95205841",
       "toSide": "left"
     },
     {
-      "fromNode": "cb21d6eaf149f5c8",
+      "fromNode": "4dca48ed95205841",
       "fromSide": "right",
-      "id": "c5497d7265aa832b",
+      "id": "8166b49d27529d2a",
       "styleAttributes": {
       },
-      "toNode": "4bcfe208cc03c038",
+      "toNode": "ab640dd821231881",
       "toSide": "left"
     },
     {
-      "fromNode": "cb21d6eaf149f5c8",
+      "fromNode": "ab640dd821231881",
+      "fromSide": "right",
+      "id": "9f9231d047e82a96",
+      "styleAttributes": {
+      },
+      "toNode": "0002f9a67d508363",
+      "toSide": "left"
+    },
+    {
+      "fromNode": "ab640dd821231881",
+      "fromSide": "right",
+      "id": "5628a9c472b291c6",
+      "styleAttributes": {
+      },
+      "toNode": "5476b611882c59cc",
+      "toSide": "left"
+    },
+    {
+      "fromNode": "ab640dd821231881",
       "fromSide": "bottom",
-      "id": "a875fc3b1cc29e19",
-      "styleAttributes": {
-      },
-      "toNode": "817018435fc743b1",
-      "toSide": "left"
-    },
-    {
-      "fromNode": "cb21d6eaf149f5c8",
-      "fromSide": "bottom",
-      "id": "c9858c17d4f536d2",
+      "id": "44f95da970b67081",
       "styleAttributes": {
         "path": "short-dashed"
       },
-      "toNode": "50cb08c15ec10d32",
+      "toNode": "33ec680a2063e2d4",
       "toSide": "left"
     },
     {
-      "fromNode": "4bcfe208cc03c038",
+      "fromNode": "0002f9a67d508363",
       "fromSide": "right",
-      "id": "9dfdd049d2e5c23a",
+      "id": "dac2c535c151bc2c",
       "styleAttributes": {
-        "path": "short-dashed"
       },
-      "toNode": "7cd42c00c062595a",
+      "toNode": "0a22e292726ce09b",
       "toSide": "left"
     },
     {
-      "fromNode": "817018435fc743b1",
+      "fromNode": "5476b611882c59cc",
       "fromSide": "right",
-      "id": "c8154f3b1690f428",
+      "id": "6e15e2b674b3ab37",
       "styleAttributes": {
-        "path": "short-dashed"
       },
-      "toNode": "f1aca579cbc4b279",
+      "toNode": "eeb0927501896fac",
       "toSide": "left"
     },
     {
-      "fromNode": "fcec684e9efce167",
+      "fromNode": "33ec680a2063e2d4",
       "fromSide": "right",
-      "id": "44423fa17f6068ef",
+      "id": "16f3f720d44b6871",
       "styleAttributes": {
       },
-      "toNode": "78d733eb58819490",
+      "toNode": "eeb0927501896fac",
       "toSide": "left"
     }
   ],
@@ -110,273 +117,285 @@
   },
   "nodes": [
     {
-      "height": 1080,
-      "id": "ef7249ec519ae1e3",
+      "height": 820,
+      "id": "e64faef53b3613f1",
       "label": "Path To KitBot ",
       "type": "group",
-      "width": 2640,
+      "width": 2520,
       "x": -2200,
-      "y": 1040
+      "y": 3540
     },
     {
       "height": 1040,
-      "id": "f1aca579cbc4b279",
+      "id": "eeb0927501896fac",
       "label": "Advanced Control",
       "type": "group",
       "width": 1520,
-      "x": 680,
-      "y": 1800
+      "x": 480,
+      "y": 4400
     },
     {
       "height": 720,
-      "id": "7cd42c00c062595a",
+      "id": "0a22e292726ce09b",
       "label": "Vision+Localization",
       "type": "group",
       "width": 1160,
-      "x": 680,
-      "y": 940
+      "x": 480,
+      "y": 3540
     },
     {
       "height": 420,
-      "id": "8e89726a93a28397",
+      "id": "0f8a0f0205798994",
       "label": "Mechanism Types",
       "type": "group",
       "width": 340,
-      "x": 740,
-      "y": 1900
+      "x": 540,
+      "y": 4500
     },
     {
-      "file": "Level 0/Basic Motor Control.md",
-      "height": 400,
-      "id": "049bb01ef251a640",
-      "type": "file",
-      "width": 320,
-      "x": -1600,
-      "y": 1120
-    },
-    {
-      "file": "Level 1/Robot Code Basics.md",
-      "height": 400,
-      "id": "080e6bc719d6c0d7",
-      "type": "file",
-      "width": 400,
-      "x": -2060,
-      "y": 1120
-    },
-    {
-      "file": "Level 0/Creating a Differential Drive.md",
-      "height": 400,
-      "id": "77eee1da2a998b26",
-      "type": "file",
-      "width": 400,
-      "x": -1180,
-      "y": 1120
-    },
-    {
-      "file": "Level 0/Commands+Controllers.md",
-      "height": 400,
-      "id": "cb21d6eaf149f5c8",
-      "type": "file",
-      "width": 400,
-      "x": -640,
-      "y": 1120
-    },
-    {
-      "file": "Level 0/Analog Drivetrain Control.md",
-      "height": 400,
-      "id": "4bcfe208cc03c038",
-      "type": "file",
-      "width": 400,
-      "x": -120,
-      "y": 1120
-    },
-    {
-      "file": "Level 0/Intro to Robot Mechanisms.md",
-      "height": 400,
-      "id": "817018435fc743b1",
-      "type": "file",
-      "width": 400,
-      "x": -120,
-      "y": 1640
-    },
-    {
-      "height": 180,
-      "id": "50cb08c15ec10d32",
+      "height": 120,
+      "id": "616bf96a9a610f8e",
       "styleAttributes": {
       },
-      "text": "Telemetry\n- Reading robot inputs\n- Graphs\n- AdvantageScope?",
+      "text": "## [[Robot Code Basics]]\n\nLearn about the structure and layout of a Robot codebase",
       "type": "text",
-      "width": 260,
-      "x": -50,
-      "y": 2270
+      "width": 300,
+      "x": -2140,
+      "y": 3640
     },
     {
       "color": "1",
       "height": 200,
-      "id": "78be9115eaa73e2b",
+      "id": "503e9a189daf4687",
       "styleAttributes": {
       },
       "text": "# Kitbot Minimum Goals\n- Open Loop Control\n- Teleop Control\n- Simple control states + Commands\n- Simple time-oriented sequences",
       "type": "text",
       "width": 540,
-      "x": -2160,
-      "y": 1860
-    },
-    {
-      "height": 246,
-      "id": "524ed696c0126d18",
-      "styleAttributes": {
-      },
-      "text": "Sensing\n- Triggers\n- Encoders\n- Switches\n- Lasercan Distance\n- Lasercan Presence",
-      "type": "text",
-      "width": 260,
-      "x": 1320,
-      "y": 1855
-    },
-    {
-      "height": 281,
-      "id": "67a3e013518198b2",
-      "styleAttributes": {
-      },
-      "text": "Advanced Control\n\nDetermine control options\n- Model/Feedforwards?\n- Feedback\n\t- PID\n\t- Bang-Bang\n\t- State-oriented\n- Motion Profiles?",
-      "type": "text",
-      "width": 260,
-      "x": 1320,
-      "y": 2146
-    },
-    {
-      "height": 325,
-      "id": "d90461ac7daae146",
-      "styleAttributes": {
-      },
-      "text": "Managing System State\n- State = robot/mechanism configuration\n- Multi-system interactions\n- Subsystem initialization\n- Command Groups\n- State Machines? \n- Sequencing?",
-      "type": "text",
-      "width": 260,
-      "x": 1320,
-      "y": 2475
+      "x": -2140,
+      "y": 4080
     },
     {
       "height": 120,
-      "id": "dad611a5e20c3d25",
+      "id": "17c2a717aa632c73",
+      "styleAttributes": {
+      },
+      "text": "## [[Basic Motor Control]]\nGet something moving and interact with a Rev motor controller\n",
+      "type": "text",
+      "width": 320,
+      "x": -1740,
+      "y": 3640
+    },
+    {
+      "height": 120,
+      "id": "4dca48ed95205841",
+      "styleAttributes": {
+      },
+      "text": "## [[Creating a Differential Drive]]\n\nSet up a Differential Drivetrain, typically used on Kitbots\n",
+      "type": "text",
+      "width": 380,
+      "x": -1320,
+      "y": 3640
+    },
+    {
+      "height": 120,
+      "id": "ab640dd821231881",
+      "styleAttributes": {
+      },
+      "text": "## [[Commands+Controllers]]\n\nLearn how to change robot behaviours  using a controller",
+      "type": "text",
+      "width": 400,
+      "x": -840,
+      "y": 3640
+    },
+    {
+      "height": 110,
+      "id": "5476b611882c59cc",
+      "styleAttributes": {
+      },
+      "text": "## [[Intro to Robot Mechanisms]]\n\nLearn about the Kitbot anad how it interacts with game pieces",
+      "type": "text",
+      "width": 400,
+      "x": -280,
+      "y": 3820
+    },
+    {
+      "height": 120,
+      "id": "33ec680a2063e2d4",
+      "styleAttributes": {
+      },
+      "text": "## Telemetry\n- Reading robot inputs\n- Graphs\n- AdvantageScope?",
+      "type": "text",
+      "width": 400,
+      "x": -280,
+      "y": 4060
+    },
+    {
+      "height": 120,
+      "id": "8b0f96f7883bfdba",
       "styleAttributes": {
       },
       "text": "Limelight 101\n- Target servoing\n- Localization",
       "type": "text",
       "width": 260,
-      "x": 720,
-      "y": 1000
+      "x": 520,
+      "y": 3600
+    },
+    {
+      "height": 120,
+      "id": "0002f9a67d508363",
+      "styleAttributes": {
+      },
+      "text": "## [[Analog Drivetrain Control]]\n\nProperly drive the robot with joysticks",
+      "type": "text",
+      "width": 400,
+      "x": -280,
+      "y": 3640
     },
     {
       "height": 60,
-      "id": "4d13cc604e7f1a7e",
-      "styleAttributes": {
-      },
-      "text": "Path Following +LTV",
-      "type": "text",
-      "width": 260,
-      "x": 1110,
-      "y": 1030
-    },
-    {
-      "height": 100,
-      "id": "d6ce9db6179d25f3",
-      "styleAttributes": {
-      },
-      "text": "Linear Motion Systems\n- Lifters/Elevators\n- Climbers",
-      "type": "text",
-      "width": 260,
-      "x": 780,
-      "y": 1921
-    },
-    {
-      "height": 60,
-      "id": "803478ff319d4b7f",
-      "styleAttributes": {
-      },
-      "text": "Rollers",
-      "type": "text",
-      "width": 260,
-      "x": 780,
-      "y": 2051
-    },
-    {
-      "height": 60,
-      "id": "bf965fc114783f95",
+      "id": "64493d18d467f7f7",
       "styleAttributes": {
       },
       "text": "Shooters",
       "type": "text",
       "width": 260,
-      "x": 780,
-      "y": 2146
+      "x": 580,
+      "y": 4746
     },
     {
-      "color": "1",
-      "height": 160,
-      "id": "cedce8d31e7039c2",
+      "height": 281,
+      "id": "6a7c12b5c0e475ee",
       "styleAttributes": {
       },
-      "text": "# Vision Goals\n- Controlled Autos\n- Automated Alignment\n- Automated positioning",
+      "text": "Advanced Control\n\nDetermine control options\n- Model/Feedforwards?\n- Feedback\n\t- PID\n\t- Bang-Bang\n\t- State-oriented\n- Motion Profiles?",
       "type": "text",
       "width": 260,
-      "x": 720,
-      "y": 1480
+      "x": 1120,
+      "y": 4746
     },
     {
       "height": 60,
-      "id": "fcec684e9efce167",
-      "styleAttributes": {
-      },
-      "text": "Gyro Aiming",
-      "type": "text",
-      "width": 140,
-      "x": 740,
-      "y": 1260
-    },
-    {
-      "height": 60,
-      "id": "78d733eb58819490",
-      "styleAttributes": {
-      },
-      "text": "Field-Oreinted Drive",
-      "type": "text",
-      "width": 260,
-      "x": 980,
-      "y": 1260
-    },
-    {
-      "height": 60,
-      "id": "3bcec54409fa3144",
-      "styleAttributes": {
-      },
-      "text": "Swerve Concepts",
-      "type": "text",
-      "width": 260,
-      "x": 1320,
-      "y": 1260
-    },
-    {
-      "height": 60,
-      "id": "a41e7220ceedf54d",
+      "id": "c73017b8ccc57c85",
       "styleAttributes": {
       },
       "text": "Arms",
       "type": "text",
       "width": 260,
+      "x": 580,
+      "y": 4841
+    },
+    {
+      "height": 325,
+      "id": "8e8d2bbfd0c0d5e1",
+      "styleAttributes": {
+      },
+      "text": "Managing System State\n- State = robot/mechanism configuration\n- Multi-system interactions\n- Subsystem initialization\n- Command Groups\n- State Machines? \n- Sequencing?",
+      "type": "text",
+      "width": 260,
+      "x": 1120,
+      "y": 5075
+    },
+    {
+      "color": "1",
+      "height": 160,
+      "id": "fa54a67a83e5f16c",
+      "styleAttributes": {
+      },
+      "text": "# Vision Goals\n- Controlled Autos\n- Automated Alignment\n- Automated positioning",
+      "type": "text",
+      "width": 260,
+      "x": 520,
+      "y": 4080
+    },
+    {
+      "height": 60,
+      "id": "d834d830339c33bd",
+      "styleAttributes": {
+      },
+      "text": "Path Following +LTV",
+      "type": "text",
+      "width": 260,
+      "x": 910,
+      "y": 3630
+    },
+    {
+      "height": 60,
+      "id": "83d215b6866a9c40",
+      "styleAttributes": {
+      },
+      "text": "Gyro Aiming",
+      "type": "text",
+      "width": 140,
+      "x": 540,
+      "y": 3860
+    },
+    {
+      "height": 60,
+      "id": "7b9863f057fc16a4",
+      "styleAttributes": {
+      },
+      "text": "Field-Oreinted Drive",
+      "type": "text",
+      "width": 260,
       "x": 780,
-      "y": 2241
+      "y": 3860
+    },
+    {
+      "height": 60,
+      "id": "cdf28644e7f266ba",
+      "styleAttributes": {
+      },
+      "text": "Swerve Concepts",
+      "type": "text",
+      "width": 260,
+      "x": 1120,
+      "y": 3860
+    },
+    {
+      "height": 246,
+      "id": "90a68ae3126f4b5f",
+      "styleAttributes": {
+      },
+      "text": "Sensing\n- Triggers\n- Encoders\n- Switches\n- Lasercan Distance\n- Lasercan Presence",
+      "type": "text",
+      "width": 260,
+      "x": 1120,
+      "y": 4455
+    },
+    {
+      "height": 100,
+      "id": "b7af48978e3617cf",
+      "styleAttributes": {
+      },
+      "text": "Linear Motion Systems\n- Lifters/Elevators\n- Climbers",
+      "type": "text",
+      "width": 260,
+      "x": 580,
+      "y": 4521
+    },
+    {
+      "height": 60,
+      "id": "ea2d24c9fb7237f6",
+      "styleAttributes": {
+      },
+      "text": "Rollers",
+      "type": "text",
+      "width": 260,
+      "x": 580,
+      "y": 4651
     },
     {
       "color": "1",
       "height": 200,
-      "id": "1ff73508012b26c5",
+      "id": "e562c9199e4b4dfe",
       "styleAttributes": {
       },
       "text": "# Advanced Control Goals\n-  Simple feed-forward modelling\n- Basic P feedback\n- Basic motion profile",
       "type": "text",
       "width": 420,
-      "x": 740,
-      "y": 2600
+      "x": 540,
+      "y": 5200
     }
   ]
 }

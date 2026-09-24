@@ -793,6 +793,94 @@
     },
     {
       "height": 60,
+      "id": "d42a135044b2c379",
+      "styleAttributes": {
+      },
+      "text": "Climb",
+      "type": "text",
+      "width": 260,
+      "x": 3040,
+      "y": 430
+    },
+    {
+      "height": 60,
+      "id": "92377468f8cdbdfa",
+      "styleAttributes": {
+      },
+      "text": "ScoreTrap",
+      "type": "text",
+      "width": 260,
+      "x": 3040,
+      "y": 520
+    },
+    {
+      "height": 60,
+      "id": "621de903d5928122",
+      "styleAttributes": {
+      },
+      "text": "Score Speaker",
+      "type": "text",
+      "width": 260,
+      "x": 3040,
+      "y": 250
+    },
+    {
+      "height": 60,
+      "id": "ec0721d8a42821af",
+      "styleAttributes": {
+      },
+      "text": "Score Amp",
+      "type": "text",
+      "width": 260,
+      "x": 3040,
+      "y": 340
+    },
+    {
+      "height": 60,
+      "id": "0ea5aa31447e5d49",
+      "styleAttributes": {
+      },
+      "text": "Steal Speaker Note",
+      "type": "text",
+      "width": 260,
+      "x": 1960,
+      "y": -90
+    },
+    {
+      "height": 60,
+      "id": "c0e3b412df8ea7d3",
+      "styleAttributes": {
+      },
+      "text": "Note from HPS",
+      "type": "text",
+      "width": 260,
+      "x": 1960,
+      "y": 10
+    },
+    {
+      "height": 60,
+      "id": "abdf273fe0d4ad3e",
+      "styleAttributes": {
+      },
+      "text": "Drive to NZ",
+      "type": "text",
+      "width": 260,
+      "x": 1960,
+      "y": 370
+    },
+    {
+      "height": 60,
+      "id": "426f2d74040274e2",
+      "styleAttributes": {
+      },
+      "text": "Pass to Midfield",
+      "type": "text",
+      "width": 260,
+      "x": 1960,
+      "y": 280
+    },
+    {
+      "height": 60,
       "id": "23e9ae30ed54781e",
       "styleAttributes": {
       },
@@ -804,14 +892,80 @@
     },
     {
       "height": 60,
-      "id": "8f08173c971ffac6",
+      "id": "0450e136a62908c6",
       "styleAttributes": {
       },
-      "text": "L4",
+      "text": "Pass",
       "type": "text",
       "width": 260,
-      "x": 190,
-      "y": 920
+      "x": 1000,
+      "y": -50
+    },
+    {
+      "height": 60,
+      "id": "279fee067600982d",
+      "styleAttributes": {
+      },
+      "text": "Move to NZ",
+      "type": "text",
+      "width": 260,
+      "x": 3040,
+      "y": -100
+    },
+    {
+      "height": 60,
+      "id": "5457ea7e2285040b",
+      "styleAttributes": {
+      },
+      "text": "Intake From Floor",
+      "type": "text",
+      "width": 260,
+      "x": 3040,
+      "y": 30
+    },
+    {
+      "height": 60,
+      "id": "5cceab3347d2b8d2",
+      "styleAttributes": {
+      },
+      "text": "Move to OAZ",
+      "type": "text",
+      "width": 260,
+      "x": 2520,
+      "y": -90
+    },
+    {
+      "height": 60,
+      "id": "8f49054723adbce7",
+      "styleAttributes": {
+      },
+      "text": "Load Midfield note",
+      "type": "text",
+      "width": 260,
+      "x": 2520,
+      "y": 10
+    },
+    {
+      "height": 60,
+      "id": "dc44648389e6bb58",
+      "styleAttributes": {
+      },
+      "text": "Pass",
+      "type": "text",
+      "width": 260,
+      "x": 2520,
+      "y": 280
+    },
+    {
+      "height": 60,
+      "id": "b60a31c8dc067d9c",
+      "styleAttributes": {
+      },
+      "text": "Drive to AZ",
+      "type": "text",
+      "width": 260,
+      "x": 2520,
+      "y": 370
     },
     {
       "height": 60,
@@ -826,25 +980,58 @@
     },
     {
       "height": 60,
-      "id": "4822184ba83fc6c6",
+      "id": "cfa21034cf3a6865",
       "styleAttributes": {
       },
-      "text": "Get  note from HPS",
+      "text": "L3 Climb",
       "type": "text",
       "width": 260,
-      "x": 20,
-      "y": -50
+      "x": -360,
+      "y": -640
+    },
+    {
+      "height": 240,
+      "id": "1bc63f7e823b00d5",
+      "styleAttributes": {
+      },
+      "text": "# Notes\n\n- The leftmost is a \"neutral state\", representing the start of a cycle\n- From any given bot state, you can progress to the next gameplay state\n- At the rightmost side, a cycle is \"reset\" to the neutral state, and you start over\n- Each state represents some notable change in field state or game piece state\n",
+      "type": "text",
+      "width": 660,
+      "x": -1880,
+      "y": -400
     },
     {
       "height": 60,
-      "id": "10bc4a85d6a08efb",
+      "id": "71cb2e12b3197ad5",
       "styleAttributes": {
       },
-      "text": "Steal Note",
+      "text": "Empty in AZ",
+      "type": "text",
+      "width": 190,
+      "x": -1050,
+      "y": 320
+    },
+    {
+      "height": 60,
+      "id": "415069637019c1e2",
+      "styleAttributes": {
+      },
+      "text": "Have Note",
       "type": "text",
       "width": 260,
-      "x": 20,
-      "y": 50
+      "x": -1050,
+      "y": 480
+    },
+    {
+      "height": 60,
+      "id": "eb45fc10a895d432",
+      "styleAttributes": {
+      },
+      "text": "Climb",
+      "type": "text",
+      "width": 260,
+      "x": -690,
+      "y": 480
     },
     {
       "height": 60,
@@ -855,17 +1042,6 @@
       "type": "text",
       "width": 260,
       "x": 370,
-      "y": -50
-    },
-    {
-      "height": 60,
-      "id": "0450e136a62908c6",
-      "styleAttributes": {
-      },
-      "text": "Pass",
-      "type": "text",
-      "width": 260,
-      "x": 1000,
       "y": -50
     },
     {
@@ -881,17 +1057,6 @@
     },
     {
       "height": 60,
-      "id": "21cf76fd99c572c8",
-      "styleAttributes": {
-      },
-      "text": "Note from AZ Floor",
-      "type": "text",
-      "width": 260,
-      "x": 620,
-      "y": 320
-    },
-    {
-      "height": 60,
       "id": "5729d02274532596",
       "styleAttributes": {
       },
@@ -900,6 +1065,94 @@
       "width": 260,
       "x": 195,
       "y": -1040
+    },
+    {
+      "height": 60,
+      "id": "a1537c2ae2bca1d1",
+      "styleAttributes": {
+      },
+      "text": "intake in NZ",
+      "type": "text",
+      "width": 260,
+      "x": -225,
+      "y": -960
+    },
+    {
+      "height": 60,
+      "id": "c1279ba3bd41acd5",
+      "styleAttributes": {
+      },
+      "text": "Empty in AZ",
+      "type": "text",
+      "width": 260,
+      "x": -1100,
+      "y": -960
+    },
+    {
+      "height": 60,
+      "id": "3655bae6b0626443",
+      "styleAttributes": {
+      },
+      "text": "Pass To AZ",
+      "type": "text",
+      "width": 260,
+      "x": -225,
+      "y": -840
+    },
+    {
+      "height": 60,
+      "id": "8a60f006c44cf79c",
+      "styleAttributes": {
+      },
+      "text": "L1 Climb",
+      "type": "text",
+      "width": 260,
+      "x": -1100,
+      "y": -640
+    },
+    {
+      "height": 60,
+      "id": "5a639226d756bda4",
+      "styleAttributes": {
+      },
+      "text": "L2 Climb",
+      "type": "text",
+      "width": 260,
+      "x": -720,
+      "y": -640
+    },
+    {
+      "height": 60,
+      "id": "98d56fcfa86e9c6c",
+      "styleAttributes": {
+      },
+      "text": "Cross Trench to NZ",
+      "type": "text",
+      "width": 270,
+      "x": -665,
+      "y": -960
+    },
+    {
+      "height": 60,
+      "id": "9b73a66ef0f32fef",
+      "styleAttributes": {
+      },
+      "text": "Empty",
+      "type": "text",
+      "width": 120,
+      "x": 1410,
+      "y": -50
+    },
+    {
+      "height": 60,
+      "id": "21cf76fd99c572c8",
+      "styleAttributes": {
+      },
+      "text": "Note from AZ Floor",
+      "type": "text",
+      "width": 260,
+      "x": 620,
+      "y": 320
     },
     {
       "height": 60,
@@ -922,6 +1175,81 @@
       "width": 260,
       "x": 535,
       "y": -1040
+    },
+    {
+      "height": 60,
+      "id": "5ab72acca6fd2710",
+      "text": "Load  Coral From HPS",
+      "type": "text",
+      "width": 260,
+      "x": -570,
+      "y": 1060
+    },
+    {
+      "height": 60,
+      "id": "41b0d26dc1a2c664",
+      "styleAttributes": {
+      },
+      "text": "Load Algae From Reef",
+      "type": "text",
+      "width": 260,
+      "x": -570,
+      "y": 1360
+    },
+    {
+      "height": 60,
+      "id": "d14982414b286507",
+      "styleAttributes": {
+      },
+      "text": "Intake From AZ",
+      "type": "text",
+      "width": 260,
+      "x": -660,
+      "y": -1200
+    },
+    {
+      "height": 60,
+      "id": "2a457cedaf00e2f4",
+      "styleAttributes": {
+      },
+      "text": "Empty In AZ",
+      "type": "text",
+      "width": 155,
+      "x": 890,
+      "y": -1040
+    },
+    {
+      "height": 60,
+      "id": "c17e08dd20906492",
+      "styleAttributes": {
+      },
+      "text": "Cross Bump to NZ",
+      "type": "text",
+      "width": 270,
+      "x": -665,
+      "y": -1040
+    },
+    {
+      "height": 60,
+      "id": "539f248d79788b4a",
+      "styleAttributes": {
+      },
+      "text": "Load Algae From Floor",
+      "type": "text",
+      "width": 260,
+      "x": -570,
+      "y": 1480
+    },
+    {
+      "height": 60,
+      "id": "8f08173c971ffac6",
+      "styleAttributes": {
+      },
+      "text": "L4",
+      "type": "text",
+      "width": 260,
+      "x": 190,
+      "y": 920
     },
     {
       "height": 60,
@@ -955,92 +1283,6 @@
       "width": 260,
       "x": 190,
       "y": 1480
-    },
-    {
-      "height": 60,
-      "id": "25e703d7c0aab939",
-      "styleAttributes": {
-      },
-      "text": "Load Coral from Floor",
-      "type": "text",
-      "width": 260,
-      "x": -570,
-      "y": 920
-    },
-    {
-      "height": 60,
-      "id": "5ab72acca6fd2710",
-      "text": "Load  Coral From HPS",
-      "type": "text",
-      "width": 260,
-      "x": -570,
-      "y": 1060
-    },
-    {
-      "height": 60,
-      "id": "41b0d26dc1a2c664",
-      "styleAttributes": {
-      },
-      "text": "Load Algae From Reef",
-      "type": "text",
-      "width": 260,
-      "x": -570,
-      "y": 1360
-    },
-    {
-      "height": 60,
-      "id": "07128c37f1a7d252",
-      "styleAttributes": {
-      },
-      "text": "Unloaded",
-      "type": "text",
-      "width": 130,
-      "x": -890,
-      "y": 1060
-    },
-    {
-      "height": 60,
-      "id": "a1537c2ae2bca1d1",
-      "styleAttributes": {
-      },
-      "text": "intake in NZ",
-      "type": "text",
-      "width": 260,
-      "x": -225,
-      "y": -960
-    },
-    {
-      "height": 60,
-      "id": "d14982414b286507",
-      "styleAttributes": {
-      },
-      "text": "Intake From AZ",
-      "type": "text",
-      "width": 260,
-      "x": -660,
-      "y": -1200
-    },
-    {
-      "height": 60,
-      "id": "2a457cedaf00e2f4",
-      "styleAttributes": {
-      },
-      "text": "Empty In AZ",
-      "type": "text",
-      "width": 155,
-      "x": 890,
-      "y": -1040
-    },
-    {
-      "height": 60,
-      "id": "cfa21034cf3a6865",
-      "styleAttributes": {
-      },
-      "text": "L3 Climb",
-      "type": "text",
-      "width": 260,
-      "x": -360,
-      "y": -640
     },
     {
       "height": 60,
@@ -1110,69 +1352,47 @@
     },
     {
       "height": 60,
-      "id": "c1279ba3bd41acd5",
+      "id": "4822184ba83fc6c6",
       "styleAttributes": {
       },
-      "text": "Empty in AZ",
+      "text": "Get  note from HPS",
       "type": "text",
       "width": 260,
-      "x": -1100,
-      "y": -960
+      "x": 20,
+      "y": -50
     },
     {
       "height": 60,
-      "id": "c17e08dd20906492",
+      "id": "10bc4a85d6a08efb",
       "styleAttributes": {
       },
-      "text": "Cross Bump to NZ",
-      "type": "text",
-      "width": 270,
-      "x": -665,
-      "y": -1040
-    },
-    {
-      "height": 60,
-      "id": "3655bae6b0626443",
-      "styleAttributes": {
-      },
-      "text": "Pass To AZ",
+      "text": "Steal Note",
       "type": "text",
       "width": 260,
-      "x": -225,
-      "y": -840
+      "x": 20,
+      "y": 50
     },
     {
       "height": 60,
-      "id": "8a60f006c44cf79c",
+      "id": "25e703d7c0aab939",
       "styleAttributes": {
       },
-      "text": "L1 Climb",
-      "type": "text",
-      "width": 260,
-      "x": -1100,
-      "y": -640
-    },
-    {
-      "height": 60,
-      "id": "5a639226d756bda4",
-      "styleAttributes": {
-      },
-      "text": "L2 Climb",
-      "type": "text",
-      "width": 260,
-      "x": -720,
-      "y": -640
-    },
-    {
-      "height": 60,
-      "id": "539f248d79788b4a",
-      "styleAttributes": {
-      },
-      "text": "Load Algae From Floor",
+      "text": "Load Coral from Floor",
       "type": "text",
       "width": 260,
       "x": -570,
-      "y": 1480
+      "y": 920
+    },
+    {
+      "height": 60,
+      "id": "07128c37f1a7d252",
+      "styleAttributes": {
+      },
+      "text": "Unloaded",
+      "type": "text",
+      "width": 130,
+      "x": -890,
+      "y": 1060
     },
     {
       "height": 60,
@@ -1208,39 +1428,6 @@
       "y": 1840
     },
     {
-      "height": 240,
-      "id": "1bc63f7e823b00d5",
-      "styleAttributes": {
-      },
-      "text": "# Notes\n\n- The leftmost is a \"neutral state\", representing the start of a cycle\n- From any given bot state, you can progress to the next gameplay state\n- At the rightmost side, a cycle is \"reset\" to the neutral state, and you start over\n- Each state represents some notable change in field state or game piece state\n",
-      "type": "text",
-      "width": 660,
-      "x": -1880,
-      "y": -400
-    },
-    {
-      "height": 60,
-      "id": "98d56fcfa86e9c6c",
-      "styleAttributes": {
-      },
-      "text": "Cross Trench to NZ",
-      "type": "text",
-      "width": 270,
-      "x": -665,
-      "y": -960
-    },
-    {
-      "height": 60,
-      "id": "71cb2e12b3197ad5",
-      "styleAttributes": {
-      },
-      "text": "Empty in AZ",
-      "type": "text",
-      "width": 190,
-      "x": -1050,
-      "y": 320
-    },
-    {
       "height": 60,
       "id": "e39024ab2fd029f8",
       "styleAttributes": {
@@ -1264,28 +1451,6 @@
     },
     {
       "height": 60,
-      "id": "415069637019c1e2",
-      "styleAttributes": {
-      },
-      "text": "Have Note",
-      "type": "text",
-      "width": 260,
-      "x": -1050,
-      "y": 480
-    },
-    {
-      "height": 60,
-      "id": "eb45fc10a895d432",
-      "styleAttributes": {
-      },
-      "text": "Climb",
-      "type": "text",
-      "width": 260,
-      "x": -690,
-      "y": 480
-    },
-    {
-      "height": 60,
       "id": "8cbe87ab30b36d6c",
       "styleAttributes": {
       },
@@ -1305,171 +1470,6 @@
       "width": 260,
       "x": -720,
       "y": -50
-    },
-    {
-      "height": 60,
-      "id": "d42a135044b2c379",
-      "styleAttributes": {
-      },
-      "text": "Climb",
-      "type": "text",
-      "width": 260,
-      "x": 3040,
-      "y": 430
-    },
-    {
-      "height": 60,
-      "id": "92377468f8cdbdfa",
-      "styleAttributes": {
-      },
-      "text": "ScoreTrap",
-      "type": "text",
-      "width": 260,
-      "x": 3040,
-      "y": 520
-    },
-    {
-      "height": 60,
-      "id": "279fee067600982d",
-      "styleAttributes": {
-      },
-      "text": "Move to NZ",
-      "type": "text",
-      "width": 260,
-      "x": 3040,
-      "y": -100
-    },
-    {
-      "height": 60,
-      "id": "5457ea7e2285040b",
-      "styleAttributes": {
-      },
-      "text": "Intake From Floor",
-      "type": "text",
-      "width": 260,
-      "x": 3040,
-      "y": 30
-    },
-    {
-      "height": 60,
-      "id": "621de903d5928122",
-      "styleAttributes": {
-      },
-      "text": "Score Speaker",
-      "type": "text",
-      "width": 260,
-      "x": 3040,
-      "y": 250
-    },
-    {
-      "height": 60,
-      "id": "ec0721d8a42821af",
-      "styleAttributes": {
-      },
-      "text": "Score Amp",
-      "type": "text",
-      "width": 260,
-      "x": 3040,
-      "y": 340
-    },
-    {
-      "height": 60,
-      "id": "0ea5aa31447e5d49",
-      "styleAttributes": {
-      },
-      "text": "Steal Speaker Note",
-      "type": "text",
-      "width": 260,
-      "x": 1960,
-      "y": -90
-    },
-    {
-      "height": 60,
-      "id": "c0e3b412df8ea7d3",
-      "styleAttributes": {
-      },
-      "text": "Note from HPS",
-      "type": "text",
-      "width": 260,
-      "x": 1960,
-      "y": 10
-    },
-    {
-      "height": 60,
-      "id": "5cceab3347d2b8d2",
-      "styleAttributes": {
-      },
-      "text": "Move to OAZ",
-      "type": "text",
-      "width": 260,
-      "x": 2520,
-      "y": -90
-    },
-    {
-      "height": 60,
-      "id": "8f49054723adbce7",
-      "styleAttributes": {
-      },
-      "text": "Load Midfield note",
-      "type": "text",
-      "width": 260,
-      "x": 2520,
-      "y": 10
-    },
-    {
-      "height": 60,
-      "id": "abdf273fe0d4ad3e",
-      "styleAttributes": {
-      },
-      "text": "Drive to NZ",
-      "type": "text",
-      "width": 260,
-      "x": 1960,
-      "y": 370
-    },
-    {
-      "height": 60,
-      "id": "426f2d74040274e2",
-      "styleAttributes": {
-      },
-      "text": "Pass to Midfield",
-      "type": "text",
-      "width": 260,
-      "x": 1960,
-      "y": 280
-    },
-    {
-      "height": 60,
-      "id": "9b73a66ef0f32fef",
-      "styleAttributes": {
-      },
-      "text": "Empty",
-      "type": "text",
-      "width": 120,
-      "x": 1410,
-      "y": -50
-    },
-    {
-      "height": 60,
-      "id": "dc44648389e6bb58",
-      "styleAttributes": {
-      },
-      "text": "Pass",
-      "type": "text",
-      "width": 260,
-      "x": 2520,
-      "y": 280
-    },
-    {
-      "height": 60,
-      "id": "b60a31c8dc067d9c",
-      "styleAttributes": {
-      },
-      "text": "Drive to AZ",
-      "type": "text",
-      "width": 260,
-      "x": 2520,
-      "y": 370
     }
   ]
 }

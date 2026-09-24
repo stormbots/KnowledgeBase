@@ -11,7 +11,9 @@
     "displayProgress": true,
     "inlineHTML": false,
     "exportPath": "/home/tekdemo/First/Training Notebook/Knowledgebase-gh-pages",
-    "filesToExport": [],
+    "filesToExport": [
+      "all"
+    ],
     "useFallbackRenderer": false,
     "addBodyClasses": true,
     "addMathjaxStyles": true,
@@ -205,7 +207,7 @@
     "inlineFonts": false,
     "inlineOther": false,
     "combineAsSingleFile": false,
-    "offlineResources": false,
+    "offlineResources": true,
     "themeName": "",
     "slugifyPaths": true,
     "flattenExportPaths": false,
