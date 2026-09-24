@@ -1,0 +1,176 @@
+{
+	"edges":[
+		{"fromNode":"a8aa39e9a066166b","fromSide":"right","id":"eb752d5abe8e6043","toNode":"d385afd6608b95e5","toSide":"left"},
+		{"fromNode":"f739df0f46b49c97","fromSide":"right","id":"8f904c73bce8afc7","toNode":"c6a8fbee833fbd11","toSide":"left"},
+		{"fromNode":"a8aa39e9a066166b","fromSide":"right","id":"03500d215c8f3a22","toNode":"c6a8fbee833fbd11","toSide":"left"},
+		{"fromNode":"8b06beff1d680bba","fromSide":"right","id":"9fac8ac6ead65026","toNode":"7eee36baa0e518a6","toSide":"left"},
+		{"fromNode":"d385afd6608b95e5","fromSide":"right","id":"ed6849bad3f22c75","toNode":"8b06beff1d680bba","toSide":"left"},
+		{"fromNode":"4a87dce74a833996","fromSide":"right","id":"2df8c0ce40d2f8d6","toNode":"474905cd77ef301a","toSide":"left"},
+		{
+			"fromNode":"f55d4586901cd00f",
+			"fromSide":"right",
+			"id":"80207e750a52ddd9",
+			"styleAttributes":{
+				"pathfindingMethod":null
+			},
+			"toNode":"474905cd77ef301a",
+			"toSide":"left"
+		},
+		{"fromNode":"d385afd6608b95e5","fromSide":"right","id":"251c10f6e0484b67","toNode":"4a87dce74a833996","toSide":"left"},
+		{
+			"fromNode":"f739df0f46b49c97",
+			"fromSide":"right",
+			"id":"290cd3c3d00bfe86",
+			"styleAttributes":{},
+			"toNode":"d385afd6608b95e5",
+			"toSide":"left"
+		},
+		{
+			"fromNode":"f55d4586901cd00f",
+			"fromSide":"right",
+			"id":"fa37e04bc45b7d14",
+			"styleAttributes":{},
+			"toNode":"26d2b69ebeb77abe",
+			"toSide":"left"
+		},
+		{
+			"fromNode":"8b06beff1d680bba",
+			"fromSide":"right",
+			"id":"604d4be3603bf5e9",
+			"styleAttributes":{},
+			"toNode":"127eaaa1140d4b12",
+			"toSide":"left"
+		},
+		{
+			"fromNode":"a8aa39e9a066166b",
+			"fromSide":"right",
+			"id":"a7fb64a1539dafab",
+			"styleAttributes":{},
+			"toNode":"ebf424ba1ca4edff",
+			"toSide":"left"
+		},
+		{
+			"fromNode":"2cf69a37fb2b4def",
+			"fromSide":"right",
+			"id":"3b5901feb6a6c361",
+			"styleAttributes":{},
+			"toNode":"bd556bb6f4381bdb",
+			"toSide":"left"
+		},
+		{
+			"fromNode":"c6a8fbee833fbd11",
+			"fromSide":"right",
+			"id":"df603fddcc5e9431",
+			"styleAttributes":{},
+			"toNode":"8aa4907d2e8e4c23",
+			"toSide":"left"
+		},
+		{
+			"fromNode":"8aa4907d2e8e4c23",
+			"fromSide":"right",
+			"id":"c67e8550ca9c6dd6",
+			"styleAttributes":{},
+			"toNode":"b2d6ab6c302f76f6",
+			"toSide":"left"
+		},
+		{
+			"fromNode":"8b06beff1d680bba",
+			"fromSide":"right",
+			"id":"ba1edaacc6698704",
+			"styleAttributes":{},
+			"toNode":"b2d6ab6c302f76f6",
+			"toSide":"bottom"
+		},
+		{
+			"fromNode":"7eee36baa0e518a6",
+			"fromSide":"right",
+			"id":"d9d7af05c5ab0d2f",
+			"styleAttributes":{"path":"long-dashed"},
+			"toNode":"b2d6ab6c302f76f6",
+			"toSide":"bottom"
+		},
+		{
+			"fromNode":"da05037cc1eb6a99",
+			"fromSide":"right",
+			"id":"570a07942ad9e5e4",
+			"styleAttributes":{},
+			"toNode":"7893622659a2ee20",
+			"toSide":"left"
+		},
+		{
+			"fromNode":"6dbbc28aeec06ad1",
+			"fromSide":"right",
+			"id":"7ba97bf808a48e5c",
+			"styleAttributes":{"path":"long-dashed"},
+			"toNode":"8aa4907d2e8e4c23",
+			"toSide":"left"
+		},
+		{
+			"fromNode":"c6a8fbee833fbd11",
+			"fromSide":"top",
+			"id":"5611f96504c747d4",
+			"styleAttributes":{"path":"long-dashed"},
+			"toNode":"6dbbc28aeec06ad1",
+			"toSide":"left"
+		},
+		{
+			"fromNode":"f739df0f46b49c97",
+			"fromSide":"top",
+			"id":"654d1680d93352ca",
+			"styleAttributes":{},
+			"toNode":"e3c5bf7036c747ca",
+			"toSide":"left"
+		},
+		{
+			"fromNode":"e3c5bf7036c747ca",
+			"fromSide":"right",
+			"id":"3f21b56462a32b09",
+			"styleAttributes":{},
+			"toNode":"f55d4586901cd00f",
+			"toSide":"left"
+		}
+	],
+	"metadata":{
+		"frontmatter":{},
+		"version":"1.0-1.0"
+	},
+	"nodes":[
+		{"height":4400,"id":"613a2a525b178442","label":"Introductory Topics","type":"group","width":2080,"x":-2240,"y":-2400},
+		{"height":4400,"id":"4c8ac055bc29bcc0","label":"Standard Topics","type":"group","width":1920,"x":-80,"y":-2400},
+		{"height":4400,"id":"b1f70f17f7151b43","label":"Capstone Topics","type":"group","width":1360,"x":1920,"y":-2400},
+		{"height":880,"id":"e85bee8786241ca8","label":"Special Courses","type":"group","width":4080,"x":-2240,"y":2160},
+		{"height":1580,"id":"b2d6ab6c302f76f6","label":"Complex SuperStructure","type":"group","width":1100,"x":2050,"y":-480},
+		{"height":1580,"id":"8aa4907d2e8e4c23","label":"Simple Superstructure","type":"group","width":620,"x":1120,"y":-1540},
+		{"file":"Level 1/Commands.md","height":400,"id":"f739df0f46b49c97","type":"file","width":400,"x":-1320,"y":-840},
+		{"file":"Level 0/Coding Basics.canvas","height":400,"id":"7a464cc02c36a1ae","type":"file","width":400,"x":-2760,"y":-840},
+		{"file":"Level 1/PID.md","height":400,"id":"c6a8fbee833fbd11","type":"file","width":400,"x":40,"y":-440},
+		{"file":"Level 1/Sensing Basics.md","height":400,"id":"8b06beff1d680bba","type":"file","width":400,"x":160,"y":120},
+		{"file":"Level 0/Creating a Differential Drive.md","height":400,"id":"e3c5bf7036c747ca","type":"file","width":400,"x":-760,"y":-2040},
+		{"file":"Level 0/Commands+Controllers.md","height":400,"id":"84518d3f0ef2ebfc","type":"file","width":400,"x":-1900,"y":-1560},
+		{"file":"Level 0/Basic Motor Control.md","height":400,"id":"8f460bbb258a107b","type":"file","width":400,"x":-2100,"y":-840},
+		{"file":"Level 1/SuperStructure Elevator.md","height":400,"id":"343dddd73632643e","type":"file","width":400,"x":1220,"y":-960},
+		{"file":"Level 1/SuperStructure Rollers.md","height":400,"id":"c5a6533ece0a8e0c","type":"file","width":400,"x":1220,"y":-1440},
+		{"file":"Hardware/LaserCan.md","height":400,"id":"127eaaa1140d4b12","type":"file","width":400,"x":1000,"y":600},
+		{"file":"Level 1/Triggers.md","height":400,"id":"d385afd6608b95e5","type":"file","width":400,"x":-640,"y":360},
+		{"file":"Level 1/Encoder Basics.md","height":400,"id":"a8aa39e9a066166b","type":"file","width":400,"x":-1320,"y":360},
+		{"file":"Level 1/Gyro Driving.md","height":400,"id":"474905cd77ef301a","type":"file","width":400,"x":2120,"y":-2320},
+		{"file":"Level 1/Limelight Assist Driving.md","height":400,"id":"26d2b69ebeb77abe","type":"file","width":400,"x":2120,"y":-1840},
+		{"file":"Level 1/Basic Odometry+Telemetry.md","height":400,"id":"2cf69a37fb2b4def","type":"file","width":400,"x":2120,"y":-1240},
+		{"file":"Level 1/Limelight Odometry.md","height":400,"id":"bd556bb6f4381bdb","type":"file","width":400,"x":2640,"y":-1240},
+		{"file":"Hardware/Absolute Encoders.md","height":400,"id":"ebf424ba1ca4edff","type":"file","width":400,"x":-640,"y":960},
+		{"file":"Level 1/Gyro Sensing.md","height":400,"id":"4a87dce74a833996","type":"file","width":400,"x":160,"y":880},
+		{"file":"Level 1/Homing Sequences.md","height":400,"id":"05b53d1526ce4835","type":"file","width":400,"x":1000,"y":2400},
+		{"file":"Misc/Robot Radio.md","height":400,"id":"c258945d33d66c46","type":"file","width":400,"x":-1200,"y":2400},
+		{"file":"Level 1/Basic Telemetry.md","height":400,"id":"edd9fb4b82c41c42","type":"file","width":400,"x":-80,"y":2400},
+		{"file":"Misc/Git Basics.md","height":400,"id":"809496a857f23df6","type":"file","width":400,"x":-1760,"y":2400},
+		{"file":"Level 1/Robot Design Analysis.md","height":400,"id":"378652d7a90156b4","type":"file","width":400,"x":-2200,"y":2400},
+		{"file":"Level 2/Motion Profiles.md","height":400,"id":"6dbbc28aeec06ad1","type":"file","width":400,"x":360,"y":-960},
+		{"file":"Level 1/Auto Differential.md","height":400,"id":"f55d4586901cd00f","type":"file","width":400,"x":680,"y":-2040},
+		{"file":"Level 1/SuperStructure Arm.md","height":400,"id":"c8672d6648e0f7ee","type":"file","width":400,"x":1220,"y":-440},
+		{"file":"Level 1/State Machines.md","height":400,"id":"7eee36baa0e518a6","type":"file","width":400,"x":1000,"y":120},
+		{"file":"Level 2/Superstructure Indexer.md","height":400,"id":"da05037cc1eb6a99","type":"file","width":400,"x":2130,"y":100},
+		{"file":"Level 2/Superstructure Shooter.md","height":400,"id":"7893622659a2ee20","type":"file","width":400,"x":2650,"y":100},
+		{"file":"Level 1/SuperStructure Climber.md","height":400,"id":"dc11ea62fa81459b","type":"file","width":400,"x":2130,"y":-380},
+		{"file":"Level 1/SuperStructure Intake.md","height":400,"id":"d1a3217df999c22d","type":"file","width":400,"x":2650,"y":-380}
+	]
+}

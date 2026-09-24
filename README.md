@@ -12,11 +12,11 @@ Robotics does not have a linear path to success; There's a lot of variety in wha
 Brand new programmers will likely need to start with the very fundamentals of coding: 
 [[Coding Basics.canvas|Coding Basics]]
 
-Once you're ready to move some hardware, the [[StormBreakers Tree.canvas|StormBreakers Tree]] is intended to guide new students to meet the challenges of a fully working, competitive Kitbot. 
+Once you're ready to move some hardware, the [[StormBreakers Tree (obsolete).canvas|StormBreakers Tree]] is intended to guide new students to meet the challenges of a fully working, competitive Kitbot. 
 
 ![StormBreakers Tree](https://github.com/user-attachments/assets/bf5f9b03-5e07-4e0c-8e29-bf16f6d1a7c1)
 ### Stormbot Tree
-Lastly, our [[Stormbots Tree.canvas|Stormbots Tree]]  builds on experience, and emphasizes deeper dives into advancing specific skills, and blending varied skill sets together. This tree is intended to guide students through more complex designs and higher performance targets. It also builds and relies upon the [[StormBreakers Tree.canvas|StormBreakers Tree]], which will remain a valuable resource.
+Lastly, our [[Stormbots Tree.canvas|Stormbots Tree]]  builds on experience, and emphasizes deeper dives into advancing specific skills, and blending varied skill sets together. This tree is intended to guide students through more complex designs and higher performance targets. It also builds and relies upon the [[StormBreakers Tree (obsolete).canvas|StormBreakers Tree]], which will remain a valuable resource.
 
 
 

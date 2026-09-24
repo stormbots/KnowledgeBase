@@ -1,0 +1,1475 @@
+{
+  "edges": [
+    {
+      "fromNode": "abc8d944d0e7975c",
+      "fromSide": "right",
+      "id": "69ec0631d04311e9",
+      "styleAttributes": {
+      },
+      "toFloating": false,
+      "toNode": "23e9ae30ed54781e",
+      "toSide": "left"
+    },
+    {
+      "fromNode": "abc8d944d0e7975c",
+      "fromSide": "right",
+      "id": "9907ed5646dedbdc",
+      "styleAttributes": {
+      },
+      "toFloating": false,
+      "toNode": "e7b481572c778f16",
+      "toSide": "left"
+    },
+    {
+      "fromNode": "cebf8b7dcdf0dfa3",
+      "fromSide": "right",
+      "id": "bd5d48877771ff2a",
+      "styleAttributes": {
+      },
+      "toFloating": false,
+      "toNode": "abc8d944d0e7975c",
+      "toSide": "left"
+    },
+    {
+      "fromNode": "eb45fc10a895d432",
+      "fromSide": "right",
+      "id": "3380f8ebf2410860",
+      "styleAttributes": {
+      },
+      "toFloating": false,
+      "toNode": "8cbe87ab30b36d6c",
+      "toSide": "left"
+    },
+    {
+      "fromNode": "415069637019c1e2",
+      "fromSide": "right",
+      "id": "c4cf42358793417c",
+      "styleAttributes": {
+      },
+      "toFloating": false,
+      "toNode": "eb45fc10a895d432",
+      "toSide": "left"
+    },
+    {
+      "fromNode": "4822184ba83fc6c6",
+      "fromSide": "right",
+      "id": "498f9c6434d4d2ce",
+      "styleAttributes": {
+      },
+      "toFloating": false,
+      "toNode": "cebf8b7dcdf0dfa3",
+      "toSide": "left"
+    },
+    {
+      "fromNode": "cebf8b7dcdf0dfa3",
+      "fromSide": "right",
+      "id": "aa6490a64a883aa5",
+      "styleAttributes": {
+      },
+      "toFloating": false,
+      "toNode": "0450e136a62908c6",
+      "toSide": "left"
+    },
+    {
+      "fromNode": "8f08173c971ffac6",
+      "fromSide": "right",
+      "id": "9f68a0fee32ba023",
+      "styleAttributes": {
+      },
+      "toFloating": false,
+      "toNode": "ab83ff0a207c2236",
+      "toSide": "left"
+    },
+    {
+      "fromNode": "d082ca3116ab575b",
+      "fromSide": "right",
+      "id": "5a7a7417bd853a31",
+      "styleAttributes": {
+      },
+      "toFloating": false,
+      "toNode": "8f08173c971ffac6",
+      "toSide": "left"
+    },
+    {
+      "fromNode": "cdb0a5a7b9028fb5",
+      "fromSide": "right",
+      "id": "6e2367ce2b6172f6",
+      "styleAttributes": {
+      },
+      "toFloating": false,
+      "toNode": "ab83ff0a207c2236",
+      "toSide": "left"
+    },
+    {
+      "fromNode": "d082ca3116ab575b",
+      "fromSide": "right",
+      "id": "5fdedf57dc499323",
+      "styleAttributes": {
+      },
+      "toFloating": false,
+      "toNode": "cdb0a5a7b9028fb5",
+      "toSide": "left"
+    },
+    {
+      "fromNode": "d082ca3116ab575b",
+      "fromSide": "right",
+      "id": "f33517035d24451b",
+      "styleAttributes": {
+      },
+      "toFloating": false,
+      "toNode": "43680b2c04e6a692",
+      "toSide": "left"
+    },
+    {
+      "fromNode": "d082ca3116ab575b",
+      "fromSide": "right",
+      "id": "174239cfe74eafdb",
+      "styleAttributes": {
+      },
+      "toFloating": false,
+      "toNode": "e5973fa3eeb78302",
+      "toSide": "left"
+    },
+    {
+      "fromNode": "d082ca3116ab575b",
+      "fromSide": "bottom",
+      "id": "1cc46060e7ca1e9c",
+      "styleAttributes": {
+      },
+      "toFloating": false,
+      "toNode": "40c2365770dbddf6",
+      "toSide": "top"
+    },
+    {
+      "fromNode": "25e703d7c0aab939",
+      "fromSide": "right",
+      "id": "5aafd14c06b66d4c",
+      "styleAttributes": {
+      },
+      "toFloating": false,
+      "toNode": "d082ca3116ab575b",
+      "toSide": "left"
+    },
+    {
+      "fromNode": "5ab72acca6fd2710",
+      "fromSide": "right",
+      "id": "dec34c29e74b2db4",
+      "styleAttributes": {
+      },
+      "toFloating": false,
+      "toNode": "d082ca3116ab575b",
+      "toSide": "left"
+    },
+    {
+      "fromNode": "40c2365770dbddf6",
+      "fromSide": "top",
+      "id": "a991a22d4ed97e8e",
+      "styleAttributes": {
+      },
+      "toFloating": false,
+      "toNode": "d082ca3116ab575b",
+      "toSide": "bottom"
+    },
+    {
+      "fromNode": "43680b2c04e6a692",
+      "fromSide": "right",
+      "id": "a1e2defae06f0ac8",
+      "styleAttributes": {
+      },
+      "toFloating": false,
+      "toNode": "ab83ff0a207c2236",
+      "toSide": "left"
+    },
+    {
+      "fromNode": "e5973fa3eeb78302",
+      "fromSide": "right",
+      "id": "2c4435eaa0de6cbf",
+      "styleAttributes": {
+      },
+      "toFloating": false,
+      "toNode": "ab83ff0a207c2236",
+      "toSide": "left"
+    },
+    {
+      "fromNode": "3871f4e8525fbd84",
+      "fromSide": "right",
+      "id": "72a805adf922b247",
+      "styleAttributes": {
+      },
+      "toFloating": false,
+      "toNode": "ab83ff0a207c2236",
+      "toSide": "bottom"
+    },
+    {
+      "fromNode": "3970870f5281045b",
+      "fromSide": "right",
+      "id": "f9bf0185cf54b0ef",
+      "styleAttributes": {
+      },
+      "toFloating": false,
+      "toNode": "ab83ff0a207c2236",
+      "toSide": "bottom"
+    },
+    {
+      "fromNode": "07128c37f1a7d252",
+      "fromSide": "right",
+      "id": "25eef8b72f838e52",
+      "styleAttributes": {
+      },
+      "toFloating": false,
+      "toNode": "5ab72acca6fd2710",
+      "toSide": "left"
+    },
+    {
+      "fromNode": "07128c37f1a7d252",
+      "fromSide": "right",
+      "id": "5e9e2f570a0e9663",
+      "styleAttributes": {
+      },
+      "toFloating": false,
+      "toNode": "25e703d7c0aab939",
+      "toSide": "left"
+    },
+    {
+      "fromNode": "07128c37f1a7d252",
+      "fromSide": "right",
+      "id": "7abc23e0db2f200c",
+      "styleAttributes": {
+      },
+      "toFloating": false,
+      "toNode": "41b0d26dc1a2c664",
+      "toSide": "left"
+    },
+    {
+      "fromNode": "07128c37f1a7d252",
+      "fromSide": "right",
+      "id": "5b461ed01370affe",
+      "styleAttributes": {
+      },
+      "toFloating": false,
+      "toNode": "539f248d79788b4a",
+      "toSide": "left"
+    },
+    {
+      "fromNode": "c9c1eb188795cef1",
+      "fromSide": "right",
+      "id": "6f626181ab68ce2a",
+      "styleAttributes": {
+      },
+      "toFloating": false,
+      "toNode": "3871f4e8525fbd84",
+      "toSide": "left"
+    },
+    {
+      "fromNode": "c9c1eb188795cef1",
+      "fromSide": "right",
+      "id": "7ad5342e48b9b46a",
+      "styleAttributes": {
+      },
+      "toFloating": false,
+      "toNode": "3970870f5281045b",
+      "toSide": "left"
+    },
+    {
+      "fromNode": "539f248d79788b4a",
+      "fromSide": "right",
+      "id": "f8b9071c177439ae",
+      "styleAttributes": {
+      },
+      "toFloating": false,
+      "toNode": "c9c1eb188795cef1",
+      "toSide": "left"
+    },
+    {
+      "fromNode": "41b0d26dc1a2c664",
+      "fromSide": "right",
+      "id": "5eaeda14846dbcbc",
+      "styleAttributes": {
+      },
+      "toFloating": false,
+      "toNode": "c9c1eb188795cef1",
+      "toSide": "left"
+    },
+    {
+      "fromNode": "8a60f006c44cf79c",
+      "fromSide": "right",
+      "id": "a1ef23a7f4156a0a",
+      "styleAttributes": {
+      },
+      "toFloating": false,
+      "toNode": "5a639226d756bda4",
+      "toSide": "left"
+    },
+    {
+      "fromNode": "5a639226d756bda4",
+      "fromSide": "right",
+      "id": "5e358a0f4aa21654",
+      "styleAttributes": {
+      },
+      "toFloating": false,
+      "toNode": "cfa21034cf3a6865",
+      "toSide": "left"
+    },
+    {
+      "fromNode": "0450e136a62908c6",
+      "fromSide": "right",
+      "id": "fff0ba3d2ab42882",
+      "styleAttributes": {
+      },
+      "toFloating": false,
+      "toNode": "9b73a66ef0f32fef",
+      "toSide": "left"
+    },
+    {
+      "fromNode": "23e9ae30ed54781e",
+      "fromSide": "right",
+      "id": "960d19473233ac4d",
+      "styleAttributes": {
+      },
+      "toFloating": false,
+      "toNode": "9b73a66ef0f32fef",
+      "toSide": "left"
+    },
+    {
+      "fromNode": "e7b481572c778f16",
+      "fromSide": "right",
+      "id": "ac41badfbdc58d1e",
+      "styleAttributes": {
+      },
+      "toFloating": false,
+      "toNode": "9b73a66ef0f32fef",
+      "toSide": "left"
+    },
+    {
+      "fromNode": "5729d02274532596",
+      "fromSide": "right",
+      "id": "a4921067261607cc",
+      "styleAttributes": {
+      },
+      "toFloating": false,
+      "toNode": "47cd3e83a4b4eb1b",
+      "toSide": "left"
+    },
+    {
+      "fromNode": "a1537c2ae2bca1d1",
+      "fromSide": "right",
+      "id": "ec05fe3575475dc1",
+      "styleAttributes": {
+      },
+      "toFloating": false,
+      "toNode": "5729d02274532596",
+      "toSide": "left"
+    },
+    {
+      "fromNode": "900f6465ebb1208b",
+      "fromSide": "right",
+      "id": "7ddcdf4ecb9b81b2",
+      "styleAttributes": {
+      },
+      "toFloating": false,
+      "toNode": "47cd3e83a4b4eb1b",
+      "toSide": "left"
+    },
+    {
+      "fromNode": "a1537c2ae2bca1d1",
+      "fromSide": "right",
+      "id": "3bbeb3b71ecf0e07",
+      "styleAttributes": {
+      },
+      "toFloating": false,
+      "toNode": "900f6465ebb1208b",
+      "toSide": "left"
+    },
+    {
+      "fromNode": "47cd3e83a4b4eb1b",
+      "fromSide": "right",
+      "id": "85549cc478c25356",
+      "styleAttributes": {
+      },
+      "toFloating": false,
+      "toNode": "2a457cedaf00e2f4",
+      "toSide": "left"
+    },
+    {
+      "fromNode": "c1279ba3bd41acd5",
+      "fromSide": "right",
+      "id": "79b6acf5419a2ca0",
+      "styleAttributes": {
+      },
+      "toFloating": false,
+      "toNode": "d14982414b286507",
+      "toSide": "left"
+    },
+    {
+      "fromNode": "c1279ba3bd41acd5",
+      "fromSide": "right",
+      "id": "90a017de87cfa829",
+      "styleAttributes": {
+      },
+      "toFloating": false,
+      "toNode": "98d56fcfa86e9c6c",
+      "toSide": "left"
+    },
+    {
+      "fromNode": "c1279ba3bd41acd5",
+      "fromSide": "right",
+      "id": "f31b286c8d16ab3e",
+      "styleAttributes": {
+      },
+      "toFloating": false,
+      "toNode": "c17e08dd20906492",
+      "toSide": "left"
+    },
+    {
+      "fromNode": "98d56fcfa86e9c6c",
+      "fromSide": "right",
+      "id": "f2d29fad65ce3adf",
+      "styleAttributes": {
+      },
+      "toFloating": false,
+      "toNode": "a1537c2ae2bca1d1",
+      "toSide": "left"
+    },
+    {
+      "fromNode": "a1537c2ae2bca1d1",
+      "fromSide": "right",
+      "id": "47cc996ce64e0833",
+      "styleAttributes": {
+      },
+      "toFloating": false,
+      "toNode": "3655bae6b0626443",
+      "toSide": "right"
+    },
+    {
+      "fromNode": "c17e08dd20906492",
+      "fromSide": "right",
+      "id": "b3c8c455e81d8666",
+      "styleAttributes": {
+      },
+      "toFloating": false,
+      "toNode": "a1537c2ae2bca1d1",
+      "toSide": "left"
+    },
+    {
+      "fromNode": "3655bae6b0626443",
+      "fromSide": "left",
+      "id": "fd468f4916db8b80",
+      "styleAttributes": {
+      },
+      "toFloating": false,
+      "toNode": "a1537c2ae2bca1d1",
+      "toSide": "left"
+    },
+    {
+      "fromNode": "a4e2dcf8040de571",
+      "fromSide": "right",
+      "id": "7c218184abe751a5",
+      "styleAttributes": {
+      },
+      "toNode": "e39024ab2fd029f8",
+      "toSide": "left"
+    },
+    {
+      "fromNode": "e39024ab2fd029f8",
+      "fromSide": "right",
+      "id": "4b14dae798dc1e77",
+      "styleAttributes": {
+      },
+      "toNode": "4822184ba83fc6c6",
+      "toSide": "left"
+    },
+    {
+      "fromNode": "0450e136a62908c6",
+      "fromSide": "top",
+      "id": "7c536be6384bece7",
+      "styleAttributes": {
+      },
+      "toNode": "e39024ab2fd029f8",
+      "toSide": "top"
+    },
+    {
+      "fromNode": "9710793408cc4438",
+      "fromSide": "right",
+      "id": "65c2aaf2bcbcc2d2",
+      "styleAttributes": {
+      },
+      "toNode": "abc8d944d0e7975c",
+      "toSide": "left"
+    },
+    {
+      "fromNode": "e39024ab2fd029f8",
+      "fromSide": "right",
+      "id": "dc32f9aa6940f975",
+      "styleAttributes": {
+      },
+      "toNode": "10bc4a85d6a08efb",
+      "toSide": "left"
+    },
+    {
+      "fromNode": "10bc4a85d6a08efb",
+      "fromSide": "right",
+      "id": "e6f17ef91fdcb24f",
+      "styleAttributes": {
+      },
+      "toNode": "cebf8b7dcdf0dfa3",
+      "toSide": "left"
+    },
+    {
+      "fromNode": "a4e2dcf8040de571",
+      "fromSide": "right",
+      "id": "954910613bc29ff5",
+      "styleAttributes": {
+      },
+      "toNode": "9710793408cc4438",
+      "toSide": "left"
+    },
+    {
+      "fromNode": "9710793408cc4438",
+      "fromSide": "right",
+      "id": "71ee0b7783037760",
+      "styleAttributes": {
+      },
+      "toNode": "0450e136a62908c6",
+      "toSide": "left"
+    },
+    {
+      "fromNode": "d14982414b286507",
+      "fromSide": "right",
+      "id": "62370faa81290399",
+      "styleAttributes": {
+      },
+      "toNode": "47cd3e83a4b4eb1b",
+      "toSide": "top"
+    },
+    {
+      "fromNode": "21cf76fd99c572c8",
+      "fromSide": "right",
+      "id": "e7ab4fca59b1fafa",
+      "styleAttributes": {
+      },
+      "toNode": "23e9ae30ed54781e",
+      "toSide": "left"
+    },
+    {
+      "fromNode": "21cf76fd99c572c8",
+      "fromSide": "right",
+      "id": "451c043ddeb997c4",
+      "styleAttributes": {
+      },
+      "toNode": "e7b481572c778f16",
+      "toSide": "left"
+    },
+    {
+      "fromNode": "71cb2e12b3197ad5",
+      "fromSide": "right",
+      "id": "024f901b6e7224ed",
+      "styleAttributes": {
+      },
+      "toNode": "21cf76fd99c572c8",
+      "toSide": "left"
+    },
+    {
+      "fromNode": "71cb2e12b3197ad5",
+      "fromSide": "right",
+      "id": "fb8f2312b3f81e61",
+      "styleAttributes": {
+      },
+      "toNode": "a4e2dcf8040de571",
+      "toSide": "left"
+    },
+    {
+      "fromNode": "b60a31c8dc067d9c",
+      "fromSide": "right",
+      "id": "396bf57b27ca04c7",
+      "styleAttributes": {
+      },
+      "toNode": "cf7690f6e507d654",
+      "toSide": "left"
+    },
+    {
+      "fromNode": "abdf273fe0d4ad3e",
+      "fromSide": "right",
+      "id": "d6d4db6cd9c74195",
+      "styleAttributes": {
+      },
+      "toNode": "9e2ef7a1caa0cd12",
+      "toSide": "left"
+    },
+    {
+      "fromNode": "5cceab3347d2b8d2",
+      "fromSide": "left",
+      "id": "8d9d1131562eb8d9",
+      "styleAttributes": {
+      },
+      "toNode": "a73a9ec44a1df08a",
+      "toSide": "right"
+    },
+    {
+      "fromNode": "c0e3b412df8ea7d3",
+      "fromSide": "left",
+      "id": "8457abdccbf03901",
+      "styleAttributes": {
+      },
+      "toNode": "83eeb20321b91ee2",
+      "toSide": "left"
+    },
+    {
+      "fromNode": "0ea5aa31447e5d49",
+      "fromSide": "left",
+      "id": "11d618f315bd8abc",
+      "styleAttributes": {
+      },
+      "toNode": "83eeb20321b91ee2",
+      "toSide": "left"
+    },
+    {
+      "fromNode": "5457ea7e2285040b",
+      "fromSide": "bottom",
+      "id": "2ca8d064bde32a4c",
+      "styleAttributes": {
+      },
+      "toNode": "cf7690f6e507d654",
+      "toSide": "top"
+    },
+    {
+      "fromNode": "621de903d5928122",
+      "fromSide": "right",
+      "id": "a7fb832e0891c313",
+      "styleAttributes": {
+      },
+      "toNode": "cef4ee782059728f",
+      "toSide": "right"
+    },
+    {
+      "fromNode": "ec0721d8a42821af",
+      "fromSide": "right",
+      "id": "25274a7e6d4b5cb3",
+      "styleAttributes": {
+      },
+      "toNode": "cef4ee782059728f",
+      "toSide": "right"
+    },
+    {
+      "fromNode": "279fee067600982d",
+      "fromSide": "left",
+      "id": "c4216063c52591e8",
+      "styleAttributes": {
+      },
+      "toNode": "a5de45ce4452adf7",
+      "toSide": "right"
+    },
+    {
+      "fromNode": "dc44648389e6bb58",
+      "fromSide": "right",
+      "id": "229947816edaa91e",
+      "styleAttributes": {
+      },
+      "toNode": "a5de45ce4452adf7",
+      "toSide": "right"
+    },
+    {
+      "fromNode": "d42a135044b2c379",
+      "fromSide": "bottom",
+      "id": "559f368cc6ebb1fe",
+      "styleAttributes": {
+      },
+      "toNode": "92377468f8cdbdfa",
+      "toSide": "top"
+    },
+    {
+      "fromNode": "426f2d74040274e2",
+      "fromSide": "right",
+      "id": "5252ed7dbdcc73e0",
+      "styleAttributes": {
+      },
+      "toNode": "a73a9ec44a1df08a",
+      "toSide": "right"
+    },
+    {
+      "fromNode": "8f49054723adbce7",
+      "fromSide": "left",
+      "id": "cfff2ffb97f4df0d",
+      "styleAttributes": {
+      },
+      "toNode": "9e2ef7a1caa0cd12",
+      "toSide": "left"
+    }
+  ],
+  "metadata": {
+    "frontmatter": {
+    },
+    "version": "1.0-1.0"
+  },
+  "nodes": [
+    {
+      "height": 1200,
+      "id": "3dca73a51090b512",
+      "label": "Reefscape",
+      "type": "group",
+      "width": 2300,
+      "x": -1150,
+      "y": 800
+    },
+    {
+      "height": 920,
+      "id": "53a4d4a9d63a3bcd",
+      "label": "Crescendo",
+      "type": "group",
+      "width": 2750,
+      "x": -1150,
+      "y": -280
+    },
+    {
+      "height": 800,
+      "id": "d8674fc2408a9900",
+      "label": "Rebuilt",
+      "type": "group",
+      "width": 2300,
+      "x": -1150,
+      "y": -1320
+    },
+    {
+      "height": 960,
+      "id": "3b701077efdb4464",
+      "label": "Crescendo State Diagram",
+      "type": "group",
+      "width": 1840,
+      "x": 1720,
+      "y": -280
+    },
+    {
+      "height": 380,
+      "id": "cf7690f6e507d654",
+      "label": "Loaded in AZ",
+      "type": "group",
+      "width": 360,
+      "x": 2990,
+      "y": 220
+    },
+    {
+      "height": 280,
+      "id": "cef4ee782059728f",
+      "label": "Unloaded in AZ",
+      "type": "group",
+      "width": 380,
+      "x": 2980,
+      "y": -160
+    },
+    {
+      "height": 260,
+      "id": "83eeb20321b91ee2",
+      "label": "Loaded  in OAZ",
+      "type": "group",
+      "width": 360,
+      "x": 1920,
+      "y": 220
+    },
+    {
+      "height": 260,
+      "id": "a73a9ec44a1df08a",
+      "label": "Unloaded in OAZ",
+      "type": "group",
+      "width": 360,
+      "x": 1920,
+      "y": -160
+    },
+    {
+      "height": 260,
+      "id": "9e2ef7a1caa0cd12",
+      "label": "Loaded In NZ",
+      "type": "group",
+      "width": 340,
+      "x": 2480,
+      "y": 220
+    },
+    {
+      "height": 260,
+      "id": "a5de45ce4452adf7",
+      "label": "Unloaded In NZ",
+      "type": "group",
+      "width": 340,
+      "x": 2480,
+      "y": -160
+    },
+    {
+      "height": 60,
+      "id": "23e9ae30ed54781e",
+      "styleAttributes": {
+      },
+      "text": "Score Speaker",
+      "type": "text",
+      "width": 260,
+      "x": 1000,
+      "y": 150
+    },
+    {
+      "height": 60,
+      "id": "8f08173c971ffac6",
+      "styleAttributes": {
+      },
+      "text": "L4",
+      "type": "text",
+      "width": 260,
+      "x": 190,
+      "y": 920
+    },
+    {
+      "height": 60,
+      "id": "e7b481572c778f16",
+      "styleAttributes": {
+      },
+      "text": "Score Amp",
+      "type": "text",
+      "width": 260,
+      "x": 1000,
+      "y": 320
+    },
+    {
+      "height": 60,
+      "id": "4822184ba83fc6c6",
+      "styleAttributes": {
+      },
+      "text": "Get  note from HPS",
+      "type": "text",
+      "width": 260,
+      "x": 20,
+      "y": -50
+    },
+    {
+      "height": 60,
+      "id": "10bc4a85d6a08efb",
+      "styleAttributes": {
+      },
+      "text": "Steal Note",
+      "type": "text",
+      "width": 260,
+      "x": 20,
+      "y": 50
+    },
+    {
+      "height": 60,
+      "id": "cebf8b7dcdf0dfa3",
+      "styleAttributes": {
+      },
+      "text": "Enter NZ",
+      "type": "text",
+      "width": 260,
+      "x": 370,
+      "y": -50
+    },
+    {
+      "height": 60,
+      "id": "0450e136a62908c6",
+      "styleAttributes": {
+      },
+      "text": "Pass",
+      "type": "text",
+      "width": 260,
+      "x": 1000,
+      "y": -50
+    },
+    {
+      "height": 60,
+      "id": "abc8d944d0e7975c",
+      "styleAttributes": {
+      },
+      "text": "Enter AZ",
+      "type": "text",
+      "width": 260,
+      "x": 620,
+      "y": 150
+    },
+    {
+      "height": 60,
+      "id": "21cf76fd99c572c8",
+      "styleAttributes": {
+      },
+      "text": "Note from AZ Floor",
+      "type": "text",
+      "width": 260,
+      "x": 620,
+      "y": 320
+    },
+    {
+      "height": 60,
+      "id": "5729d02274532596",
+      "styleAttributes": {
+      },
+      "text": "Cross Bump to AZ",
+      "type": "text",
+      "width": 260,
+      "x": 195,
+      "y": -1040
+    },
+    {
+      "height": 60,
+      "id": "900f6465ebb1208b",
+      "styleAttributes": {
+      },
+      "text": "Cross Trench to AZ",
+      "type": "text",
+      "width": 260,
+      "x": 195,
+      "y": -960
+    },
+    {
+      "height": 60,
+      "id": "47cd3e83a4b4eb1b",
+      "styleAttributes": {
+      },
+      "text": "Score In Hub",
+      "type": "text",
+      "width": 260,
+      "x": 535,
+      "y": -1040
+    },
+    {
+      "height": 60,
+      "id": "cdb0a5a7b9028fb5",
+      "styleAttributes": {
+      },
+      "text": "L3",
+      "type": "text",
+      "width": 260,
+      "x": 190,
+      "y": 1020
+    },
+    {
+      "height": 60,
+      "id": "ab83ff0a207c2236",
+      "styleAttributes": {
+      },
+      "text": "Unloaded",
+      "type": "text",
+      "width": 140,
+      "x": 550,
+      "y": 1060
+    },
+    {
+      "height": 60,
+      "id": "3970870f5281045b",
+      "styleAttributes": {
+      },
+      "text": "Score in Processor",
+      "type": "text",
+      "width": 260,
+      "x": 190,
+      "y": 1480
+    },
+    {
+      "height": 60,
+      "id": "25e703d7c0aab939",
+      "styleAttributes": {
+      },
+      "text": "Load Coral from Floor",
+      "type": "text",
+      "width": 260,
+      "x": -570,
+      "y": 920
+    },
+    {
+      "height": 60,
+      "id": "5ab72acca6fd2710",
+      "text": "Load  Coral From HPS",
+      "type": "text",
+      "width": 260,
+      "x": -570,
+      "y": 1060
+    },
+    {
+      "height": 60,
+      "id": "41b0d26dc1a2c664",
+      "styleAttributes": {
+      },
+      "text": "Load Algae From Reef",
+      "type": "text",
+      "width": 260,
+      "x": -570,
+      "y": 1360
+    },
+    {
+      "height": 60,
+      "id": "07128c37f1a7d252",
+      "styleAttributes": {
+      },
+      "text": "Unloaded",
+      "type": "text",
+      "width": 130,
+      "x": -890,
+      "y": 1060
+    },
+    {
+      "height": 60,
+      "id": "a1537c2ae2bca1d1",
+      "styleAttributes": {
+      },
+      "text": "intake in NZ",
+      "type": "text",
+      "width": 260,
+      "x": -225,
+      "y": -960
+    },
+    {
+      "height": 60,
+      "id": "d14982414b286507",
+      "styleAttributes": {
+      },
+      "text": "Intake From AZ",
+      "type": "text",
+      "width": 260,
+      "x": -660,
+      "y": -1200
+    },
+    {
+      "height": 60,
+      "id": "2a457cedaf00e2f4",
+      "styleAttributes": {
+      },
+      "text": "Empty In AZ",
+      "type": "text",
+      "width": 155,
+      "x": 890,
+      "y": -1040
+    },
+    {
+      "height": 60,
+      "id": "cfa21034cf3a6865",
+      "styleAttributes": {
+      },
+      "text": "L3 Climb",
+      "type": "text",
+      "width": 260,
+      "x": -360,
+      "y": -640
+    },
+    {
+      "height": 60,
+      "id": "c9c1eb188795cef1",
+      "styleAttributes": {
+      },
+      "text": "Have Algae",
+      "type": "text",
+      "width": 260,
+      "x": -190,
+      "y": 1420
+    },
+    {
+      "height": 60,
+      "id": "e5973fa3eeb78302",
+      "styleAttributes": {
+      },
+      "text": "L1",
+      "type": "text",
+      "width": 260,
+      "x": 190,
+      "y": 1220
+    },
+    {
+      "height": 60,
+      "id": "3871f4e8525fbd84",
+      "styleAttributes": {
+      },
+      "text": "Score In Barge",
+      "type": "text",
+      "width": 260,
+      "x": 190,
+      "y": 1360
+    },
+    {
+      "height": 60,
+      "id": "d082ca3116ab575b",
+      "styleAttributes": {
+      },
+      "text": "Have Coral",
+      "type": "text",
+      "width": 260,
+      "x": -190,
+      "y": 1060
+    },
+    {
+      "height": 60,
+      "id": "40c2365770dbddf6",
+      "styleAttributes": {
+      },
+      "text": "Knock Algae Off Reef",
+      "type": "text",
+      "width": 260,
+      "x": -190,
+      "y": 1190
+    },
+    {
+      "height": 60,
+      "id": "43680b2c04e6a692",
+      "styleAttributes": {
+      },
+      "text": "L2",
+      "type": "text",
+      "width": 260,
+      "x": 190,
+      "y": 1120
+    },
+    {
+      "height": 60,
+      "id": "c1279ba3bd41acd5",
+      "styleAttributes": {
+      },
+      "text": "Empty in AZ",
+      "type": "text",
+      "width": 260,
+      "x": -1100,
+      "y": -960
+    },
+    {
+      "height": 60,
+      "id": "c17e08dd20906492",
+      "styleAttributes": {
+      },
+      "text": "Cross Bump to NZ",
+      "type": "text",
+      "width": 270,
+      "x": -665,
+      "y": -1040
+    },
+    {
+      "height": 60,
+      "id": "3655bae6b0626443",
+      "styleAttributes": {
+      },
+      "text": "Pass To AZ",
+      "type": "text",
+      "width": 260,
+      "x": -225,
+      "y": -840
+    },
+    {
+      "height": 60,
+      "id": "8a60f006c44cf79c",
+      "styleAttributes": {
+      },
+      "text": "L1 Climb",
+      "type": "text",
+      "width": 260,
+      "x": -1100,
+      "y": -640
+    },
+    {
+      "height": 60,
+      "id": "5a639226d756bda4",
+      "styleAttributes": {
+      },
+      "text": "L2 Climb",
+      "type": "text",
+      "width": 260,
+      "x": -720,
+      "y": -640
+    },
+    {
+      "height": 60,
+      "id": "539f248d79788b4a",
+      "styleAttributes": {
+      },
+      "text": "Load Algae From Floor",
+      "type": "text",
+      "width": 260,
+      "x": -570,
+      "y": 1480
+    },
+    {
+      "height": 60,
+      "id": "909294327099a4fa",
+      "styleAttributes": {
+      },
+      "text": "Knock Algae Off Reef",
+      "type": "text",
+      "width": 260,
+      "x": -890,
+      "y": 1600
+    },
+    {
+      "height": 60,
+      "id": "c850099f1af41ea6",
+      "styleAttributes": {
+      },
+      "text": "Deep Climb",
+      "type": "text",
+      "width": 260,
+      "x": -890,
+      "y": 1720
+    },
+    {
+      "height": 60,
+      "id": "630d3e1ec003daf3",
+      "styleAttributes": {
+      },
+      "text": "Shallow Climb",
+      "type": "text",
+      "width": 260,
+      "x": -890,
+      "y": 1840
+    },
+    {
+      "height": 240,
+      "id": "1bc63f7e823b00d5",
+      "styleAttributes": {
+      },
+      "text": "# Notes\n\n- The leftmost is a \"neutral state\", representing the start of a cycle\n- From any given bot state, you can progress to the next gameplay state\n- At the rightmost side, a cycle is \"reset\" to the neutral state, and you start over\n- Each state represents some notable change in field state or game piece state\n",
+      "type": "text",
+      "width": 660,
+      "x": -1880,
+      "y": -400
+    },
+    {
+      "height": 60,
+      "id": "98d56fcfa86e9c6c",
+      "styleAttributes": {
+      },
+      "text": "Cross Trench to NZ",
+      "type": "text",
+      "width": 270,
+      "x": -665,
+      "y": -960
+    },
+    {
+      "height": 60,
+      "id": "71cb2e12b3197ad5",
+      "styleAttributes": {
+      },
+      "text": "Empty in AZ",
+      "type": "text",
+      "width": 190,
+      "x": -1050,
+      "y": 320
+    },
+    {
+      "height": 60,
+      "id": "e39024ab2fd029f8",
+      "styleAttributes": {
+      },
+      "text": "Enter OAZ",
+      "type": "text",
+      "width": 260,
+      "x": -360,
+      "y": -50
+    },
+    {
+      "height": 60,
+      "id": "9710793408cc4438",
+      "styleAttributes": {
+      },
+      "text": "Get Note From Midfield",
+      "type": "text",
+      "width": 270,
+      "x": -360,
+      "y": 200
+    },
+    {
+      "height": 60,
+      "id": "415069637019c1e2",
+      "styleAttributes": {
+      },
+      "text": "Have Note",
+      "type": "text",
+      "width": 260,
+      "x": -1050,
+      "y": 480
+    },
+    {
+      "height": 60,
+      "id": "eb45fc10a895d432",
+      "styleAttributes": {
+      },
+      "text": "Climb",
+      "type": "text",
+      "width": 260,
+      "x": -690,
+      "y": 480
+    },
+    {
+      "height": 60,
+      "id": "8cbe87ab30b36d6c",
+      "styleAttributes": {
+      },
+      "text": "Score Trap",
+      "type": "text",
+      "width": 260,
+      "x": -330,
+      "y": 480
+    },
+    {
+      "height": 60,
+      "id": "a4e2dcf8040de571",
+      "styleAttributes": {
+      },
+      "text": "Enter NZ",
+      "type": "text",
+      "width": 260,
+      "x": -720,
+      "y": -50
+    },
+    {
+      "height": 60,
+      "id": "d42a135044b2c379",
+      "styleAttributes": {
+      },
+      "text": "Climb",
+      "type": "text",
+      "width": 260,
+      "x": 3040,
+      "y": 430
+    },
+    {
+      "height": 60,
+      "id": "92377468f8cdbdfa",
+      "styleAttributes": {
+      },
+      "text": "ScoreTrap",
+      "type": "text",
+      "width": 260,
+      "x": 3040,
+      "y": 520
+    },
+    {
+      "height": 60,
+      "id": "279fee067600982d",
+      "styleAttributes": {
+      },
+      "text": "Move to NZ",
+      "type": "text",
+      "width": 260,
+      "x": 3040,
+      "y": -100
+    },
+    {
+      "height": 60,
+      "id": "5457ea7e2285040b",
+      "styleAttributes": {
+      },
+      "text": "Intake From Floor",
+      "type": "text",
+      "width": 260,
+      "x": 3040,
+      "y": 30
+    },
+    {
+      "height": 60,
+      "id": "621de903d5928122",
+      "styleAttributes": {
+      },
+      "text": "Score Speaker",
+      "type": "text",
+      "width": 260,
+      "x": 3040,
+      "y": 250
+    },
+    {
+      "height": 60,
+      "id": "ec0721d8a42821af",
+      "styleAttributes": {
+      },
+      "text": "Score Amp",
+      "type": "text",
+      "width": 260,
+      "x": 3040,
+      "y": 340
+    },
+    {
+      "height": 60,
+      "id": "0ea5aa31447e5d49",
+      "styleAttributes": {
+      },
+      "text": "Steal Speaker Note",
+      "type": "text",
+      "width": 260,
+      "x": 1960,
+      "y": -90
+    },
+    {
+      "height": 60,
+      "id": "c0e3b412df8ea7d3",
+      "styleAttributes": {
+      },
+      "text": "Note from HPS",
+      "type": "text",
+      "width": 260,
+      "x": 1960,
+      "y": 10
+    },
+    {
+      "height": 60,
+      "id": "5cceab3347d2b8d2",
+      "styleAttributes": {
+      },
+      "text": "Move to OAZ",
+      "type": "text",
+      "width": 260,
+      "x": 2520,
+      "y": -90
+    },
+    {
+      "height": 60,
+      "id": "8f49054723adbce7",
+      "styleAttributes": {
+      },
+      "text": "Load Midfield note",
+      "type": "text",
+      "width": 260,
+      "x": 2520,
+      "y": 10
+    },
+    {
+      "height": 60,
+      "id": "abdf273fe0d4ad3e",
+      "styleAttributes": {
+      },
+      "text": "Drive to NZ",
+      "type": "text",
+      "width": 260,
+      "x": 1960,
+      "y": 370
+    },
+    {
+      "height": 60,
+      "id": "426f2d74040274e2",
+      "styleAttributes": {
+      },
+      "text": "Pass to Midfield",
+      "type": "text",
+      "width": 260,
+      "x": 1960,
+      "y": 280
+    },
+    {
+      "height": 60,
+      "id": "9b73a66ef0f32fef",
+      "styleAttributes": {
+      },
+      "text": "Empty",
+      "type": "text",
+      "width": 120,
+      "x": 1410,
+      "y": -50
+    },
+    {
+      "height": 60,
+      "id": "dc44648389e6bb58",
+      "styleAttributes": {
+      },
+      "text": "Pass",
+      "type": "text",
+      "width": 260,
+      "x": 2520,
+      "y": 280
+    },
+    {
+      "height": 60,
+      "id": "b60a31c8dc067d9c",
+      "styleAttributes": {
+      },
+      "text": "Drive to AZ",
+      "type": "text",
+      "width": 260,
+      "x": 2520,
+      "y": 370
+    }
+  ]
+}

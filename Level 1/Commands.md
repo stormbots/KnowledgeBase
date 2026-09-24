@@ -1,4 +1,4 @@
----
+[](Creating%20a%20Differential%20Drive.md)---
 aliases:
   - Command
 ---
@@ -53,7 +53,7 @@ This is the surface level complexity, which sets you up for how to view, read, a
 
 ## Requirements and resources
 
-A key aspect of Commands is their ability to claim temporary, exclusive  ownership over a [[Subsystem]] .  This is done by passing the subsystem into a command, and then adding it as a requirementcontroll
+A key aspect of Commands is their ability to claim temporary, exclusive  ownership over a [[Subsystem]] .  This is done by passing the subsystem into a command, and then adding it as a requirement.
 ```java
 class ExampleCommand extends CommandBase{
 	public ExampleCommand(ExampleSubsystem subsystemName){

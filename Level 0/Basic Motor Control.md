@@ -12,8 +12,9 @@ To create a motor, you would create an appropriate motor Object.  Motors general
 
 ```java
 public class ExampleSubsystem extends SubsystemBase{
-	//The first parameter is the motor's ID, and unique to each motor.
-	// Ther second is the type of motor; We only use Brushless.
+	//The first parameter is the motor's ID; We'll assign an ID to each motor
+	// with the goal that each motor has a unique number.
+	// The second is the type of motor; We only use Brushless.
 	SparkMax motor = new SparkMax(1, MotorType.kBrushless);
 }
 ```

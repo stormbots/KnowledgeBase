@@ -21,7 +21,7 @@ public class ExampleSubsystem extends SubsystemBase{
 }
 ```
 
-Let's rename this motor to `motorLeft`. This will cause a error in your `ExampleSubystem` and `periodic` functions  too, so you'll need to fix it there as well. 
+Let's rename this motor to `motorLeft`. This will cause a error in your `ExampleSubsystem` and `periodic` functions  too, so you'll need to fix it there as well. 
 
 This is also a case where VS Code can help. If you right click the variable name (`motor`) you can use `Rename Symbol` and enter the new name. This will fix all places where this specific `motor` is being used, and you can avoid many such errors . 
 
@@ -57,9 +57,9 @@ In most setups, I expect this will spin in place! Probably fairly quickly!
 
 Since you gave both motors a "positive" value, you *probably* wanted the robot as a whole to go forward. But, looking at the robot mechanically, you'll see the issue. 
 
-A "positive" output causes the motor itself to spin "clockwise" in a consistent way. But the left and right side are "mirrored" relative to eachother, so the impact on the robot's motion is flipped! 
+A "positive" output causes the motor itself to spin "clockwise" in a consistent way. But the left and right side are "mirrored" relative to each other, so the impact on the robot's motion is flipped! 
 
-You *might* be tempted to just change one motor to "negative" and fix  this. However, you have then remember _which_ motor gets a negative, every time you want to deal with this. It's much better to tell the motor "hey, you're mounted the wrong way" and have it take care of this automatically. Let's do that.
+You *might* be tempted to just change one motor's output value to "negative" and fix  this. However, you have then remember _which_ motor gets a negative, every time you want to deal with this. It's much better to tell the motor "hey, you're mounted the wrong way" and have it take care of this automatically. Let's do that.
 # Configuring your other motor
 
 We previously configured a motor, which looks like this when we strip out the commentary, which configures motorLeft, but _not_ motorRight. 
@@ -123,7 +123,7 @@ But this won't fix our  problem. If we set `config.inverted(false)` it spins how
 
 But if we set `config.inverted(true)` it just spins the _other_ way.
 
-Instead, what we need to do is this:
+Instead, what we need to split the motor configs out into "common" settings and different ones. 
 
 ```java
 public class ExampleSubsystem extends SubsystemBase{
@@ -131,28 +131,30 @@ public class ExampleSubsystem extends SubsystemBase{
 	SparkMax motorRight = new SparkMax(4, MotorType.kBrushless);
 	
 	public ExampleSubsystem(){
-
+		//Set up our "default" config values that apply to all motors
 		var config = new SparkMaxConfig();
 		config.smartCurrentLimit(10);
-		config.inverted(false); 
 		config.idleMode(IdleMode.kBrake);
 
+		var configLeft = new SparkMaxConfig()
+		.apply(config) //Copy our "default" config settings
+		.inverted(false);
+
+		var configRight = new SparkMaxConfig()
+		.apply(config) //Copy our "default" config settings
+		.inverted(true);
+		
 		motorLeft.configure(
-			config,
+			configLeft,
 			ResetMode.kNoResetSafeParameters,
 			PersistMode.kNoPersistParameters
 		);
-		// Left will now be configured with inverted(false)
-		
-		// Now, we can change the config before sending it to right.
-		config.inverted(true); 
 
 		motorRight.configure(
-			config,
+			configRight,
 			ResetMode.kNoResetSafeParameters,
 			PersistMode.kNoPersistParameters
 		);
-		//Right is now inverted relative to left.
 	}
 	
 	// ... periodic is down here somewhere
@@ -180,16 +182,26 @@ public class ExampleSubsystem extends SubsystemBase{
 	SparkMax motorLeft = new SparkMax(1, MotorType.kBrushless);	
 	SparkMax motorRight = new SparkMax(4, MotorType.kBrushless);
 	
-	DifferentialDrive differentialDrive = new DifferentialDrive(
-		motorLeft, 
-		motorRight
-	);
+	//Make a spot for our drivetrain in the class
+	DifferentialDrive differentialDrive;
+	
+
+	public ExampleSubsystem(){
+		//... Motor Configs go here
+		
+		//Now we take our configured motors and create a new
+		// DifferentialDrive object
+		differentialDrive= new DifferentialDrive(
+			motorLeft, 
+			motorRight
+		);
+	}
 	
 	// ... constructor and periodic not shown
 }
 ```
 
-The, let's go to our periodic and remove the existing `.set(...)`  calls, and replace with a single DifferentialDrive call that does the same thing:
+Then, let's go to our periodic and remove the existing `.set(...)`  calls, and replace with a single DifferentialDrive call that does the same thing:
 
 ```java
 public class ExampleSubsystem extends SubsystemBase{
@@ -217,3 +229,75 @@ This doesn't seem like it'll simplify things yet, but once we hook up a controll
 It's sometimes helpful to note that "left" is counterclockwise for math reasons, and follows mathematical conventions. A "more positive" rotation is counterclockwise, both for our robot and when graphing angles.
 
 ![[axes.svg]]
+
+
+#  Kitbot + multi-motor Gearboxes
+
+For our testbenches, this is all we need! They have one motor per side. The Kitbot, however, has two motors per side. 
+
+Since we always drive these motors as a"pair", we can just tell one motor on each side to  follow the "primary" motor, and then never think about about the follower again.  This mostly means more configs
+
+```java
+
+public class ExampleSubsystem extends SubsystemBase{
+	SparkMax motorLeft = new SparkMax(1, MotorType.kBrushless);	
+	SparkMax motorRight = new SparkMax(4, MotorType.kBrushless);
+	//Create the new motors with their appropriate ids.
+	SparkMax followerLeft = new SparkMax(22, MotorType.kBrushless);	
+	SparkMax followerRight = new SparkMax(23, MotorType.kBrushless);
+	DifferentialDrive differentialDrive ; // We'll create the object later
+	
+	public ExampleSubsystem(){
+
+		//Set up our "default" config values that apply to all motors
+		var config = new SparkMaxConfig();
+		config.smartCurrentLimit(10);
+		config.idleMode(IdleMode.kBrake);
+
+		var configLeft = new SparkMaxConfig()
+		.apply(config) //Copy our "default" config settings
+		.inverted(false);
+
+		var configLeftFollower = new SparkMaxConfig()
+		.apply(config) //Copy our "default" config settings
+		.follow(motorLeft, false); //rotate the same direction as the leader
+
+		var configRight = new SparkMaxConfig()
+		.apply(config) //Copy our "default" config settings
+		.inverted(true);
+
+		var configRightFollower = new SparkMaxConfig()
+		.apply(config) //Copy our "default" config settings		
+		.follow(motorRight, false); // Rotate the same direction as the leader
+
+		//Now we just write the config to the motor
+		motorLeft.configure(
+			configLeft,
+			ResetMode.kNoResetSafeParameters,
+			PersistMode.kNoPersistParameters
+		);
+		// ... and repeat for each motor and it's config
+		
+		//Now, we create the  differentialDrive just like before.
+		//The followers will figure out what they do on their own.
+		differentialDrive = new DifferentialDrive(
+			motorLeft, 
+			motorRight
+		);
+	}
+	
+	// ... periodic is down here somewhere
+}
+
+```
+
+`[!!info|Important!|var(--color-yellow-rgb)]` It's helpful to remember that without inversion, a motor spins "clockwise" relative to it's mounting plate. 
+
+The rev config `.inverted(true)` _only_ applies when setting a motor value for leader motors (motorLeft and motorRight). We use this setting to define what "forward" means on a mechanism.
+
+For followers, they instead care about whether they should spin in the _same_ direction as the leader, or spin in the _opposite_ direction. So `.follow(leader,inverted)` allows us to indicate this.
+
+For our chassis gearbox, they should spin the same way as the leader: Meaning we do not invert the followers relative to the leaders ; They spin the same direction, so they get `.follow(leader,false)`
+
+When configuring a follower, if you're not sure set the max output very low using `smartCurrentLimit(...);`. A current limit of 5-10 is generally safe and will move mechanisms, and you can see if anything is trying to go the wrong way. 
+

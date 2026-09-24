@@ -1,196 +1,215 @@
 {
   "edges": [
     {
-      "fromNode": "f5fdc14e32e8e80b",
+      "fromNode": "e35df302fa819701",
       "fromSide": "right",
-      "id": "e40082a558b873c9",
-      "toNode": "f739df0f46b49c97",
-      "toSide": "left"
-    },
-    {
-      "fromNode": "a8aa39e9a066166b",
-      "fromSide": "right",
-      "id": "eb752d5abe8e6043",
-      "toNode": "d385afd6608b95e5",
-      "toSide": "left"
-    },
-    {
-      "fromNode": "f5fdc14e32e8e80b",
-      "fromSide": "right",
-      "id": "72d52ce9e1850332",
-      "toNode": "a8aa39e9a066166b",
-      "toSide": "left"
-    },
-    {
-      "fromNode": "f739df0f46b49c97",
-      "fromSide": "right",
-      "id": "8f904c73bce8afc7",
-      "toNode": "c6a8fbee833fbd11",
-      "toSide": "left"
-    },
-    {
-      "fromNode": "a8aa39e9a066166b",
-      "fromSide": "right",
-      "id": "03500d215c8f3a22",
-      "toNode": "c6a8fbee833fbd11",
-      "toSide": "left"
-    },
-    {
-      "fromNode": "8b06beff1d680bba",
-      "fromSide": "right",
-      "id": "9fac8ac6ead65026",
-      "toNode": "7eee36baa0e518a6",
-      "toSide": "left"
-    },
-    {
-      "fromNode": "d385afd6608b95e5",
-      "fromSide": "right",
-      "id": "ed6849bad3f22c75",
-      "toNode": "8b06beff1d680bba",
-      "toSide": "left"
-    },
-    {
-      "fromNode": "4a87dce74a833996",
-      "fromSide": "right",
-      "id": "2df8c0ce40d2f8d6",
-      "toNode": "474905cd77ef301a",
-      "toSide": "left"
-    },
-    {
-      "fromNode": "f55d4586901cd00f",
-      "fromSide": "right",
-      "id": "80207e750a52ddd9",
-      "styleAttributes": {
-        "pathfindingMethod": null
-      },
-      "toNode": "474905cd77ef301a",
-      "toSide": "left"
-    },
-    {
-      "fromNode": "d385afd6608b95e5",
-      "fromSide": "right",
-      "id": "251c10f6e0484b67",
-      "toNode": "4a87dce74a833996",
-      "toSide": "left"
-    },
-    {
-      "fromNode": "f739df0f46b49c97",
-      "fromSide": "right",
-      "id": "290cd3c3d00bfe86",
+      "id": "072bc82aee15692a",
       "styleAttributes": {
       },
-      "toNode": "d385afd6608b95e5",
+      "toNode": "9eb3e7e989d3682c",
       "toSide": "left"
     },
     {
-      "fromNode": "f55d4586901cd00f",
+      "fromNode": "dad611a5e20c3d25",
       "fromSide": "right",
-      "id": "fa37e04bc45b7d14",
+      "id": "22afd81a43875d16",
       "styleAttributes": {
       },
-      "toNode": "26d2b69ebeb77abe",
+      "toNode": "4d13cc604e7f1a7e",
       "toSide": "left"
     },
     {
-      "fromNode": "8b06beff1d680bba",
+      "fromNode": "9eb3e7e989d3682c",
       "fromSide": "right",
-      "id": "604d4be3603bf5e9",
+      "id": "7dc98dd2052d8bbe",
       "styleAttributes": {
       },
-      "toNode": "127eaaa1140d4b12",
+      "toNode": "524ed696c0126d18",
       "toSide": "left"
     },
     {
-      "fromNode": "7a464cc02c36a1ae",
+      "fromNode": "f5b90f8cb606ae30",
       "fromSide": "right",
-      "id": "ed688d04ba117980",
+      "id": "2a33029f96d32c2a",
       "styleAttributes": {
       },
-      "toNode": "f5fdc14e32e8e80b",
+      "toNode": "e35df302fa819701",
       "toSide": "left"
     },
     {
-      "fromNode": "a8aa39e9a066166b",
+      "fromNode": "f5b90f8cb606ae30",
       "fromSide": "right",
-      "id": "a7fb64a1539dafab",
+      "id": "88f973cba7a7685a",
       "styleAttributes": {
       },
-      "toNode": "ebf424ba1ca4edff",
+      "toNode": "399d8a3019bf41f9",
       "toSide": "left"
     },
     {
-      "fromNode": "2cf69a37fb2b4def",
+      "fromNode": "399d8a3019bf41f9",
       "fromSide": "right",
-      "id": "3b5901feb6a6c361",
+      "id": "85f2e44315f9303a",
       "styleAttributes": {
       },
-      "toNode": "bd556bb6f4381bdb",
+      "toNode": "dad611a5e20c3d25",
       "toSide": "left"
     },
     {
-      "fromNode": "c6a8fbee833fbd11",
+      "fromNode": "78d733eb58819490",
       "fromSide": "right",
-      "id": "df603fddcc5e9431",
+      "id": "c4e347078605af14",
       "styleAttributes": {
       },
-      "toNode": "8aa4907d2e8e4c23",
+      "toNode": "3bcec54409fa3144",
       "toSide": "left"
     },
     {
-      "fromNode": "8aa4907d2e8e4c23",
+      "fromNode": "f5b90f8cb606ae30",
       "fromSide": "right",
-      "id": "c67e8550ca9c6dd6",
+      "id": "8a0ff0b29e6c3299",
       "styleAttributes": {
       },
-      "toNode": "b2d6ab6c302f76f6",
+      "toNode": "50cb08c15ec10d32",
       "toSide": "left"
     },
     {
-      "fromNode": "8b06beff1d680bba",
+      "fromNode": "9eb3e7e989d3682c",
       "fromSide": "right",
-      "id": "ba1edaacc6698704",
+      "id": "53a5cf5597ad771a",
       "styleAttributes": {
       },
-      "toNode": "b2d6ab6c302f76f6",
-      "toSide": "bottom"
-    },
-    {
-      "fromNode": "7eee36baa0e518a6",
-      "fromSide": "right",
-      "id": "d9d7af05c5ab0d2f",
-      "styleAttributes": {
-        "path": "long-dashed"
-      },
-      "toNode": "b2d6ab6c302f76f6",
-      "toSide": "bottom"
-    },
-    {
-      "fromNode": "da05037cc1eb6a99",
-      "fromSide": "right",
-      "id": "570a07942ad9e5e4",
-      "styleAttributes": {
-      },
-      "toNode": "7893622659a2ee20",
+      "toNode": "f1aca579cbc4b279",
       "toSide": "left"
     },
     {
-      "fromNode": "6dbbc28aeec06ad1",
-      "fromSide": "right",
-      "id": "7ba97bf808a48e5c",
+      "color": "4",
+      "fromNode": "f5b90f8cb606ae30",
+      "fromSide": "bottom",
+      "id": "49621ef8c1c055c2",
       "styleAttributes": {
-        "path": "long-dashed"
       },
-      "toNode": "8aa4907d2e8e4c23",
+      "toNode": "cb21d6eaf149f5c8",
+      "toSide": "top"
+    },
+    {
+      "fromNode": "399d8a3019bf41f9",
+      "fromSide": "right",
+      "id": "dd668434225df3ef",
+      "styleAttributes": {
+      },
+      "toNode": "7cd42c00c062595a",
       "toSide": "left"
     },
     {
-      "fromNode": "c6a8fbee833fbd11",
-      "fromSide": "top",
-      "id": "5611f96504c747d4",
+      "fromNode": "306449ef4260b658",
+      "fromSide": "right",
+      "id": "54dae3cb3f3bcc37",
       "styleAttributes": {
-        "path": "long-dashed"
       },
-      "toNode": "6dbbc28aeec06ad1",
+      "toNode": "f5b90f8cb606ae30",
+      "toSide": "left"
+    },
+    {
+      "fromNode": "6c6895daf9e3c0b5",
+      "fromSide": "right",
+      "id": "660512dd1bbd4c66",
+      "styleAttributes": {
+      },
+      "toNode": "a3764b8700a68760",
+      "toSide": "left"
+    },
+    {
+      "color": "4",
+      "fromNode": "a3764b8700a68760",
+      "fromSide": "bottom",
+      "id": "42cbfcd5ed77a252",
+      "styleAttributes": {
+      },
+      "toNode": "049bb01ef251a640",
+      "toSide": "top"
+    },
+    {
+      "fromNode": "a3764b8700a68760",
+      "fromSide": "right",
+      "id": "607bfc9a60dfbcd6",
+      "styleAttributes": {
+      },
+      "toNode": "306449ef4260b658",
+      "toSide": "left"
+    },
+    {
+      "color": "4",
+      "fromNode": "6c6895daf9e3c0b5",
+      "fromSide": "bottom",
+      "id": "31fa8853403325b5",
+      "styleAttributes": {
+      },
+      "toNode": "080e6bc719d6c0d7",
+      "toSide": "top"
+    },
+    {
+      "fromNode": "080e6bc719d6c0d7",
+      "fromSide": "right",
+      "id": "a76e1c1aa730c224",
+      "styleAttributes": {
+      },
+      "toNode": "049bb01ef251a640",
+      "toSide": "left"
+    },
+    {
+      "fromNode": "049bb01ef251a640",
+      "fromSide": "right",
+      "id": "fbf046fd6f8bc8d2",
+      "styleAttributes": {
+      },
+      "toNode": "77eee1da2a998b26",
+      "toSide": "left"
+    },
+    {
+      "fromNode": "77eee1da2a998b26",
+      "fromSide": "right",
+      "id": "11307d3fbb062b97",
+      "styleAttributes": {
+      },
+      "toNode": "cb21d6eaf149f5c8",
+      "toSide": "left"
+    },
+    {
+      "color": "4",
+      "fromNode": "306449ef4260b658",
+      "fromSide": "bottom",
+      "id": "034ee9988ae4df25",
+      "styleAttributes": {
+      },
+      "toNode": "77eee1da2a998b26",
+      "toSide": "top"
+    },
+    {
+      "fromNode": "cb21d6eaf149f5c8",
+      "fromSide": "right",
+      "id": "c5497d7265aa832b",
+      "styleAttributes": {
+      },
+      "toNode": "4bcfe208cc03c038",
+      "toSide": "left"
+    },
+    {
+      "color": "4",
+      "fromNode": "f5b90f8cb606ae30",
+      "fromSide": "bottom",
+      "id": "3649dadcee1cee7c",
+      "styleAttributes": {
+      },
+      "toNode": "4bcfe208cc03c038",
+      "toSide": "left"
+    },
+    {
+      "fromNode": "cb21d6eaf149f5c8",
+      "fromSide": "bottom",
+      "id": "a875fc3b1cc29e19",
+      "styleAttributes": {
+      },
+      "toNode": "817018435fc743b1",
       "toSide": "left"
     }
   ],
@@ -201,319 +220,337 @@
   },
   "nodes": [
     {
-      "height": 4400,
-      "id": "613a2a525b178442",
-      "label": "Introductory Topics",
+      "height": 840,
+      "id": "ef7249ec519ae1e3",
+      "label": "Updated and filled in",
       "type": "group",
-      "width": 2080,
-      "x": -2240,
-      "y": -2400
+      "width": 3440,
+      "x": -2200,
+      "y": 1040
     },
     {
-      "height": 4400,
-      "id": "4c8ac055bc29bcc0",
-      "label": "Standard Topics",
+      "height": 870,
+      "id": "d12b624e7bc0f891",
+      "label": "Kitbot Minimum",
       "type": "group",
-      "width": 1920,
-      "x": -80,
-      "y": -2400
+      "width": 2180,
+      "x": -1700,
+      "y": -600
     },
     {
-      "height": 4400,
-      "id": "b1f70f17f7151b43",
-      "label": "Capstone Topics",
+      "height": 870,
+      "id": "f1aca579cbc4b279",
+      "label": "Advanced Control",
       "type": "group",
-      "width": 1360,
-      "x": 1920,
-      "y": -2400
+      "width": 760,
+      "x": 560,
+      "y": -600
     },
     {
-      "height": 880,
-      "id": "e85bee8786241ca8",
-      "label": "Special Courses",
+      "height": 360,
+      "id": "7cd42c00c062595a",
+      "label": "Vision+Localization",
       "type": "group",
-      "width": 4080,
-      "x": -2240,
-      "y": 2160
+      "width": 1160,
+      "x": -40,
+      "y": 360
     },
     {
-      "height": 1580,
-      "id": "b2d6ab6c302f76f6",
-      "label": "Complex SuperStructure",
+      "height": 420,
+      "id": "9eb3e7e989d3682c",
+      "label": "Mechanism Types",
       "type": "group",
-      "width": 1100,
-      "x": 2040,
-      "y": -1540
-    },
-    {
-      "height": 1580,
-      "id": "8aa4907d2e8e4c23",
-      "label": "Simple Superstructure",
-      "type": "group",
-      "width": 620,
-      "x": 1120,
-      "y": -1540
-    },
-    {
-      "file": "Level 1/PID.md",
-      "height": 400,
-      "id": "c6a8fbee833fbd11",
-      "type": "file",
-      "width": 400,
+      "width": 340,
       "x": 40,
-      "y": -440
+      "y": -480
     },
     {
-      "file": "Level 1/Commands.md",
-      "height": 400,
-      "id": "f739df0f46b49c97",
-      "type": "file",
-      "width": 400,
-      "x": -1320,
-      "y": -840
+      "height": 237,
+      "id": "f5b90f8cb606ae30",
+      "styleAttributes": {
+      },
+      "text": "Commands+Controllers\n- Creating simple commands\n- Binding to a joystick\n- Mechanisms + Requires\n- Triggers",
+      "type": "text",
+      "width": 260,
+      "x": -720,
+      "y": -197
     },
     {
-      "file": "Hardware/LaserCan.md",
-      "height": 400,
-      "id": "f5fdc14e32e8e80b",
-      "type": "file",
-      "width": 400,
-      "x": -2080,
-      "y": -840
+      "height": 242,
+      "id": "e35df302fa819701",
+      "styleAttributes": {
+      },
+      "text": "Evaluating Kibot Structures\n- Trace game piece flow\n- Determine mechanism types\n- Determine mechanism activation orders+combinations",
+      "type": "text",
+      "width": 260,
+      "x": -370,
+      "y": -302
     },
     {
-      "file": "Level 0/Coding Basics.canvas",
-      "height": 400,
-      "id": "7a464cc02c36a1ae",
-      "type": "file",
-      "width": 400,
-      "x": -2760,
-      "y": -840
+      "height": 100,
+      "id": "740acfc52ed5d67d",
+      "styleAttributes": {
+      },
+      "text": "Linear Motion Systems\n- Lifters/Elevators\n- Climbers",
+      "type": "text",
+      "width": 260,
+      "x": 80,
+      "y": -459
     },
     {
-      "file": "Level 1/SuperStructure Elevator.md",
-      "height": 400,
-      "id": "343dddd73632643e",
-      "type": "file",
-      "width": 400,
-      "x": 1220,
-      "y": -960
+      "height": 60,
+      "id": "d3388b24187d1478",
+      "styleAttributes": {
+      },
+      "text": "Rollers",
+      "type": "text",
+      "width": 260,
+      "x": 80,
+      "y": -329
     },
     {
-      "file": "Level 1/Auto Differential.md",
-      "height": 400,
-      "id": "f55d4586901cd00f",
-      "type": "file",
-      "width": 400,
-      "x": 1000,
-      "y": -2080
+      "height": 190,
+      "id": "a3764b8700a68760",
+      "styleAttributes": {
+      },
+      "text": "Rev Motor Basics\n- Basic creation + configuration\n- Current limits\n- Open Loop operation\n- Periodic ",
+      "type": "text",
+      "width": 260,
+      "x": -1350,
+      "y": -173
     },
     {
-      "file": "Level 2/Motion Profiles.md",
-      "height": 400,
-      "id": "6dbbc28aeec06ad1",
-      "type": "file",
-      "width": 400,
-      "x": 440,
+      "color": "1",
+      "height": 200,
+      "id": "78be9115eaa73e2b",
+      "styleAttributes": {
+      },
+      "text": "# Kitbot Minimum Goals\n- Open Loop Control\n- Teleop Control\n- Simple control states + Commands\n- Simple time-oriented sequences",
+      "type": "text",
+      "width": 540,
+      "x": -1700,
       "y": -880
     },
     {
-      "file": "Level 1/Triggers.md",
+      "height": 210,
+      "id": "6c6895daf9e3c0b5",
+      "styleAttributes": {
+      },
+      "text": "Basic Code Structure\n- What the files do\n- Periodic  + Code Loops\n- Mechanisms",
+      "type": "text",
+      "width": 260,
+      "x": -1660,
+      "y": -181
+    },
+    {
+      "height": 260,
+      "id": "306449ef4260b658",
+      "styleAttributes": {
+      },
+      "text": "Creating a Differential Drive\n- Create left/right motors\n- Create different drive object\n- Invert the appropriate side\n- Make drivetrain go",
+      "type": "text",
+      "width": 260,
+      "x": -1040,
+      "y": -206
+    },
+    {
+      "file": "Level 0/Creating a Differential Drive.md",
       "height": 400,
-      "id": "d385afd6608b95e5",
+      "id": "77eee1da2a998b26",
+      "type": "file",
+      "width": 400,
+      "x": -1180,
+      "y": 1120
+    },
+    {
+      "file": "Level 0/Commands+Controllers.md",
+      "height": 400,
+      "id": "cb21d6eaf149f5c8",
       "type": "file",
       "width": 400,
       "x": -640,
-      "y": 360
+      "y": 1120
     },
     {
-      "file": "Hardware/Absolute Encoders.md",
+      "file": "Level 0/Analog Drivetrain Control.md",
       "height": 400,
-      "id": "ebf424ba1ca4edff",
+      "id": "4bcfe208cc03c038",
       "type": "file",
       "width": 400,
-      "x": -640,
-      "y": 960
+      "x": -120,
+      "y": 1120
     },
     {
-      "file": "Level 1/Encoder Basics.md",
+      "file": "Level 0/Intro to Robot Mechanisms.md",
       "height": 400,
-      "id": "a8aa39e9a066166b",
+      "id": "817018435fc743b1",
       "type": "file",
       "width": 400,
-      "x": -1320,
-      "y": 360
+      "x": -120,
+      "y": 1640
     },
     {
-      "file": "Level 1/Homing Sequences.md",
-      "height": 400,
-      "id": "05b53d1526ce4835",
-      "type": "file",
-      "width": 400,
-      "x": 1000,
-      "y": 2400
+      "height": 120,
+      "id": "dad611a5e20c3d25",
+      "styleAttributes": {
+      },
+      "text": "Limelight 101\n- Target servoing\n- Localization",
+      "type": "text",
+      "width": 260,
+      "x": 80,
+      "y": 440
     },
     {
-      "file": "Misc/Robot Radio.md",
-      "height": 400,
-      "id": "c258945d33d66c46",
-      "type": "file",
-      "width": 400,
-      "x": -1200,
-      "y": 2400
+      "height": 60,
+      "id": "52f3da964f5cd8ab",
+      "styleAttributes": {
+      },
+      "text": "Arms",
+      "type": "text",
+      "width": 260,
+      "x": 80,
+      "y": -139
     },
     {
-      "file": "Level 1/SuperStructure Rollers.md",
-      "height": 400,
-      "id": "c5a6533ece0a8e0c",
-      "type": "file",
-      "width": 400,
-      "x": 1220,
-      "y": -1440
+      "height": 60,
+      "id": "eecaa4e868327cf1",
+      "styleAttributes": {
+      },
+      "text": "Shooters",
+      "type": "text",
+      "width": 260,
+      "x": 80,
+      "y": -234
     },
     {
-      "file": "Level 1/SuperStructure Arm.md",
+      "file": "Level 0/Basic Motor Control.md",
       "height": 400,
-      "id": "c8672d6648e0f7ee",
+      "id": "049bb01ef251a640",
       "type": "file",
-      "width": 400,
-      "x": 1220,
-      "y": -440
+      "width": 320,
+      "x": -1600,
+      "y": 1120
     },
     {
-      "file": "Level 1/Gyro Sensing.md",
+      "file": "Level 1/Robot Code Basics.md",
       "height": 400,
-      "id": "4a87dce74a833996",
+      "id": "080e6bc719d6c0d7",
       "type": "file",
       "width": 400,
-      "x": 160,
-      "y": 880
+      "x": -2060,
+      "y": 1120
     },
     {
-      "file": "Level 1/Sensing Basics.md",
-      "height": 400,
-      "id": "8b06beff1d680bba",
-      "type": "file",
-      "width": 400,
-      "x": 160,
-      "y": 120
+      "height": 60,
+      "id": "78d733eb58819490",
+      "styleAttributes": {
+      },
+      "text": "Field-Oreinted Drive",
+      "type": "text",
+      "width": 260,
+      "x": 440,
+      "y": 599
     },
     {
-      "file": "Level 1/Basic Telemetry.md",
-      "height": 400,
-      "id": "edd9fb4b82c41c42",
-      "type": "file",
-      "width": 400,
-      "x": -80,
-      "y": 2400
+      "height": 180,
+      "id": "50cb08c15ec10d32",
+      "styleAttributes": {
+      },
+      "text": "Telemetry\n- Reading robot inputs\n- Graphs\n- AdvantageScope?",
+      "type": "text",
+      "width": 260,
+      "x": -370,
+      "y": 440
     },
     {
-      "file": "Misc/Git Basics.md",
-      "height": 400,
-      "id": "809496a857f23df6",
-      "type": "file",
-      "width": 400,
-      "x": -1760,
-      "y": 2400
+      "height": 60,
+      "id": "3bcec54409fa3144",
+      "styleAttributes": {
+      },
+      "text": "Swerve Concepts",
+      "type": "text",
+      "width": 260,
+      "x": 800,
+      "y": 599
     },
     {
-      "file": "Level 1/Robot Design Analysis.md",
-      "height": 400,
-      "id": "378652d7a90156b4",
-      "type": "file",
-      "width": 400,
-      "x": -2200,
-      "y": 2400
+      "height": 130,
+      "id": "399d8a3019bf41f9",
+      "styleAttributes": {
+      },
+      "text": "Differential Drivetrain\n- \nSequencing\n- encoders\n- gyro",
+      "type": "text",
+      "width": 260,
+      "x": -370,
+      "y": 70
     },
     {
-      "file": "Level 1/SuperStructure Climber.md",
-      "height": 400,
-      "id": "dc11ea62fa81459b",
-      "type": "file",
-      "width": 400,
-      "x": 2120,
-      "y": -1440
+      "height": 281,
+      "id": "67a3e013518198b2",
+      "styleAttributes": {
+      },
+      "text": "Advanced Control\n\nDetermine control options\n- Model/Feedforwards?\n- Feedback\n\t- PID\n\t- Bang-Bang\n\t- State-oriented\n- Motion Profiles?",
+      "type": "text",
+      "width": 260,
+      "x": 620,
+      "y": -249
     },
     {
-      "file": "Level 1/Gyro Driving.md",
-      "height": 400,
-      "id": "474905cd77ef301a",
-      "type": "file",
-      "width": 400,
-      "x": 2120,
-      "y": 600
+      "height": 60,
+      "id": "4d13cc604e7f1a7e",
+      "styleAttributes": {
+      },
+      "text": "Path Following +LTV",
+      "type": "text",
+      "width": 260,
+      "x": 440,
+      "y": 470
     },
     {
-      "file": "Level 1/Limelight Assist Driving.md",
-      "height": 400,
-      "id": "26d2b69ebeb77abe",
-      "type": "file",
-      "width": 400,
-      "x": 2120,
-      "y": 1080
+      "height": 219,
+      "id": "d90461ac7daae146",
+      "styleAttributes": {
+      },
+      "text": "Managing System State\n- State = robot/mechanism configuration\n- Multi-system interactions\n- Subsystem initialization\n- Command Groups\n- State Machines? \n- Sequencing?",
+      "type": "text",
+      "width": 260,
+      "x": 620,
+      "y": 80
     },
     {
-      "file": "Level 1/State Machines.md",
-      "height": 400,
-      "id": "7eee36baa0e518a6",
-      "type": "file",
-      "width": 400,
-      "x": 1000,
-      "y": 120
+      "height": 246,
+      "id": "524ed696c0126d18",
+      "styleAttributes": {
+      },
+      "text": "Sensing\n- Triggers\n- Encoders\n- Switches\n- Lasercan Distance\n- Lasercan Presence",
+      "type": "text",
+      "width": 260,
+      "x": 620,
+      "y": -540
     },
     {
-      "file": "Hardware/LaserCan.md",
-      "height": 400,
-      "id": "127eaaa1140d4b12",
-      "type": "file",
-      "width": 400,
-      "x": 1000,
-      "y": 600
+      "color": "1",
+      "height": 200,
+      "id": "1ff73508012b26c5",
+      "styleAttributes": {
+      },
+      "text": "# Advanced Control Goals\n-  Simple feed-forward modelling\n- Basic P feedback\n- Basic motion profile",
+      "type": "text",
+      "width": 420,
+      "x": 900,
+      "y": -800
     },
     {
-      "file": "Level 2/Superstructure Indexer.md",
-      "height": 400,
-      "id": "da05037cc1eb6a99",
-      "type": "file",
-      "width": 400,
-      "x": 2120,
-      "y": -960
-    },
-    {
-      "file": "Level 1/SuperStructure Intake.md",
-      "height": 400,
-      "id": "d1a3217df999c22d",
-      "type": "file",
-      "width": 400,
-      "x": 2640,
-      "y": -1440
-    },
-    {
-      "file": "Level 1/Basic Odometry+Telemetry.md",
-      "height": 400,
-      "id": "2cf69a37fb2b4def",
-      "type": "file",
-      "width": 400,
-      "x": 2120,
-      "y": 1560
-    },
-    {
-      "file": "Level 1/Limelight Odometry.md",
-      "height": 400,
-      "id": "bd556bb6f4381bdb",
-      "type": "file",
-      "width": 400,
-      "x": 2640,
-      "y": 1560
-    },
-    {
-      "file": "Level 2/Superstructure Shooter.md",
-      "height": 400,
-      "id": "7893622659a2ee20",
-      "type": "file",
-      "width": 400,
-      "x": 2640,
-      "y": -960
+      "color": "1",
+      "height": 160,
+      "id": "cedce8d31e7039c2",
+      "styleAttributes": {
+      },
+      "text": "# Vision Goals\n- Controlled Autos\n- Automated Alignment\n- Automated positioning",
+      "type": "text",
+      "width": 260,
+      "x": -50,
+      "y": 720
     }
   ]
 }

@@ -1,4 +1,4 @@
-[[Motor Control]]
+[](Basic%20Motor%20Control.md)[](Basic%20Motor%20Control.md)[[Motor Control]]
 [[Commands]]
 [[Encoder Basics]]
 
@@ -6,7 +6,7 @@
 ## Success Criteria
 - [ ] Install the WPILib VS Code IDE
 - [ ] Make a new robot project
-- [ ] Create a new subsystem
+- [ ] Create a new me
 - [ ] Install the Rev third Library
 - [ ] Basic requirements to start working  on robot projects
 - [ ] Create a new empty subsystem 
@@ -58,7 +58,7 @@ We'll also utilize a number of software tools for special interactions with hard
 
 The hardest part of getting started with robots is figuring out _where_ your robot code goes. 
 
-#### Robot.java : A microcausm of the complete robot
+#### Robot.java : A microcosm of the complete robot
 
 `Robot.java` is a very powerful file, and it's possible to write your _entire_ robot in just this one file! For reasons we'll get into later, we _do not_ want to do this. However, the setup of it does a good job explaining how a robot works. Let's look at the structure of this file for now
 
@@ -104,7 +104,8 @@ Teleop, Auto, and Test are simply selectable operational modes. However, you mig
 "Disabled" mode is automatically selected whenever the robot is not enabled. This includes when the robot boots up, as well as as whenever you hit "disabled" on the driver station.
 Disabled mode will _also_ cancel any running [[Commands]] . 
 
-"Robot mode" isn't an explicit mode: Instead, of "Robot Init", we just use the constructor: It runs when the robot boots up. In most cases, the primary task of this is to set up Robot Container.
+#todo your mentor did something dumb while writing this, paragraph 
+> "Robot mode" isn't an explicit mode: Instead, of "Robot Init", we just use the constructor: It runs when the robot boots up. In most cases, the primary task of this is to set up Robot Container.
 `robotPeriodic` just runs every loop, regardless of what other loop is also running.
 
 
@@ -121,7 +122,7 @@ As mentioned above, the "Robot Container" is created when you create a new proje
 This file contains a small number of functions and examples to help you organized. 
 
 ```java
-public class RobotContainer(){
+public class RobotContainer{
 	ExampleSubsystem subsystem = new ExampleSubsystem();
 	ExampleCommand command = new ExampleCommand();
 	CommandXboxJoystick joystick = new CommandXboxJoystick(0);
@@ -152,25 +153,30 @@ Instead, keep your constants as close to where they're used as possible, and mov
 - If a value is used once, just use the value directly. This covers a lot of setup values like PID tuning values.
 - If your value is used repeatedly inside a subsystem, make it a private constant in that subsystem. This is common for conversion factors, min/max values, or paired output values
 - If a constant is strongly associated with a subsystem, but needs to be referenced elsewhere, make it a public constant in that subsystem.
-- Lastly, if something is not associated with a subsystem, and used repeatedly across multiple subsystems, Constants.java is the place. 
+- Lastly, if something is not associated with a subsystem, never changes, and used repeatedly across multiple subsystems, Constants.java is the place. 
 
-If you find yourself depending on a lot of constants, you might need to consider [[Refactoring]] your code a bit to streamline things. Note that Stormbots code generally has almost nothing in here! 
+Remember, you can change your mind later! If you find yourself depending on a lot of constants, you might need to consider [[Refactoring]] your code a bit to streamline things. Note that Stormbots code generally has almost nothing in here! 
 
 
 #### ExampleSubsystem.java
 
-The ExampleSubsystem.java file is a preconfigured, blank [[Subsystems|Subsystem]]. We'll explore Subsystems in depth later.
+The ExampleSubsystem.java file is automatically created when creating new projects, giving you a blank [[Subsystems|Subsystem]]. We'll explore Subsystems in depth later.
 
-By default, this class is created, and the `periodic()` function it contains will run every code loop. This makes it a great place to put a lot of starter code with minimal setup and fuss.
+By default, this class is created, and the `periodic()` function it contains will run every code loop. This makes it a great place to put a simple, example code with minimal setup and fuss. 
 
 #### ExampleCommand.java
 
-This is a standard, blank [[Commands|Command]] . By itself, this file is not too useful. However, the fact that it exists allows useful joystick interactions to be set up in `RobotContainer.java`
+This is a standard, blank [[Commands|Command]] . By itself, this file is not too useful. However, the fact that it exists allows example joystick interactions to be set up in `RobotContainer.java`.
 
 
 ## Understanding The Examples
 
-The code examples provided in early code samples will be built using ExampleSubsystem and ExampleCommand, built into every new robot project. They should work as expected without a deeper understanding of Command based robots while you get your footing, and enabling you to migrate to Command based robots once you get there. If an example doesn't talk about Command based stuff, you probably don't have to worry about it!
+The code examples provided by the default templates (ExampleSubsystem and ExampleCommand) may or may not be used in our examples.
+
+For our purposes, they should work as expected without a deeper understanding of Command based robots while you get your footing, and enabling you to migrate to Command based robots once you get there.
+
+In general, our examples will indicate where to put things, and point you the right way.  If an example doesn't talk about Command based stuff, you probably don't have to worry about it!
+
 
 ## Creating new files
 
@@ -186,7 +192,7 @@ This will present you with a list of common FRC classes. The typical ones you'd 
 
 ## Code Flow
 
-For those familiar with coding, you might wonder "Where does code actually start from?". This is a fair question in FRC code, which is a more complicated framework. The code path itself is predictable and a simplified view looks like this
+For those familiar with coding, you might wonder "Where does code actually start from?". This is a fair question in FRC code, which is a more complicated framework. The code path itself is predictable, if not a bit obscured. A simplified view looks like this
 
 ```
 - Main Bot Initialization
@@ -228,6 +234,5 @@ We will quickly capture this with our [[Commands|Commands]] framework, enabling 
 
 ## Deploying Code
 
-
-[[Deploying Code]]
+Once your code is written, then it's time to [[Deploying Code|Deploy Code]]
 
