@@ -20,6 +20,14 @@ The `CommandXboxController` have extra features that we'll be using to streamlin
 
 Now that we have our joystick, we have several ways to interact with it, but we don't have the code mechanics to do so yet. We need to understand two important topics
 
+
+> [!NOTE] Joystick naming
+> Sample projects start with a joystick created, using an awkward name
+> `private final CommandXboxController m_driverController = ...`
+> which is difficult to use in examples.
+> You may want to change the name of this variable and fixing the other places it's used before moving forward with examples
+
+
 # Switching behaviours with Commands
 
 A `Command` is a code structure that represents a behavior or action. This can be of a single mechanism (like the drivetrain, an intake, or roller) or of the whole robot. It's best to think of these as the "verbs" of the robot. You "Command" it to do something, and it does that until it's time to stop.
@@ -38,22 +46,27 @@ and found that this wasn't easy to manipulate. As written, we cannot change the 
 
 ```java
 public class ExampleSubsystem extends SubsystemBase{
-	SparkMax motor = new SparkMax(10, MotorType.kBrushless);
 	
 	public void periodic(){
-		//Remove our motor call from here
+		//Remove our differential drive call from here
 	}
 	
 	public Command forward(){
-		return run( ()->{ differentialDrive.arcadeDrive(0.2,0); } );
+		return run( ()->{ 
+			differentialDrive.arcadeDrive(0.2,0); 
+		} );
 	}
 	
 	public Command backward(){
-		return run( ()->{ differentialDrive.arcadeDrive(-0.2,0); } );
+		return run( ()->{ 
+			differentialDrive.arcadeDrive(-0.2,0); 
+		} );
 	}	
 	
 	public Command stop(){
-		return run( ()->{ differentialDrive.arcadeDrive(0,0); } );
+		return run( ()->{ 
+			differentialDrive.arcadeDrive(0,0); 
+		} );
 	}
 }
 ```
@@ -81,11 +94,11 @@ While a bit complicated, this type of function (a function that takes one thing 
 
 A Subsystem represents an actuator or actuator group, or simply "a mechanism". We often use it to separate out code for that mechanism so it's a bit easier to deal with.
 
-However, Commands also interact with Subsystems using the `requirements` conventions. A subsystem can't do two things at once, so it doesn't make sense to have two Commands at once. When a new Command starts, old commands stop running.
+However, Commands also interact with Subsystems using the `requirements` conventions. A subsystem can't do two things at once, so it often doesn't make sense to have two Commands at once. When a new Command starts, old commands stop running.
 
 Breaking down mechanical parts of the bot into "subsystems" is not relevant yet, but we'll come back to that.
 
-`[!!flame|2027 Season Code|var(--color-cyan-rgb)]` will be renaming Subsystems as Mechanisms , as it better describes what's happening.
+`[!!flame|2027 Season Code|var(--color-cyan-rgb)]` will be renaming Subsystems as Mechanisms , as it better describes the intent of that code structure.
 
 # Periodic condition checking with Triggers
 
@@ -102,7 +115,7 @@ joystick.y() // trigger that represents Y being pressed
 For now the most useful parts of Triggers are these two:
 ```java
 // Runs a command while a button is held,
-// stopping the command when the button is released
+// and stops the command when the button is released
 joystick.x().whileTrue(/**/)
 
 // Runs a command when a button is pressed, but never stops it.
@@ -119,90 +132,19 @@ public class RobotContainer{
 	// This function is called by the consturctor, Robotcontainer().
 	// It's just here  to  help us organize our button assignments.
 	private void configureBindings() {
-		joystick.y().whileTrue(exampleSubsystem.forward())
-		joystick.a().whileTrue(exampleSubsystem.backward())
+		joystick.y().whileTrue(exampleSubsystem.forward());
+		joystick.a().whileTrue(exampleSubsystem.backward());
 	}
 }
 ```
 
 We can upload this new code to the robot, and we'll see the expected result! Go ahead, do it! 
 
-Once you press Y the robot goes forward, and pressing A makes it go backwards. 
-
-However, you *might* notice that releasing the button doesn't make it *stop*. This  probably *feels* unexpected, but this is *precisely* what we told the robot to do. Let's explain why.
-
-### Command Life Cycles
-
-For a comprehensive explanation, see [[Commands]].
-
-For a simpler explanation, we can break down what we wrote.
-- We pressed a button; This causes the command we bound to the button to activate. 
-- Our robot's scheduling system starts the appropriate command (`forward()` or `reverse()`) .
-- This command, when running, just sets the motor to forward or backward.
-- We release the button; This causes the Command to end. 
-- However.... this doesn't change anything; We haven't told the command to do something useful when it ends (like stopping the motor)
-- As such, the motor is still set to whatever value we had given it. 
-
-There's a few ways to fix this, but the most straightforward is to have our Command turn the motors off when it stops. We can look at ExampleCommand.java for some help, and we'll see a few functions. 
-
-```java
-//This is a shortened version of the file
-class ExampleCommand extends CommandBase{
-	public ExampleCommand(){}
-	public void initialize(){}
-	public void execute(){}
-	public boolean isFinished(){ return false; }
-	public void end(boolean cancelled){}
-}
-```
-
-Behind the scenes, the robot runs a command scheduler, which runs these functions in a predictable order when the command is created, starts, and stops. Once started, a command will run according to the following flowchart, more formally known as a [[State Machines|state machine]]. 
-
-```mermaid
-stateDiagram-v2
-	direction LR
-	[*] --> initialize
-	initialize --> execute
-	execute --> isFinished
-	isFinished --> execute : false
-	isFinished --> end : true
-	end -->[*]
-```
-
-End is called when the command ends naturally (when isFinished says it's done), or when it's cancelled (such as when we release a button).
-
-Currently,  our commands only have  one useful line of code, which the `run(...)` command puts in the `execute` step: While the command is running, it runs this every robot loop. This means, we set our motor values. 
-
-What we want *now* is to do something when the command stops, using the `end()` block. We do this by "decorating" our command with another lambda. Let's do this on the `forward` command.
-
-```java
-public class ExampleSubsystem extends SubsystemBase{
-	public Command forward(){
-		return run( ()->{ differentialDrive.arcadeDrive(0.2,0); } )
-		.finallyDo( ()->{ differentialDrive.arcadeDrive(0,0); }; )
-		;
-	}
-}
-```
-
-We can also simply use a different command helper. There's several for different situations, but one with the straightforward name `runEnd`; This just takes _two_ different lambdas, representing the execute and end code.
-```java
-public class ExampleSubsystem extends SubsystemBase{
-	public Command forward(){
-		return runEnd(
-		  ()->{ differentialDrive.arcadeDrive(0.2,0); },
-		  ()->{ differentialDrive.arcadeDrive(0,0); };
-	    );
-	}
-}
-```
-
-
 # OK but this is complicated I just wanted to drive the robot?
 
 First, that's not a question. 
 
-But it's because robots are complicated! The "simple" and easy to explain way to grab a joystick (using functions like `periodic`) to a robot *will* work, but not for long.
+But it's because robots are complicated! The "simple" and easy to explain way to grab a joystick (using functions like `periodic`) to a robot *will* work, but not for long. 
 
 As you try to get more out of your robot, you'll quickly find the "simple" way stops working well, and your code will quickly spiral into an unmanageable mess. It doesn't take a lot of buttons before the "simple" way becomes very difficult to work with, debug, and reason about. Especially with multiple people involved.
 
@@ -210,11 +152,9 @@ In FRC, Commands tend to be a good solution for these (and other) problems, and 
 
 The hard part, instead, is figuring out how all the parts are glued together. It's tricky now, but will make perfect sense after a bit of practice. 
 
-# A more advanced robot
+# More Buttons!
 
-We now have fixed our `forward()` command, so let's add that fix to our `backward` command too. 
-
-We also lack turn commands, so make `left()` and `right()` command. They'll  look very similar to the examples above, but will be left as an excercise for you. If you get stuck, ask a mentor or partner!
+We now have our Forward and Backward, so make `left()` and `right()` command. They'll  look very similar to the examples above, but will be left as an exercise for you. If you get stuck, ask a mentor or partner!
 
 Once those are done, connect them to the other buttons using  `joystick.b()` and `joystick.x()`. Again, very similar. 
 

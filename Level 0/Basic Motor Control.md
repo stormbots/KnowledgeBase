@@ -4,8 +4,6 @@
 - Establish current limits and configs
 - Open Loop Control
 
-
-
 # Creating a Motor
 
 To create a motor, you would create an appropriate motor Object.  Motors generally should be declared inside a subsystem. For now, we'll use ExampleSubsystem.java as part of the created template.
@@ -22,6 +20,24 @@ public class ExampleSubsystem extends SubsystemBase{
 Note the "type" of the motor is a SparkMax ; This is the type of motor controller we're talking to. For the most part, we'll use "Spark Max" interchangeably with "motor".
 
 You'll likely need to find your motor's ID using the  [[Rev Hardware Client]] . The Hardware Client allows you to change it to prevent overlaps, or change motor settings directly.
+
+> [!BUG] Import warning!
+> Watch your imports when setting up Rev devices. If you're not mindful, VSCode will pull in similar, but incorrect files.
+> 
+> You'll commonly see this  when using `MotorType.kBrushless`. 
+> The correct import is 
+> `import com.revrobotics.spark.SparkLowLevel.MotorType;`
+> The incorrect import is 
+> `import edu.wpi.first.wpilibj.drive.RobotDriveBase.MotorType;`
+> 
+> If your import is wrong, look for the incorrect import line, delete it, and then try to import the correct version again
+
+
+> [!TIP] Forgot the Rev library entirely? 
+> If you're on a new project without the Rev library, you can click this icon on the left sidebar in VS Code and install it. You'll need an internet connection to do this.
+> ![[WPILibSidbarIcon.png]]
+
+
 # Spinning a motor
 
 The easiest interaction with a motor is to directly set the output.
@@ -102,3 +118,13 @@ public class ExampleSubsystem extends SubsystemBase{
 For now, you can change `config.inverted(false)` to `config.inverted(true)` and see the motor switch directions on enable. 
 
 You can also set `idleMode(Idlemode.kCoast)`, and when the bot is disabled, you'll see that the mechanism is much easier to turn.
+
+> [!BUG] Import warning!
+> Another import issue will appear for the `Config` object. 
+> The correct import is
+> `import com.revrobotics.spark.SparkBase.ResetMode;`
+> The incorrect import is
+ `import com.revrobotics.servohub.ServoHub.ResetMode;`
+> 
+> This shows up as a error on your line for 
+>  `motor.config(....);`

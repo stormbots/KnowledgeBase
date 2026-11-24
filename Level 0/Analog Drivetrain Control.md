@@ -4,7 +4,6 @@
 - Control the drivetrain with numerical functions.
 
 
-
 # Using a Joystick for control
 
 
@@ -32,13 +31,13 @@ public class ExampleSubsystem extends SubsystemBase{
 	public Command driveWithJoystick(CommandXboxController joystick){
 		return run( ()->{ differentialDrive.arcadeDrive(
 			joystick.getLeftY(),
-			joystick.getRightX()
+			joystick.getLeftX()
 		); } );
 	}
 }
 ```
 
-This gives us the command structure we need, and we can add it to RobotContainer similarly to our other commands. We have to bind this command to a button, so we'll just pick `rightTrigger()`
+This gives us the command structure we need, and we can add it to RobotContainer similarly to our other commands. We have to bind this command to a button, so for now let's just pick `rightTrigger()`
 
 ```java
 public class RobotContainer{
@@ -47,13 +46,13 @@ public class RobotContainer{
 		//... other buttons we've made ....
 
 		joystick.rightTrigger().whileTrue(
-			exampleSubsystem.arcadeDrive(joystick)
+			driveWithJoystick.arcadeDrive(joystick)
 		);
 	}
 }
 ```
 
-We can put this on the robot and drive! It works! Mostly! It drives backwards, and turns wrong. Not your fault! 
+We can put this on the robot and drive! It works! Mostly! You have to hold a buttton to drive it, and it drives backwards, and turns wrong. Not your fault! 
 
 Joysticks have the convention that "up" is negative Y values, which we associate with "backward". 
 Joysticks also have "right" as positive, which is great until you realize this is a "positive turn angle", and we've established "positive turn" is "counterclockwise".... or to the left.  AAAUGH!
@@ -64,7 +63,7 @@ public class ExampleSubsystem extends SubsystemBase{
 	public Command driveWithJoystick(CommandXboxController joystick){
 		return run( ()->{ differentialDrive.arcadeDrive(
 			-joystick.getLeftY(),
-			-joystick.getRightX()
+			-joystick.getLeftX()
 		); } );
 	}
 }
@@ -74,7 +73,7 @@ We're finally approaching the final piece of this puzzle. We want the joystick t
 
 This is actually pretty straightforward: Subsystems (Mechanisms) have the notion of a "default command", which is what it does when nothing else is running. 
 
-This is pretty straightforward: Instead of binding our drive command to a joystick, we simply say "use this as default".  
+This is pretty straightforward: Instead of binding our drive command to a joystick, we simply say "use this as default".  We can replace the button version with this one:
 
 ```java
 public class RobotContainer{
@@ -83,21 +82,19 @@ public class RobotContainer{
 		//... other buttons we've made ....
 
 		exampleSubsystem.setDefaultCommand(
-			exampleSubsystem.arcadeDrive(joystick)
+			exampleSubsystem.driveWithJoystick(joystick)
 		);
 	}
 }
 ```
 
+At long last, the joystick will just move the robot without  anything else. And, you can press the A/B/X/Y buttons to do specific other operations. 
 
-`[!!alert-triangle|Note|var(--color-yellow-rgb)]` This section may change during the competition season due to major changes on the software side after Kickoff. 2027 may not have default commands and require other ways to manage this.
-
-
-
+Now is a good time to take a short break and play with the robot. 
 
 # Using externally provided values
 
-Passing in a joystick is handy for manual driving, but it's *not* great if we want to generate these values some other way. A common use case is turning toward a [[Gyro Sensing|Gyro Heading]] heading, or using some other sensor like vision, or just as part of our autos. We'll examine these in detail later. 
+Passing in a joystick is handy for manual driving, but it's *not* great if we want to generate these values some other way. A common use case is turning toward a [[Gyro Sensing|Gyro Heading]] heading, or using some other sensor like vision, or just odd values as part of our autos. We'll examine all of these later. 
 
 For now, instead of using a joystick, we'll need to figure out how to pass in external values, allowing us to meet these needs.
 
@@ -175,16 +172,17 @@ public class ExampleSubsystem extends SubsystemBase{
 		DoubleSupplier turnSupplier
 	){
 		return run( ()->{ differentialDrive.arcadeDrive(
-			forwardSupplier.getAsDouble(),
-			turnSupplier.getAsDouble()
-		); } );
+				forwardSupplier.getAsDouble(),
+				turnSupplier.getAsDouble()
+			); } 
+		);
 	}
 }
 ```
 
 We also appended `.getAsDouble()` to where we read the value. This method runs the DoubleSupplier lambda, and returns whatever the value it calculates.
 
-We'll see this causes an unhappy compiler warning in RobotContainer, so let's fix that next.
+We'll see this causes an unhappy compiler warning in RobotContainer, so let's fix that next by adding our `()->` syntax
 ```java
 public class RobotContainer{
 	private void configureBindings() {
@@ -194,8 +192,8 @@ public class RobotContainer{
 		joystick.rightTrigger().whileTrue(
 			exampleSubsystem.arcadeDrive(
 				//Just add the ()-> here! 
-				()->-joystick.getLeftY(),
-				()->-joystick.getLeftX())
+				()-> -joystick.getLeftY(),
+				()-> -joystick.getLeftX())
 			)
 		);
 	}
@@ -203,25 +201,6 @@ public class RobotContainer{
 ```
 
 There we go! We now have a right trigger that behaves *exactly* like the version where we passed in a joystick. 
-
-# Stopping on end
-For the sake of example clarity, you might notice we fell back to not having the "stop the motor" when exiting bit in these commands! Let's add that back in. 
-```java
-public class ExampleSubsystem extends SubsystemBase{
-	public Command arcadeDrive(
-		DoubleSupplier forwardSupplier, 
-		DoubleSupplier turnSupplier
-	){
-		return run( ()->{ differentialDrive.arcadeDrive(
-			forwardSupplier.getAsDouble(),
-			turnSupplier.getAsDouble()
-		); } )
-		.finallyDo(()->differentialDrive.arcadeDrive(0,0))
-		;
-	}
-}
-```
-In this case, I've added it using `.finallyDo()` instead of swapping our `run` to `runEnd()`. In this case, it's just easier when retrofitting, and it helps reduce some syntax complexity (we're getting a lot of mess in there! ).
 
 # Cleaning Up The Drivetrain Code
 
@@ -256,7 +235,7 @@ We can replace a lot of this code structure by using our most generic variation 
 
 ```java
 public Command forward(){
-	return arcadeDrive(()->0.2,()->0);
+	return arcadeDrive(()->0.2, ()->0);
 }
 ```
 
@@ -280,3 +259,39 @@ You'll also note, in this process we also inadvertently ensured that *all* our c
 This kind of thing will happen a lot with robots! If you find yourself doing copy-paste versions of functions or commands, consider cleaning up with this type of "building block" function. 
 
 Most of the time, you'll only catch this type of "cleanup"  into very clean code after you've made a mess Or, sometimes, you'll feel like there's a better way, but you don't know how to do it. That's fine! Make a mess for now, get things working, and then ask how to improve it. 
+
+# Renaming ExampleSubsystem to Drivetrain
+
+You may have noticed that we've just been using ExampleSubsystem to house our Drivetrain code. Let's fix this! 
+
+Your first thought might be to 
+- Go to `ExampleSubsystem.java`
+- Select the bit where it says `ExampleSubsystem`
+- And change it
+Which will end poorly; This will cause a *lot* of mismatches in your code, as Java can no longer find the ExampleSubsystem class that other files (like RobotContainer.java) are looking for.
+The same happens with other obvious approaches like changing the filename. 
+
+You *can* simply run around fixing all the compiler errors, but there's a better way. 
+
+The best way to do this is using VS Code's "Rename" option; This little tool keeps track of all the places in your code that reference this Class, and fix it all for you automatically!
+
+This is *usually* available by just right clicking on the thing you want to rename, and find Rename Symbol. 
+![[rename-1-menu.png]]
+
+If it's *not*  on the right click menu, or to feel extra pro, you can use the F2 key (which is usually "Rename" in most software). Some laptops default to having F2 work as a volume key, in which case Fn+F2 will do it. 
+
+This will bring up a small text box for the new name. Enter Drivetrain, and then hit Enter!
+![[rename-2-input-field.png]]
+
+This will rename the class, change any imports or references, and rename the file itself (which Java projects require). 
+
+Future examples will use `Drivetrain` (note the capitalization!), so that's the recommended name for now. 
+
+Of note, this _does not_ change the name used by instances of this class. If we go to RobotContainer, we'll see this:
+![[rename-3-incomplete.png]]
+
+Just rename `m_exampleSubsystem` to `drivetrain` (again, note capitalization!)
+
+![[rename-4-complete.png]]
+
+Now, your drivetrain is properly named.

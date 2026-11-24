@@ -286,6 +286,15 @@
       "y": -1440
     },
     {
+      "file": "Level 1/SuperStructure Arm.md",
+      "height": 400,
+      "id": "c8672d6648e0f7ee",
+      "type": "file",
+      "width": 400,
+      "x": 1220,
+      "y": -440
+    },
+    {
       "file": "Level 1/Auto Differential.md",
       "height": 400,
       "id": "f55d4586901cd00f",
@@ -302,15 +311,6 @@
       "width": 400,
       "x": 360,
       "y": -960
-    },
-    {
-      "file": "Level 1/SuperStructure Arm.md",
-      "height": 400,
-      "id": "c8672d6648e0f7ee",
-      "type": "file",
-      "width": 400,
-      "x": 1220,
-      "y": -440
     },
     {
       "file": "Level 1/Commands.md",

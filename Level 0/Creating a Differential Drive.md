@@ -32,7 +32,7 @@ public class ExampleSubsystem extends SubsystemBase{
 	//The first parameter is the motor's ID, and unique to each motor.
 	// Ther second is the type of motor; We only use Brushless.
 	SparkMax motorLeft = new SparkMax(1, MotorType.kBrushless);
-	SparkMax motorRight = new SparkMax(4, MotorType.kBrushless);
+	SparkMax motorRight = new SparkMax(3, MotorType.kBrushless);
 }
 ```
 
@@ -291,7 +291,7 @@ public class ExampleSubsystem extends SubsystemBase{
 
 ```
 
-`[!!info|Important!|var(--color-yellow-rgb)]` It's helpful to remember that without inversion, a motor spins "clockwise" relative to it's mounting plate. 
+`[!!info|Important!|var(--color-yellow-rgb)]` It's helpful to remember that without inversion, a motor output shaft spins "clockwise" relative to it's mounting plate. 
 
 The rev config `.inverted(true)` _only_ applies when setting a motor value for leader motors (motorLeft and motorRight). We use this setting to define what "forward" means on a mechanism.
 
